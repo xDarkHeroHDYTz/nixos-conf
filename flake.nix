@@ -10,6 +10,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    low-latency-layer = {
+      url = "github:nmetschke/nixos-low-latency-layer?shallow=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     noctalia = {
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,7 +24,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, noctalia, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
   {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       specialArgs = {
@@ -38,6 +42,7 @@
             inputs.nix-cachyos-kernel.overlays.default
           ];
         }
+        inputs.low-latency-layer.nixosModules.low-latency-layer
         inputs.nixos-millennium.nixosModules.default
         home-manager.nixosModules.home-manager
         {

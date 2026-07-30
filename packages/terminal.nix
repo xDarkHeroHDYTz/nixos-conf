@@ -1,15 +1,14 @@
 { pkgs, ... }:
 
 {
-  programs.alacritty = {
+  programs.ghostty = {
     enable = true;
+    enableFishIntegration = true;
     settings = {
-      terminal = {
-        shell = {
-          program = "${pkgs.fish}/bin/fish";
-          args = [ "--login" ];
-        };
-      };
+      command = "${pkgs.fish}/bin/fish --login";
+      theme = "noctalia";
+      window-decoration = false;
+      gtk-single-instance = true;
     };
   };
 
@@ -17,16 +16,12 @@
     enable = true;
     shellAliases = {
       btw = "echo i use nixos, btw";
-      ns = "sudo nixos-rebuild switch --impure --flake /home/lisandro/.nixos-conf/#nixos";
+      ns = "sudo nixos-rebuild switch --impure --flake ~/.nixos-conf && noctalia msg templates-apply";
       cg = "sudo nix-collect-garbage -d";
-      ytpl-dl = "yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-thumbnail --embed-metadata -o \"/home/lisandro/Music/%(playlist)s/%(title)s.%(ext)s\"";
-      zed = "sudo -E zeditor";
-      ll = "ls -lh";
-      la = "ls -la";
+      ytpl-dl = "yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-thumbnail --embed-metadata -o \"~/Música/%(playlist)s/%(title)s.%(ext)s\"";
       comfyui = "nix run github:utensils/comfyui-nix#cuda -- --enable-manager";
     };
     shellInit = ''
-      set -gx ZED_ALLOW_ROOT "true"
       set -g fish_greeting ""
     '';
     interactiveShellInit = ''
@@ -37,8 +32,6 @@
   programs.starship = {
     enable = true;
     enableBashIntegration = false;
-    enableZshIntegration = false;
-    enableNushellIntegration = false;
     enableFishIntegration = true;
     # settings = {};
   };

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   audientUsbFix = pkgs.writeShellScriptBin "audient-usb" ''

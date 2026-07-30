@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, lib, ... }:
 
 let
   millenniumConfigFile = pkgs.writeText "millennium-config.json" (builtins.toJSON {

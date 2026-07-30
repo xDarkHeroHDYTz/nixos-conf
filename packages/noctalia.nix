@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
   xdg.configFile."noctalia/config.toml" = {
@@ -12,34 +12,17 @@
 
       [launcher]
       enable = true
-      terminal = "alacritty"
+      terminal = "ghostty"
 
-      [dock]
-      enable = true
-      position = "bottom"
-      icon_size = 48
-      pinned_apps = ["alacritty", "librewolf", "dolphin"]
-
-      [wallpaper]
-      enable = true
-      directory = "/home/lisandro/Pictures/Wallpapers"
-      mode = "random"
-
-      [theme]
-      font = "JetBrainsMono Nerd Font"
-      accent_color = "#7fc8ff"
+      [backdrop]
+      enabled        = true
+      blur_intensity = 0.5
+      tint_intensity = 0.3
 
       # Template manual para Obsidian
       [theme.templates.user.obsidian_direct]
-      input_path  = "/home/lisandro/.local/state/noctalia/community-templates/obsidian/obsidian.css"
-      output_path = "/home/lisandro/Documents/Obsidian Vault/.obsidian/snippets/noctalia.css"
-
-      # Template manual para los Iconos Papirus
-      [theme.templates.user.papirus_direct]
-      input_path  = "/home/lisandro/.local/state/noctalia/community-templates/papirus-folders/colors-final"
-      output_path = "/home/lisandro/.local/share/icons/Papirus-Dark-Noctalia/colors-final"
-      # El comando 'exec' corre justo después de escribir el archivo para aplicar el color y refrescar la caché
-      exec        = "papirus-folders -t Papirus-Dark-Noctalia -d /home/lisandro/.local/share/icons/Papirus-Dark-Noctalia --theme custom && gtk-update-icon-cache -f -t /home/lisandro/.local/share/icons/Papirus-Dark-Noctalia"
+      input_path  = "~/.local/state/noctalia/community-templates/obsidian/obsidian.css"
+      output_path = "~/Documentos/Obsidian Vault/.obsidian/snippets/noctalia.css"
     '';
   };
 }
