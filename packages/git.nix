@@ -15,7 +15,7 @@
         autoSetupRemote = true;
       };
       credential = {
-        helper = "${pkgs.gitFull}/bin/git-credential-libsecret";
+        helper = "store";
       };
     };
   };
