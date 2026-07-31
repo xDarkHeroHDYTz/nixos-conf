@@ -40,7 +40,7 @@
     spawn-at-startup "systemctl" "--user" "start" "niri-session.target"
     spawn-at-startup "xwayland-satellite"
     spawn-at-startup "noctalia"
-    spawn-sh-at-startup "sleep 10 && openrgb -p On"
+    spawn-sh-at-startup "sleep 15 && openrgb -p On"
 
     hotkey-overlay {
         skip-at-startup
