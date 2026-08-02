@@ -175,11 +175,6 @@
           keyColor = "magenta";
         }
         {
-          type = "datetime";
-          key = "  ›  Fecha y Hora ";
-          keyColor = "magenta";
-        }
-        {
           type = "custom";
           format = "└────────────────────────────────────────────────────┘";
         }
