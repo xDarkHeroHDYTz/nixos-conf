@@ -11,7 +11,7 @@
     };
     # 2. Tema de íconos
     iconTheme = {
-      name = "MATE";
+      name = "mate";
       package = pkgs.mate-icon-theme;
     };
     # 3. Cursor
