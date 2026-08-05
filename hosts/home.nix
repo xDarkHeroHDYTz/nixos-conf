@@ -77,16 +77,18 @@
     zed-editor
     nil
     nixd
-    # --- GAMING Y OPTIMIZACIÓN ---
+    # --- GAMING ---
     goverlay
     heroic
     hydralauncher
     mangohud
-    pcsx2
     prismlauncher
     protonup-rs
     protontricks
     r2modman
+    retroarch-full
+    retroarch-assets
+    retroarch-joypad-autoconfig
     # --- MULTIMEDIA (AUDIO, VIDEO, IMAGEN Y EDICIÓN) ---
     audacity
     cliamp

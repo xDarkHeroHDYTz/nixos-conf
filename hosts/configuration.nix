@@ -53,12 +53,6 @@
   services.lact.enable = true;
   services.hardware.openrgb.enable = true;
 
-  # --- REGLAS UDEV (OPTIMIZACIÓN NVME / SCHEDULER & READ-AHEAD) ---
-  #services.udev.extraRules = ''
-  #  ACTION=="add|change", SUBSYSTEM=="block", KERNEL=="nvme[0-9]*n[0-9]*", ATTR{queue/scheduler}="mq-deadline"
-  #  ACTION=="add|change", SUBSYSTEM=="block", KERNEL=="nvme[0-9]*n[0-9]*", ATTR{queue/read_ahead_kb}="512"
-  #'';
-
   # --- MANTENIMIENTO Y RENDIMIENTO DE ALMACENAMIENTO ---
   services.fstrim.enable = true;
   services.irqbalance.enable = true;
