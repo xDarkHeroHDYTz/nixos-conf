@@ -91,6 +91,7 @@
     retroarch-joypad-autoconfig
     # --- MULTIMEDIA (AUDIO, VIDEO, IMAGEN Y EDICIÓN) ---
     audacity
+    (blender.override { cudaSupport = true; })
     cliamp
     exiftool
     ffmpeg
