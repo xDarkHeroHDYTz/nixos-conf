@@ -33,6 +33,7 @@
       "nvidia-drm.modeset=1"
       "nvidia-drm.fbdev=1"
       "nvidia.NVreg_EnableGpuFirmware=1"
+      "nvidia.NVreg_TemporaryFilePath=/var/tmp"
     ];
   };
 
@@ -52,6 +53,19 @@
   programs.low-latency-layer.enable = true;
   services.lact.enable = true;
   services.hardware.openrgb.enable = true;
+
+  # --- BLUETOOTH ---
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    settings = {
+      General = {
+        Enable = "Source,Sink,Media,Socket";
+        Experimental = true;
+      };
+    };
+  };
+  services.blueman.enable = true;
 
   # --- MANTENIMIENTO Y RENDIMIENTO DE ALMACENAMIENTO ---
   services.fstrim.enable = true;
@@ -84,7 +98,6 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    jack.enable = true;
   };
 
   # --- SERVICIOS DEL SISTEMA, GAMING Y VIRTUALIZACIÓN ---

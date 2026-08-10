@@ -3,17 +3,23 @@
 {
   xdg.configFile."niri/config.kdl".text = ''
     // Configuración Niri: Noctalia Shell + Layout Ergonómico Omarchy
-
     input {
       keyboard {
         xkb {
-            layout "us"
-            variant "altgr-intl"
+          layout "us"
+          variant "altgr-intl"
         }
       }
       mouse {
-          accel-speed -0.6
-          accel-profile "flat"
+        accel-speed -0.6
+        accel-profile "flat"
+      }
+      touchpad {
+        tap
+        natural-scroll
+        accel-speed 0.1
+        accel-profile "adaptive"
+        click-method "button-areas"
       }
       focus-follows-mouse
       warp-mouse-to-focus
@@ -22,6 +28,7 @@
         xcursor-theme "Bibata-Modern-Ice"
         xcursor-size 24
     }
+
 
     output "DP-3" {
       mode "2560x1440@180.002"
