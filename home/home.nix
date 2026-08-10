@@ -5,17 +5,17 @@
   home.homeDirectory = "/home/lisandro";
 
   imports = [
-    ../packages/git.nix
-    ../packages/gtk.nix
-    ../packages/nautilus.nix
-    ../packages/neovim.nix
-    ../packages/niri.nix
-    ../packages/noctalia.nix
-    ../packages/qt.nix
-    ../packages/steam-millennium.nix
-    ../packages/terminal.nix
-    ../packages/xdg.nix
-    ../packages/zed.nix
+    ./pkgconf/git.nix
+    ./pkgconf/gtk.nix
+    ./pkgconf/nautilus.nix
+    ./pkgconf/neovim.nix
+    ./pkgconf/niri.nix
+    ./pkgconf/noctalia.nix
+    ./pkgconf/qt.nix
+    ./pkgconf/steam-millennium.nix
+    ./pkgconf/terminal.nix
+    ./pkgconf/xdg.nix
+    ./pkgconf/zed.nix
   ];
 
   home.sessionVariables = {

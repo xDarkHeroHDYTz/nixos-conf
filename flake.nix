@@ -36,7 +36,7 @@
       };
       modules = [
         { nixpkgs.hostPlatform = "x86_64-linux"; }
-        ./hosts/configuration.nix
+        ./system/configuration.nix
         {
           nixpkgs.overlays = [
             inputs.nix-cachyos-kernel.overlays.default
@@ -56,7 +56,7 @@
                 config.allowUnfree = true;
               };
             };
-            users.lisandro = import ./hosts/home.nix;
+            users.lisandro = import ./home/home.nix;
             backupFileExtension = "backup";
           };
         }
