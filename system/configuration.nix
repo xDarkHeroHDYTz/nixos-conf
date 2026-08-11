@@ -5,6 +5,7 @@
     /etc/nixos/hardware-configuration.nix
     ./ai.nix
     ./audient.nix
+    #./bluetooth.nix
     #./laptop.nix
     ./nuphy.nix
   ];
