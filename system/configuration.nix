@@ -3,7 +3,9 @@
 {
   imports = [
     /etc/nixos/hardware-configuration.nix
+    ./ai.nix
     ./audient.nix
+    #./laptop.nix
     ./nuphy.nix
   ];
 
@@ -141,7 +143,7 @@
 
   environment.systemPackages = with pkgs; [
     bat
-    btop
+    btop-cuda
     ddcutil
     fastfetch
     fzf
@@ -155,6 +157,7 @@
   ];
 
   # --- CONFIGURACIÓN DE NIX / PAQUETES ---
+  programs.nix-ld.enable = true;
   nixpkgs.config.allowUnfree = true;
   nix = {
     settings = {

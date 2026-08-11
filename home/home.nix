@@ -101,10 +101,9 @@
     libheif
     libheif.out
     librsvg
-    lmstudio
     mpv
     (obs-studio.override { cudaSupport = true; })
-    pkgs-stable.rembg
+    rembg
     vesktop
     # --- PRODUCTIVIDAD, GESTIÓN Y UTILIDADES ---
     gnome-calculator
