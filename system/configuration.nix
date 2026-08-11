@@ -56,19 +56,6 @@
   services.lact.enable = true;
   services.hardware.openrgb.enable = true;
 
-  # --- BLUETOOTH ---
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-    settings = {
-      General = {
-        Enable = "Source,Sink,Media,Socket";
-        Experimental = true;
-      };
-    };
-  };
-  services.blueman.enable = true;
-
   # --- MANTENIMIENTO Y RENDIMIENTO DE ALMACENAMIENTO ---
   services.fstrim.enable = true;
   services.irqbalance.enable = true;
