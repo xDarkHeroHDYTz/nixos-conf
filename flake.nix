@@ -39,7 +39,7 @@
         ./system/configuration.nix
         {
           nixpkgs.overlays = [
-            inputs.nix-cachyos-kernel.overlays.default
+            inputs.nix-cachyos-kernel.overlays.pinned
           ];
         }
         inputs.low-latency-layer.nixosModules.low-latency-layer
