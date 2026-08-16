@@ -83,7 +83,7 @@
     hydralauncher
     mangohud
     prismlauncher
-    protonup-rs
+    protonplus
     protontricks
     r2modman
     retroarch-full
