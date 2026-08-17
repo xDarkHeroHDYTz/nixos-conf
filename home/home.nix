@@ -78,8 +78,8 @@
     nil
     nixd
     # --- GAMING ---
+    faugus-launcher
     goverlay
-    heroic
     hydralauncher
     mangohud
     prismlauncher
