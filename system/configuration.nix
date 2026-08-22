@@ -38,6 +38,11 @@
       "nvidia.NVreg_EnableGpuFirmware=1"
       "nvidia.NVreg_TemporaryFilePath=/var/tmp"
     ];
+    kernel.sysctl = {
+      "vm.dirty_background_ratio" = 5;
+      "vm.dirty_ratio" = 10;
+      "vm.swappiness" = 10;
+    };
   };
 
   # --- HARDWARE (NVIDIA Y COMPONENTES) ---
@@ -58,6 +63,14 @@
   services.hardware.openrgb.enable = true;
 
   # --- MANTENIMIENTO Y RENDIMIENTO DE ALMACENAMIENTO ---
+  fileSystems."/" = {
+    options = [
+      "noatime"
+      "nodiratime"
+      "commit=30"
+      "errors=remount-ro"
+    ];
+  };
   services.fstrim.enable = true;
   services.irqbalance.enable = true;
 
