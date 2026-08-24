@@ -160,8 +160,8 @@
         Mod+Shift+B { spawn "librewolf"; }
         Mod+Shift+Alt+B { spawn "librewolf" "-p" "private"; }
         Mod+Shift+F { spawn "nautilus"; }
-        Mod+Ctrl+A { spawn "ghostty" "-e" "wiremix"; }
-        Mod+Ctrl+M { spawn "ghostty" "-e" "cliamp" "~/Música/"; }
+        Mod+Ctrl+A { spawn-sh "ghostty -e wiremix"; }
+        Mod+Ctrl+M { spawn-sh "ghostty -e cliamp ~/Música/"; }
 
         Mod+W { close-window; } // Close window
         Ctrl+Alt+Delete { quit; } // Close all windows / Quit Niri
