@@ -97,6 +97,7 @@
     ffmpeg
     gimp
     imv
+    inkscape
     kdePackages.kdenlive
     libheif
     libheif.out
