@@ -13,7 +13,6 @@
     webp-pixbuf-loader
   ];
 
-  # Ajustes de comportamiento y privacidad
   dconf.settings = {
     "org/gnome/nautilus/preferences" = {
       default-folder-viewer = "icon-view";

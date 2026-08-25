@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
 {
-  # Configuración declarativa de Neovim y sus plugins
   programs.neovim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
@@ -14,7 +13,6 @@
     '';
   };
 
-  # 1. Archivo plantilla Lua con los tokens de colores de Noctalia
   xdg.configFile."nvim/lua/matugen-template.lua".text = ''
     local M = {}
 
@@ -55,7 +53,6 @@
     return M
   '';
 
-  # 2. Configuración declarativa de la plantilla en Noctalia
   xdg.configFile."noctalia/user-templates.toml".text = ''
     [templates.nvim-base16]
     input_path = "~/.config/nvim/lua/matugen-template.lua"

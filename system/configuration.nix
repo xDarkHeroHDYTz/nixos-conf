@@ -155,6 +155,7 @@
     tree
     wget
     xwayland-satellite
+    zellij
   ];
 
   # --- CONFIGURACIÓN DE NIX / PAQUETES ---

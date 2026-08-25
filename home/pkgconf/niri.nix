@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   xdg.configFile."niri/config.kdl".text = ''
@@ -28,7 +28,6 @@
         xcursor-theme "Bibata-Modern-Ice"
         xcursor-size 24
     }
-
 
     output "DP-3" {
       mode "2560x1440@180.002"
@@ -161,7 +160,7 @@
         Mod+Shift+Alt+B { spawn "librewolf" "-p" "private"; }
         Mod+Shift+F { spawn "nautilus"; }
         Mod+Ctrl+A { spawn-sh "ghostty -e wiremix"; }
-        Mod+Ctrl+M { spawn-sh "ghostty -e cliamp ~/Música/"; }
+        Mod+Ctrl+M { spawn-sh "ghostty -e cliamp ${config.xdg.userDirs.music}"; }
 
         Mod+W { close-window; } // Close window
         Ctrl+Alt+Delete { quit; } // Close all windows / Quit Niri

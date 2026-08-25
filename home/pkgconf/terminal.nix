@@ -18,7 +18,7 @@
       btw = "echo i use nixos, btw";
       ns = "sudo nixos-rebuild switch --impure --flake ~/.nixos-conf && noctalia msg templates-apply";
       cg = "sudo nix-collect-garbage -d";
-      ytpl-dl = "yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-thumbnail --embed-metadata -o \"~/Música/%(playlist)s/%(title)s.%(ext)s\"";
+      ytpl-dl = "yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-thumbnail --embed-metadata -o \"$XDG_MUSIC_DIR/%(playlist)s/%(title)s.%(ext)s\"";
       comfyui = "nix run github:utensils/comfyui-nix#cuda -- --enable-manager";
     };
     shellInit = ''
@@ -193,18 +193,14 @@
     enableFishIntegration = true;
     settings = {
       "$schema" = "https://starship.rs/config-schema.json";
-
       format = "$cmd_duration$hostname$directory$git_branch$git_status$git_state$fill$c$cpp$python$lua$conda$docker_context$nodejs$rust$golang$package$memory_usage$line_break$character";
-
       add_newline = true;
       scan_timeout = 10;
-
       character = {
         success_symbol = "[❯](blue)";
         error_symbol = "[❯](red)";
         vimcmd_symbol = "[❮](green)";
       };
-
       directory = {
         truncation_length = 3;
         truncate_to_repo = true;
@@ -212,19 +208,16 @@
         style = "fg:black bg:blue";
         format = "[](blue)[ $path]($style)[](blue)";
       };
-
       cmd_duration = {
         min_time = 1000;
         style = "fg:black bg:cyan";
         format = "[](cyan)[󰔛 $duration]($style)[](cyan)";
       };
-
       git_branch = {
         symbol = " ";
         style = "fg:black bg:purple";
         format = "[](purple)[$symbol$branch]($style)[](purple)";
       };
-
       git_status = {
         style = "fg:black bg:yellow";
         format = "[](yellow)[ $all_status$ahead_behind ]($style)[](yellow)";
@@ -240,31 +233,26 @@
         renamed = "󰑕$count ";
         stashed = "󰏗 ";
       };
-
       git_state = {
         format = "[\\($state( $progress_current of $progress_total)\\)]($style) ";
         cherry_pick = "[🍒 PICKING](red)";
         style = "red";
       };
-
       c = {
         symbol = " ";
         style = "fg:black bg:green";
         format = "[](green)[$symbol($version)]($style)[](green)";
       };
-
       cpp = {
         symbol = " ";
         style = "fg:black bg:green";
         format = "[](green)[$symbol($version)]($style)[](green)";
       };
-
       python = {
         symbol = " ";
         style = "fg:black bg:green";
         format = "[](green)[$symbol($version)( \\($virtualenv\\))]($style)[](green)";
       };
-
       lua = {
         symbol = " ";
         style = "fg:black bg:blue";
@@ -272,37 +260,31 @@
         detect_extensions = [ "lua" ];
         detect_files = [ ".luarc.json" ".luarc.jsonc" ];
       };
-
       conda = {
         style = "fg:black bg:green";
         format = "[](green)[ $environment]($style)[](green)";
         ignore_base = false;
       };
-
       nodejs = {
         symbol = " ";
         style = "fg:black bg:green";
         format = "[](green)[$symbol($version)]($style)[](green)";
       };
-
       rust = {
         symbol = " ";
         style = "fg:black bg:yellow";
         format = "[](yellow)[$symbol($version)]($style)[](yellow)";
       };
-
       golang = {
         symbol = " ";
         style = "fg:black bg:cyan";
         format = "[](cyan)[$symbol($version)]($style)[](cyan)";
       };
-
       package = {
         symbol = "󰏗 ";
         style = "fg:black bg:yellow";
         format = "[](yellow)[$symbol$version]($style)[](yellow)";
       };
-
       docker_context = {
         symbol = " ";
         style = "fg:black bg:blue";
@@ -312,21 +294,17 @@
         detect_files = [ ];
         detect_folders = [ ];
       };
-
       fill.symbol = " ";
-
       battery.disabled = true;
       time.disabled = true;
       aws.disabled = true;
       gcloud.disabled = true;
       kubernetes.disabled = false;
-
       hostname = {
         ssh_only = true;
         style = "fg:black bg:red";
         format = "[](red)[󰣀 $hostname]($style)[](red)";
       };
-
       username.disabled = true;
     };
   };

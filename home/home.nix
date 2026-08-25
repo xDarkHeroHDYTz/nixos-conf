@@ -68,7 +68,6 @@
     gh
     lazygit
     p7zip
-    tmux
     tty-clock
     wiremix
     yt-dlp
@@ -93,6 +92,7 @@
     audacity
     (blender.override { cudaSupport = true; })
     cliamp
+    darktable
     exiftool
     ffmpeg
     gimp
@@ -106,6 +106,7 @@
     (obs-studio.override { cudaSupport = true; })
     rembg
     vesktop
+    zathura
     # --- PRODUCTIVIDAD, GESTIÓN Y UTILIDADES ---
     gnome-calculator
     gnome-disk-utility
