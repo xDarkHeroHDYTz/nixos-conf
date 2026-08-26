@@ -10,11 +10,16 @@
     ./nuphy.nix
   ];
 
-  # --- SISTEMA DE ARRANQUE Y KERNEL ---
+  # --- ARRANQUE Y KERNEL ---
   boot = {
     kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-x86_64-v3;
     initrd = {
-      luks.devices."luks-2cf93f25-4b7b-4667-ba82-c2c25890cd2c".device = "/dev/disk/by-uuid/2cf93f25-4b7b-4667-ba82-c2c25890cd2c";
+      luks.devices = {
+        # Swap cifrado para hibernar: SIN allowDiscards
+        "luks-2cf93f25-4b7b-4667-ba82-c2c25890cd2c".device = "/dev/disk/by-uuid/2cf93f25-4b7b-4667-ba82-c2c25890cd2c";
+        # Raíz SSD: CON allowDiscards para TRIM automático
+        "luks-e4f5f393-f48e-4e75-b082-dd9f32336167".allowDiscards = true;
+      };
       availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
     };
     loader = {
@@ -38,14 +43,16 @@
       "nvidia.NVreg_EnableGpuFirmware=1"
       "nvidia.NVreg_TemporaryFilePath=/var/tmp"
     ];
-    kernel.sysctl = {
-      "vm.dirty_background_ratio" = 5;
-      "vm.dirty_ratio" = 10;
-      "vm.swappiness" = 10;
-    };
   };
 
-  # --- HARDWARE (NVIDIA Y COMPONENTES) ---
+  # --- MEMORIA Y ALMACENAMIENTO ---
+  zramSwap = {
+    enable = true;
+    memoryPercent = 50;
+  };
+  services.fstrim.enable = true;
+
+  # --- HARDWARE Y GPU (NVIDIA) ---
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -62,19 +69,7 @@
   services.lact.enable = true;
   services.hardware.openrgb.enable = true;
 
-  # --- MANTENIMIENTO Y RENDIMIENTO DE ALMACENAMIENTO ---
-  fileSystems."/" = {
-    options = [
-      "noatime"
-      "nodiratime"
-      "commit=30"
-      "errors=remount-ro"
-    ];
-  };
-  services.fstrim.enable = true;
-  services.irqbalance.enable = true;
-
-  # --- CONFIGURACIÓN REGIONAL Y RED ---
+  # --- RED, LOCALIZACIÓN Y SEGURIDAD ---
   networking = {
     hostName = "nixos";
     networkmanager.enable = true;
@@ -82,6 +77,7 @@
   };
   time.timeZone = "America/Argentina/Buenos_Aires";
   i18n.defaultLocale = "es_AR.UTF-8";
+  security.polkit.enable = true;
 
   # --- USUARIOS Y AUTOLOGIN ---
   users.users."lisandro" = {
@@ -91,10 +87,9 @@
   };
   services.getty.autologinUser = "lisandro";
 
-  # --- ENTORNO GRÁFICO ---
+  # --- ENTORNO GRÁFICO Y AUDIO ---
   programs.niri.enable = true;
 
-  # --- AUDIO Y PRIVILEGIOS REALTIME ---
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -107,10 +102,11 @@
   services.gvfs.enable = true;
   services.udisks2.enable = true;
   services.fwupd.enable = true;
-  security.polkit.enable = true;
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
   programs.localsend.enable = true;
+
+  # --- GAMING Y VR ---
   programs.steam.enable = true;
   services.wivrn = {
     enable = true;
@@ -142,6 +138,7 @@
     };
   };
 
+  # --- PAQUETES DEL SISTEMA ---
   environment.systemPackages = with pkgs; [
     bat
     btop-cuda
@@ -158,7 +155,7 @@
     zellij
   ];
 
-  # --- CONFIGURACIÓN DE NIX / PAQUETES ---
+  # --- GESTIÓN DE PAQUETES Y NIX ---
   programs.nix-ld.enable = true;
   nixpkgs.config.allowUnfree = true;
   nix = {
