@@ -96,6 +96,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    jack.enable = true;
   };
 
   # --- SERVICIOS DEL SISTEMA, GAMING Y VIRTUALIZACIÓN ---
@@ -121,7 +122,7 @@
         desiredprof = "performance";
         igpu_power_threshold = -1;
         softrealtime = "off";
-        renice = 0;
+        renice = 10;
         ioprio = 0;
         inhibit_screensaver = 1;
         disable_splitlock = 1;

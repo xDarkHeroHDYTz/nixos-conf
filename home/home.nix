@@ -19,28 +19,31 @@
   ];
 
   home.sessionVariables = {
-    # --- NVIDIA & DRIVERS ---
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    # --- NVIDIA & RENDERING (Mínima Latencia) ---
     LIBVA_DRIVER_NAME = "nvidia";
-    GBM_BACKEND = "nvidia-drm";
-    # --- NVIDIA RENDERING & THREADING ---
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     __GL_THREADED_OPTIMIZATION = "1";
     __GL_MaxFramesAllowed = "1";
-    # --- NVIDIA G-SYNC / REFRESH RATE ---
     __GL_SYNC_TO_VBLANK = "0";
-    # --- WAYLAND & TOOLKITS ---
-    MOZ_ENABLE_WAYLAND = "1";
-    # --- PROTON, WAYLAND & DLSS/FSR ---
+    __GL_VRR_ALLOWED = "1";
+    __GL_GSYNC_ALLOWED = "1";
+    # --- TOOLKITS & WAYLAND NATIVO ---
+    QT_QPA_PLATFORM = "wayland;xcb";
+    SDL_VIDEODRIVER = "wayland,x11";
+    CLUTTER_BACKEND = "wayland";
+    NIXOS_OZONE_WL = "1";
+    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+    # --- PROTON & JUEGOS ---
     PROTON_ENABLE_WAYLAND = "1";
     PROTON_ENABLE_NVAPI = "1";
     PROTON_ENABLE_NGX_UPDATES = "1";
     PROTON_DLSS_UPGRADE = "1";
     PROTON_FSR4_UPGRADE = "1";
-    # --- LATENCIA & FRAMEPACING ---
     PROTON_DXVK_LOWLATENCY = "1";
+    # --- CAPA DE LATENCIA VULKAN (Reflex Emulation) ---
     LOW_LATENCY_LAYER = "1";
     LOW_LATENCY_LAYER_REFLEX = "1";
-    # --- CACHE DE SHADERS ---
+    # --- CACHÉ DE SHADERS (10GB) ---
     __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = "1";
     __GL_SHADER_DISK_CACHE_SIZE = "10737418240";
   };
@@ -49,11 +52,6 @@
     enable = true;
     profileExtra = ''
       if [ "$(tty)" = "/dev/tty1" ]; then
-        export CLUTTER_BACKEND="wayland"
-        export SDL_VIDEODRIVER="wayland"
-        export QT_QPA_PLATFORM="wayland-egl"
-        export ECORE_EVAS_ENGINE="wayland_egl"
-        export ELM_ENGINE="wayland_egl"
         exec systemd-cat --identifier=niri dbus-run-session niri --session
       fi
     '';
@@ -127,6 +125,7 @@
       '';
     }))
   ];
+  fonts.fontconfig.enable = true;
   home.pointerCursor = {
     enable = true;
     package = pkgs.bibata-cursors;

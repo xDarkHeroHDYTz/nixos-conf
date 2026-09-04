@@ -1,90 +1,76 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
-let
-  millenniumConfigFile = pkgs.writeText "millennium-config.json" (builtins.toJSON {
-    plugins = {
-      enabledPlugins = [ "extendium" ];
-    };
-    themes = {
-      activeTheme = "Material-Theme";
-      allowedScripts = true;
-      allowedStyles = true;
-      conditions = {
-        "Material-Theme" = {
-          " - Show Balance in menu after Hover?" = "yes";
-          " - Show Balance near name after hover?" = "yes";
-          " - Show Name in account change after Hover?" = "yes";
-          " - Show Name in menu after Hover?" = "yes";
-          "Account Balance in Menu" = "Blur";
-          "Account Balance near Account Name" = "Blur";
-          "Account Name in Account Change" = "Blur";
-          "Account Name in Menu" = "Blur";
-          "Achievements Icons Shape" = "Circle";
-          "Animations" = "Enabled";
-          "Appearance" = "Light";
-          "Badges for Contributors" = "yes";
-          "Big Game Card Hover Animation" = "Default";
-          "Big Picture Mode Bottom Bar Style" = "Default";
-          "Blur" = "Disabled";
-          "Bottom Bar Style" = "Default";
-          "Chat Animations" = "no";
-          "Color" = "Matugen";
-          "Custom/Dynamic Color Generation Style" = "Fidelity";
-          "Disable Max Hero Image Size" = "no";
-          "Font" = "Open Sans";
-          "Game Card Hover Animation" = "Default";
-          "Game Icons Shape" = "Circle";
-          "Groups/Curators Picture Shape" = "Circle";
-          "Hide Add Shelf" = "yes";
-          "Hide Big Picture Mode Button" = "yes";
-          "Hide Left Sidebar" = "no";
-          "Hide News Button" = "no";
-          "Hide Notifications Button" = "no";
-          "Hide Scrollbar" = "yes";
-          "Hide URL Bar" = "no";
-          "Hide Window Control Buttons" = "no";
-          "Icons" = "Rounded";
-          "Loading Style" = "Color Scheme";
-          "Menu Style" = "Expressive";
-          "Online Indicator" = "Alternative";
-          "Online Status Color" = "50";
-          "Profile Force Default Theme" = "no";
-          "Profile Picture Shape" = "Circle";
-          "Profile VAC-Ban Visibility" = "Show";
-          "Rare Achievements based on Source Color" = "yes";
-          "Remove Shiny Effect" = "no";
-          "Ripple Effect" = "no";
-          "Store Cash Related based on Source Color" = "yes";
-          "Store Header Always Visible" = "yes";
-          "Swap Dialog Buttons" = "yes";
-          "Toolbar Account" = "Default";
-          "Toolbar Icon" = "Material Design";
-          "Toolbar Title" = "Default";
-          "Toolbar Title Based on Icon" = "yes";
-          "Use Experimental Features" = "no";
-          "Use Modifications File" = "no";
-          "What's New" = "Show";
-        };
-      };
-      themeColors = {
-        "Material-Theme" = {
-          "--custom-accent-color" = "#4CB4FF";
-        };
-      };
-    };
-  });
-in
 {
   programs.steam = {
-    plugins = with pkgs.millenniumPlugins; [ extendium ];
+    plugins = with pkgs.millenniumPlugins; [
+      extendium
+    ];
+    millenniumConfig = {
+      plugins = {
+        enabledPlugins = [ "extendium" ];
+      };
+      themes = {
+        activeTheme = "Material-Theme";
+        allowedScripts = true;
+        allowedStyles = true;
+        conditions = {
+          "Material-Theme" = {
+            " - Show Balance in menu after Hover?" = "yes";
+            " - Show Balance near name after hover?" = "yes";
+            " - Show Name in account change after Hover?" = "yes";
+            " - Show Name in menu after Hover?" = "yes";
+            "Account Balance in Menu" = "Blur";
+            "Account Balance near Account Name" = "Blur";
+            "Account Name in Account Change" = "Blur";
+            "Account Name in Menu" = "Blur";
+            "Achievements Icons Shape" = "Circle";
+            "Animations" = "Enabled";
+            "Appearance" = "Light";
+            "Badges for Contributors" = "yes";
+            "Big Game Card Hover Animation" = "Default";
+            "Big Picture Mode Bottom Bar Style" = "Default";
+            "Blur" = "Disabled";
+            "Bottom Bar Style" = "Default";
+            "Chat Animations" = "no";
+            "Color" = "Matugen";
+            "Custom/Dynamic Color Generation Style" = "Fidelity";
+            "Disable Max Hero Image Size" = "no";
+            "Font" = "Open Sans";
+            "Game Card Hover Animation" = "Default";
+            "Game Icons Shape" = "Circle";
+            "Groups/Curators Picture Shape" = "Circle";
+            "Hide Add Shelf" = "yes";
+            "Hide Big Picture Mode Button" = "yes";
+            "Hide Left Sidebar" = "no";
+            "Hide News Button" = "no";
+            "Hide Notifications Button" = "no";
+            "Hide Scrollbar" = "yes";
+            "Hide URL Bar" = "no";
+            "Hide Window Control Buttons" = "no";
+            "Icons" = "Rounded";
+            "Loading Style" = "Color Scheme";
+            "Menu Style" = "Expressive";
+            "Online Indicator" = "Alternative";
+            "Online Status Color" = "50";
+            "Profile Force Default Theme" = "no";
+            "Profile Picture Shape" = "Circle";
+            "Profile VAC-Ban Visibility" = "Show";
+            "Rare Achievements based on Source Color" = "yes";
+            "Remove Shiny Effect" = "no";
+            "Ripple Effect" = "no";
+            "Store Cash Related based on Source Color" = "yes";
+            "Store Header Always Visible" = "yes";
+            "Swap Dialog Buttons" = "yes";
+            "Toolbar Account" = "Default";
+            "Toolbar Icon" = "Material Design";
+            "Toolbar Title" = "Default";
+            "Toolbar Title Based on Icon" = "yes";
+            "Use Experimental Features" = "no";
+            "Use Modifications File" = "no";
+            "What's New" = "Show";
+          };
+        };
+      };
+    };
   };
-  home.activation.setupMillenniumConfig = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    TARGET_FILE="$HOME/.config/millennium/config.json"
-    mkdir -p "$(dirname "$TARGET_FILE")"
-    [ -L "$TARGET_FILE" ] && rm -f "$TARGET_FILE"
-    if ! cmp -s "${millenniumConfigFile}" "$TARGET_FILE"; then
-      cp -f "${millenniumConfigFile}" "$TARGET_FILE"
-      chmod 644 "$TARGET_FILE"
-    fi
-  '';
 }
