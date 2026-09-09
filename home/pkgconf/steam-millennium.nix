@@ -6,9 +6,7 @@
       extendium
     ];
     millenniumConfig = {
-      plugins = {
-        enabledPlugins = [ "extendium" ];
-      };
+      plugins.enabledPlugins = [ "extendium" ];
       themes = {
         activeTheme = "Material-Theme";
         allowedScripts = true;

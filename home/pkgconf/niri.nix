@@ -29,16 +29,19 @@
       xcursor-size 24
     }
 
-    output "DP-3" {
+    output "PNP(AOC) Q27G3XMN 1APQ7JA003333" {
       mode "2560x1440@180.002"
       position x=0 y=0
       variable-refresh-rate on-demand=true
     }
-    output "DP-2" {
+    output "LG Electronics LG ULTRAGEAR+ 509RMRHKG358" {
       mode "2560x1440@280.099"
       position x=0 y=1440
       variable-refresh-rate on-demand=true
       focus-at-startup
+    }
+    output "Nvidia 0x0000 Unknown" {
+        off
     }
 
     // --- ENTORNO Y ARRANQUE DE COMPONENTES ---
