@@ -1,21 +1,24 @@
-{ pkgs, pkgs-stable, inputs, ... }:
+{ inputs, pkgs, pkgs-stable, ... }:
 
 {
   home.username = "lisandro";
   home.homeDirectory = "/home/lisandro";
 
   imports = [
-    ./pkgconf/git.nix
-    ./pkgconf/gtk.nix
-    ./pkgconf/nautilus.nix
-    ./pkgconf/neovim.nix
-    ./pkgconf/niri.nix
-    ./pkgconf/noctalia.nix
-    ./pkgconf/qt.nix
-    ./pkgconf/steam-millennium.nix
-    ./pkgconf/terminal.nix
-    ./pkgconf/xdg.nix
-    ./pkgconf/zed.nix
+    inputs.niri.homeModules.niri
+    ../../home/niri/settings.nix
+    ./keyboard.nix
+    ./outputs.nix
+
+    ../../home/pkgconf/git.nix
+    ../../home/pkgconf/gtk.nix
+    ../../home/pkgconf/nautilus.nix
+    ../../home/pkgconf/neovim.nix
+    ../../home/pkgconf/qt.nix
+    ../../home/pkgconf/steam-millennium.nix
+    ../../home/pkgconf/terminal.nix
+    ../../home/pkgconf/xdg.nix
+    ../../home/pkgconf/zed.nix
   ];
 
   home.sessionVariables = {
@@ -46,15 +49,6 @@
     # --- CACHÉ DE SHADERS (10GB) ---
     __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = "1";
     __GL_SHADER_DISK_CACHE_SIZE = "10737418240";
-  };
-
-  programs.bash = {
-    enable = true;
-    profileExtra = ''
-      if [ "$(tty)" = "/dev/tty1" ]; then
-        exec systemd-cat --identifier=niri dbus-run-session niri --session
-      fi
-    '';
   };
 
   home.packages = with pkgs; [
@@ -113,8 +107,7 @@
     obsidian
     # --- TIPOGRAFÍAS ---
     nerd-fonts.jetbrains-mono
-    # --- INTEGRACIONES Y OVERRIDES ---
-    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    # --- OVERRIDES ---
     (roomeqwizard.overrideAttrs (oldAttrs: {
       nativeBuildInputs = (oldAttrs.nativeBuildInputs or [ ]) ++ [ pkgs.makeWrapper ];
       postInstall = (oldAttrs.postInstall or "") + ''

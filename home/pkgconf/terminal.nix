@@ -16,8 +16,10 @@
     enable = true;
     shellAliases = {
       btw = "echo i use nixos, btw";
-      ns = "sudo nixos-rebuild switch --impure --flake ~/.nixos-conf && noctalia msg templates-apply";
+      ud = "sudo nix flake update --flake ~/.nixos-conf";
+      ns = "sudo nixos-rebuild switch --impure --flake ~/.nixos-conf#$hostname";
       cg = "sudo nix-collect-garbage -d";
+      op = "sudo nix-store --optimise -vv";
       ytpl-dl = "yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-thumbnail --embed-metadata -o \"$XDG_MUSIC_DIR/%(playlist)s/%(title)s.%(ext)s\"";
       comfyui = "nix run github:utensils/comfyui-nix#cuda -- --enable-manager";
     };
@@ -38,7 +40,7 @@
         height = 15;
         width = 30;
         padding = {
-          top = 5;
+          top = 3;
           left = 3;
         };
       };
@@ -153,31 +155,31 @@
           type = "custom";
           format = "└────────────────────────────────────────────────────┘";
         }
-        "break"
-        {
-          type = "custom";
-          format = "┌───────────────────────Tiempo───────────────────────┐";
-        }
-        {
-          type = "command";
-          key = "  ›  Edad OS ";
-          keyColor = "magenta";
-          text = "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference días";
-        }
-        {
-          type = "uptime";
-          key = "  ›  Encendido ";
-          keyColor = "magenta";
-        }
-        {
-          type = "battery";
-          key = "  ›  Batería ";
-          keyColor = "magenta";
-        }
-        {
-          type = "custom";
-          format = "└────────────────────────────────────────────────────┘";
-        }
+        # "break"
+        # {
+        #   type = "custom";
+        #   format = "┌───────────────────────Tiempo───────────────────────┐";
+        # }
+        # {
+        #   type = "command";
+        #   key = "  ›  Edad OS ";
+        #   keyColor = "magenta";
+        #   text = "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference días";
+        # }
+        # {
+        #   type = "uptime";
+        #   key = "  ›  Encendido ";
+        #   keyColor = "magenta";
+        # }
+        # {
+        #   type = "battery";
+        #   key = "  ›  Batería ";
+        #   keyColor = "magenta";
+        # }
+        # {
+        #   type = "custom";
+        #   format = "└────────────────────────────────────────────────────┘";
+        # }
         {
           type = "colors";
           paddingLeft = 2;
