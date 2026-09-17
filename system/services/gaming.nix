@@ -1,14 +1,18 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
+  imports = [
+    inputs.low-latency-layer.nixosModules.low-latency-layer
+  ];
+
+  programs.low-latency-layer.enable = true;
+
   programs.steam.enable = true;
 
   services.wivrn = {
     enable = true;
     package = pkgs.wivrn.override { cudaSupport = true; };
   };
-
-  programs.low-latency-layer.enable = true;
 
   programs.gamemode = {
     enable = true;

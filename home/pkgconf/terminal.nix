@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   programs.ghostty = {
@@ -6,7 +6,6 @@
     enableFishIntegration = true;
     settings = {
       command = "${pkgs.fish}/bin/fish --login";
-      theme = "noctalia";
       window-decoration = false;
       gtk-single-instance = true;
     };
@@ -53,37 +52,37 @@
         {
           type = "host";
           key = "󰌢  PC";
-          keyColor = "green";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base09}";
         }
         {
           type = "cpu";
           key = "│ ├ ";
-          keyColor = "green";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base09}";
         }
         {
           type = "gpu";
           key = "│ ├󰢮 ";
-          keyColor = "green";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base09}";
         }
         {
           type = "display";
           key = "│ ├󰍹 ";
-          keyColor = "green";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base09}";
         }
         {
           type = "memory";
           key = "│ ├󰑭 ";
-          keyColor = "green";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base09}";
         }
         {
           type = "swap";
           key = "│ ├󰓡 ";
-          keyColor = "green";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base09}";
         }
         {
           type = "disk";
           key = "└ └󰋊 ";
-          keyColor = "green";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base09}";
         }
         {
           type = "custom";
@@ -97,59 +96,72 @@
         {
           type = "os";
           key = "  OS";
-          keyColor = "yellow";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0A}";
         }
         {
           type = "kernel";
           key = "│ ├󰌽 ";
-          keyColor = "yellow";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0A}";
         }
         {
           type = "bios";
           key = "│ ├󰖡 ";
-          keyColor = "yellow";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0A}";
         }
         {
           type = "packages";
           key = "│ ├󰏗 ";
-          keyColor = "yellow";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0A}";
         }
         {
           type = "shell";
           key = "└ └󰞷 ";
-          keyColor = "yellow";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0A}";
         }
         "break"
         {
           type = "de";
           key = "󰧨  DE";
-          keyColor = "blue";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0D}";
         }
         {
           type = "wm";
           key = "│ ├󱂬 ";
-          keyColor = "blue";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0D}";
         }
         {
           type = "icons";
           key = "│ ├󰀻 ";
-          keyColor = "blue";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0D}";
+          format = "{1}";
         }
         {
           type = "cursor";
           key = "│ ├󰆿 ";
-          keyColor = "blue";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0D}";
         }
         {
-          type = "font";
+          type = "custom";
           key = "│ ├󰛖 ";
-          keyColor = "blue";
-          format = "{3}";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0D}";
+          format = "Mono: ${config.stylix.fonts.monospace.name}";
+        }
+        {
+          type = "custom";
+          key = "│ ├󰛖 ";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0D}";
+          format = "Sans: ${config.stylix.fonts.sansSerif.name}";
+        }
+        {
+          type = "custom";
+          key = "│ ├󰛖 ";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0D}";
+          format = "Serif: ${config.stylix.fonts.serif.name}";
         }
         {
           type = "terminal";
           key = "└ └󰆍 ";
-          keyColor = "blue";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0D}";
         }
         {
           type = "custom";
@@ -163,18 +175,18 @@
         # {
         #   type = "command";
         #   key = "  ›  Edad OS ";
-        #   keyColor = "magenta";
+        #   keyColor = "${config.lib.stylix.colors.withHashtag.base0E}";
         #   text = "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference días";
         # }
         # {
         #   type = "uptime";
         #   key = "  ›  Encendido ";
-        #   keyColor = "magenta";
+        #   keyColor = "${config.lib.stylix.colors.withHashtag.base0E}";
         # }
         # {
         #   type = "battery";
         #   key = "  ›  Batería ";
-        #   keyColor = "magenta";
+        #   keyColor = "${config.lib.stylix.colors.withHashtag.base0E}";
         # }
         # {
         #   type = "custom";
@@ -189,7 +201,9 @@
     };
   };
 
-  programs.starship = {
+  programs.starship = let
+    c = config.lib.stylix.colors.withHashtag;
+  in {
     enable = true;
     enableBashIntegration = false;
     enableFishIntegration = true;
@@ -199,30 +213,30 @@
       add_newline = true;
       scan_timeout = 10;
       character = {
-        success_symbol = "[❯](blue)";
-        error_symbol = "[❯](red)";
-        vimcmd_symbol = "[❮](green)";
+        success_symbol = "[❯](${c.base0D})";
+        error_symbol = "[❯](${c.base08})";
+        vimcmd_symbol = "[❮](${c.base0B})";
       };
       directory = {
         truncation_length = 3;
         truncate_to_repo = true;
         fish_style_pwd_dir_length = 4;
-        style = "fg:black bg:blue";
-        format = "[](blue)[ $path]($style)[](blue)";
+        style = "fg:${c.base00} bg:${c.base0D}";
+        format = "[](${c.base0D})[ $path]($style)[](${c.base0D})";
       };
       cmd_duration = {
         min_time = 1000;
-        style = "fg:black bg:cyan";
-        format = "[](cyan)[󰔛 $duration]($style)[](cyan)";
+        style = "fg:${c.base00} bg:${c.base0C}";
+        format = "[](${c.base0C})[󰔛 $duration]($style)[](${c.base0C})";
       };
       git_branch = {
         symbol = " ";
-        style = "fg:black bg:purple";
-        format = "[](purple)[$symbol$branch]($style)[](purple)";
+        style = "fg:${c.base00} bg:${c.base0E}";
+        format = "[](${c.base0E})[$symbol$branch]($style)[](${c.base0E})";
       };
       git_status = {
-        style = "fg:black bg:yellow";
-        format = "[](yellow)[ $all_status$ahead_behind ]($style)[](yellow)";
+        style = "fg:${c.base00} bg:${c.base0A}";
+        format = "[](${c.base0A})[ $all_status$ahead_behind ]($style)[](${c.base0A})";
         conflicted = "⚔ ";
         ahead = "↑$count ";
         behind = "↓$count ";
@@ -237,60 +251,60 @@
       };
       git_state = {
         format = "[\\($state( $progress_current of $progress_total)\\)]($style) ";
-        cherry_pick = "[🍒 PICKING](red)";
-        style = "red";
+        cherry_pick = "[🍒 PICKING](${c.base08})";
+        style = "${c.base08}";
       };
       c = {
         symbol = " ";
-        style = "fg:black bg:green";
-        format = "[](green)[$symbol($version)]($style)[](green)";
+        style = "fg:${c.base00} bg:${c.base0B}";
+        format = "[](${c.base0B})[$symbol($version)]($style)[](${c.base0B})";
       };
       cpp = {
         symbol = " ";
-        style = "fg:black bg:green";
-        format = "[](green)[$symbol($version)]($style)[](green)";
+        style = "fg:${c.base00} bg:${c.base0B}";
+        format = "[](${c.base0B})[$symbol($version)]($style)[](${c.base0B})";
       };
       python = {
         symbol = " ";
-        style = "fg:black bg:green";
-        format = "[](green)[$symbol($version)( \\($virtualenv\\))]($style)[](green)";
+        style = "fg:${c.base00} bg:${c.base0B}";
+        format = "[](${c.base0B})[$symbol($version)( \\($virtualenv\\))]($style)[](${c.base0B})";
       };
       lua = {
         symbol = " ";
-        style = "fg:black bg:blue";
-        format = "[](blue)[$symbol($version)]($style)[](blue)";
+        style = "fg:${c.base00} bg:${c.base0D}";
+        format = "[](${c.base0D})[$symbol($version)]($style)[](${c.base0D})";
         detect_extensions = [ "lua" ];
         detect_files = [ ".luarc.json" ".luarc.jsonc" ];
       };
       conda = {
-        style = "fg:black bg:green";
-        format = "[](green)[ $environment]($style)[](green)";
+        style = "fg:${c.base00} bg:${c.base0B}";
+        format = "[](${c.base0B})[ $environment]($style)[](${c.base0B})";
         ignore_base = false;
       };
       nodejs = {
         symbol = " ";
-        style = "fg:black bg:green";
-        format = "[](green)[$symbol($version)]($style)[](green)";
+        style = "fg:${c.base00} bg:${c.base0B}";
+        format = "[](${c.base0B})[$symbol($version)]($style)[](${c.base0B})";
       };
       rust = {
         symbol = " ";
-        style = "fg:black bg:yellow";
-        format = "[](yellow)[$symbol($version)]($style)[](yellow)";
+        style = "fg:${c.base00} bg:${c.base0A}";
+        format = "[](${c.base0A})[$symbol($version)]($style)[](${c.base0A})";
       };
       golang = {
         symbol = " ";
-        style = "fg:black bg:cyan";
-        format = "[](cyan)[$symbol($version)]($style)[](cyan)";
+        style = "fg:${c.base00} bg:${c.base0C}";
+        format = "[](${c.base0C})[$symbol($version)]($style)[](${c.base0C})";
       };
       package = {
         symbol = "󰏗 ";
-        style = "fg:black bg:yellow";
-        format = "[](yellow)[$symbol$version]($style)[](yellow)";
+        style = "fg:${c.base00} bg:${c.base0A}";
+        format = "[](${c.base0A})[$symbol$version]($style)[](${c.base0A})";
       };
       docker_context = {
         symbol = " ";
-        style = "fg:black bg:blue";
-        format = "[](blue)[$symbol$context]($style)[](blue)";
+        style = "fg:${c.base00} bg:${c.base0D}";
+        format = "[](${c.base0D})[$symbol$context]($style)[](${c.base0D})";
         only_with_files = false;
         detect_extensions = [ ];
         detect_files = [ ];
@@ -304,8 +318,8 @@
       kubernetes.disabled = false;
       hostname = {
         ssh_only = true;
-        style = "fg:black bg:red";
-        format = "[](red)[󰣀 $hostname]($style)[](red)";
+        style = "fg:${c.base00} bg:${c.base08}";
+        format = "[](${c.base08})[󰣀 $hostname]($style)[](${c.base08})";
       };
       username.disabled = true;
     };

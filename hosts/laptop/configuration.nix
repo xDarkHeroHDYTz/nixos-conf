@@ -6,7 +6,6 @@
 
     # Core
     ../../system/core/boot.nix
-    ../../system/core/nix.nix
     ../../system/core/packages.nix
 
     # Desktop
@@ -20,11 +19,16 @@
     ../../system/hardware/bluetooth.nix
     ../../system/hardware/nuphy.nix
     ../../system/hardware/nvidia.nix
+    ../../system/hardware/power.nix
 
     # Services
     #../../system/services/ai.nix
+    ../../system/services/audio.nix
     ../../system/services/gaming.nix
-    ../../system/services/virtualisation.nix
+    ../../system/services/nix.nix
+    ../../system/services/stylix.nix
+    ../../system/services/system.nix
+    ../../system/services/virtualization.nix
   ];
 
   # --- MEMORIA Y ALMACENAMIENTO ---

@@ -26,6 +26,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixos-millennium = {
       url = "github:re1n0/nixos-millennium";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -53,7 +58,7 @@
             inputs.nix-cachyos-kernel.overlays.pinned
           ];
         }
-        inputs.low-latency-layer.nixosModules.low-latency-layer
+        inputs.stylix.nixosModules.stylix
         inputs.nixos-millennium.nixosModules.default
         home-manager.nixosModules.home-manager
         {

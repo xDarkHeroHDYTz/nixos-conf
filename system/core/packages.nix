@@ -1,8 +1,6 @@
 { pkgs, pkgs-stable, ... }:
 
 {
-  programs.localsend.enable = true;
-
   environment.systemPackages = with pkgs; [
     bat
     btop-cuda
@@ -17,4 +15,8 @@
     wget
     zellij
   ];
+
+  programs.localsend.enable = true;
+  programs.nix-ld.enable = true;
+  nixpkgs.config.allowUnfree = true;
 }
