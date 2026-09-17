@@ -15,10 +15,11 @@
     enable = true;
     shellAliases = {
       btw = "echo i use nixos, btw";
-      ud = "sudo nix flake update --flake ~/.nixos-conf";
-      ns = "sudo nixos-rebuild switch --impure --flake ~/.nixos-conf#$hostname";
-      cg = "sudo nix-collect-garbage -d";
-      op = "sudo nix-store --optimise -vv";
+      nfu = "sudo nix flake update --flake ~/.nixos-conf";
+      nrt = "sudo nixos-rebuild test --flake ~/.nixos-conf#$hostname";
+      nrs = "sudo nixos-rebuild switch --flake ~/.nixos-conf#$hostname";
+      ncg = "sudo nix-collect-garbage -d";
+      nso = "sudo nix-store --optimise -vv";
       ytpl-dl = "yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-thumbnail --embed-metadata -o \"$XDG_MUSIC_DIR/%(playlist)s/%(title)s.%(ext)s\"";
       comfyui = "nix run github:utensils/comfyui-nix#cuda -- --enable-manager";
     };

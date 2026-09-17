@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [
@@ -7,5 +7,18 @@
 
   programs.noctalia = {
     enable = true;
+  };
+
+  systemd.user.services.noctalia = {
+    Unit = {
+      Description = "Noctalia Shell Bar";
+      PartOf = [ "graphical-session.target" ];
+      After = [ "graphical-session.target" ];
+    };
+    Service = {
+      ExecStart = "${pkgs.noctalia}/bin/noctalia";
+      Restart = "on-failure";
+    };
+    Install.WantedBy = [ "graphical-session.target" ];
   };
 }

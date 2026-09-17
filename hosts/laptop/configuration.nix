@@ -10,6 +10,7 @@
 
     # Desktop
     ../../system/desktop/niri.nix
+    # ../../system/desktop/plasma.nix
 
     # Greeter
     ../../system/greeter/greetd.nix

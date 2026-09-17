@@ -6,11 +6,12 @@
 
   imports = [
     inputs.niri.homeModules.niri
-    ../../home/niri/settings-pc.nix
+    ../../home/niri/settings-laptop.nix
 
     ../../home/pkgconf/gaming-variables.nix
     ../../home/pkgconf/git.nix
     # ../../home/pkgconf/librewolf.nix
+    ../../home/pkgconf/mangohud.nix
     ../../home/pkgconf/nautilus.nix
     ../../home/pkgconf/neovim.nix
     ../../home/pkgconf/noctalia.nix
@@ -52,7 +53,6 @@
   programs = {
     cava.enable = true;
     lazygit.enable = true;
-    mangohud.enable = true;
     mpv.enable = true;
     obsidian.enable = true;
     zathura.enable = true;

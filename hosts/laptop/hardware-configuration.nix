@@ -13,28 +13,34 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/mapper/luks-01d69a9a-333d-4ed2-b9e5-26228bcf62ed";
-      fsType = "ext4";
-    };
-
-  boot.initrd.luks.devices = {
-    # Raíz SSD: CON allowDiscards para TRIM automático
-    "luks-01d69a9a-333d-4ed2-b9e5-26228bcf62ed" = {
-      device = "/dev/disk/by-uuid/01d69a9a-333d-4ed2-b9e5-26228bcf62ed";
-      allowDiscards = true;
-    };
-    # Swap cifrado para hibernar: SIN allowDiscards
-    "luks-b54de5c2-237d-49ea-81d6-78bb5120d27f" = {
-      device = "/dev/disk/by-uuid/b54de5c2-237d-49ea-81d6-78bb5120d27f";
-    };
-  };
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/197F-34EF";
+  fileSystems = {
+    "/boot" = {
+      device = "/dev/disk/by-uuid/197F-34EF";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
+    "/" = {
+      device = "/dev/mapper/luks-01d69a9a-333d-4ed2-b9e5-26228bcf62ed";
+      fsType = "ext4";
+      # Evita escrituras innecesarias en la NAND del SSD al leer archivos
+      options = [ "noatime" "nodiratime" ];
+    };
+  };
+
+  boot.initrd.luks.devices = {
+    # Raíz SSD: allowDiscards para TRIM + bypassWorkqueues para evitar cuellos de botella en CPU
+    "luks-01d69a9a-333d-4ed2-b9e5-26228bcf62ed" = {
+      device = "/dev/disk/by-uuid/01d69a9a-333d-4ed2-b9e5-26228bcf62ed";
+      allowDiscards = true;
+      bypassWorkqueues = true;
+    };
+    # Swap cifrada
+    "luks-b54de5c2-237d-49ea-81d6-78bb5120d27f" = {
+      device = "/dev/disk/by-uuid/b54de5c2-237d-49ea-81d6-78bb5120d27f";
+      allowDiscards = true;
+      bypassWorkqueues = true;
+    };
+  };
 
   swapDevices =
     [ { device = "/dev/mapper/luks-b54de5c2-237d-49ea-81d6-78bb5120d27f"; }

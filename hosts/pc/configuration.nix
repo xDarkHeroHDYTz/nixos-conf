@@ -9,11 +9,11 @@
     ../../system/core/packages.nix
 
     # Desktop
-    # ../../system/desktop/niri.nix
-    ../../system/desktop/plasma.nix
+    ../../system/desktop/niri.nix
+    # ../../system/desktop/plasma.nix
 
     # Greeter
-    # ../../system/greeter/greetd.nix
+    ../../system/greeter/greetd.nix
 
     # Hardware
     ../../system/hardware/audient.nix
