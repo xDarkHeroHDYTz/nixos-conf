@@ -16,6 +16,7 @@
     ../../home/pkgconf/neovim.nix
     ../../home/pkgconf/noctalia.nix
     ../../home/pkgconf/terminal.nix
+    ../../home/pkgconf/vesktop.nix
     ../../home/pkgconf/xdg.nix
   ];
 
@@ -64,7 +65,6 @@
       enable = true;
       package = pkgs.obs-studio.override { cudaSupport = true; };
     };
-    vesktop.enable = true;
     zed-editor.enable = true;
   };
 

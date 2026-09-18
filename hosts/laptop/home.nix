@@ -16,6 +16,7 @@
     ../../home/pkgconf/neovim.nix
     ../../home/pkgconf/noctalia.nix
     ../../home/pkgconf/terminal.nix
+    ../../home/pkgconf/vesktop.nix
     ../../home/pkgconf/xdg.nix
   ];
 
