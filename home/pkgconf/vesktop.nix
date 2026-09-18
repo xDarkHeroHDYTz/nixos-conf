@@ -4,9 +4,10 @@
   programs.vesktop = {
     enable = true;
     settings = {
-      splash = false;
+      hardwareVideoAcceleration = true;
+      enableSplashScreen = false;
       splashTheming = false;
-      hardwareAcceleration = true;
+      arRPC = true;
     };
 
     vencord = {
