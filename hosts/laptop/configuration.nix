@@ -37,6 +37,11 @@
     enable = true;
     memoryPercent = 50;
   };
+  services.earlyoom = {
+    enable = true;
+    freeMemThreshold = 5;
+    freeSwapThreshold = 5;
+  };
   services.fstrim.enable = true;
 
   # --- RED, LOCALIZACIÓN Y SEGURIDAD ---
