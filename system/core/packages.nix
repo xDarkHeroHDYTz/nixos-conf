@@ -3,7 +3,6 @@
 {
   environment.systemPackages = with pkgs; [
     bat
-    btop-cuda
     ddcutil
     fastfetch
     fzf
