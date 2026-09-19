@@ -40,14 +40,14 @@
         variable-refresh-rate = true;
       }
       {
-        matches = [ { app-id = "(?i)^steam$"; title = "^$"; } ];
-        open-floating = true;
-        open-focused = false;
-      }
-      {
         matches = [ { app-id = "(?i)^steam$"; title = "(?i)^notificationtoasts"; } ];
         open-floating = true;
         open-focused = false;
+        default-floating-position = {
+          x = 24;
+          y = 24;
+          relative-to = "top-right";
+        };
       }
     ];
 
@@ -80,13 +80,13 @@
       slowdown = 1.0;
 
       workspace-switch.kind.spring = {
-        damping-ratio = 1.0;
-        stiffness = 1300;
+        damping-ratio = 0.82;
+        stiffness = 1000;
         epsilon = 0.0001;
       };
 
       window-open.kind.easing = {
-        duration-ms = 120;
+        duration-ms = 140;
         curve = "ease-out-expo";
       };
 
@@ -96,26 +96,26 @@
       };
 
       horizontal-view-movement.kind.spring = {
-        damping-ratio = 1.0;
-        stiffness = 1100;
+        damping-ratio = 0.85;
+        stiffness = 950;
         epsilon = 0.0001;
       };
 
       window-movement.kind.spring = {
-        damping-ratio = 1.0;
-        stiffness = 1200;
+        damping-ratio = 0.80;
+        stiffness = 1100;
         epsilon = 0.0001;
       };
 
       window-resize.kind.spring = {
-        damping-ratio = 1.0;
-        stiffness = 1200;
+        damping-ratio = 0.85;
+        stiffness = 1000;
         epsilon = 0.0001;
       };
 
       overview-open-close.kind.spring = {
-        damping-ratio = 1.0;
-        stiffness = 1100;
+        damping-ratio = 0.78;
+        stiffness = 900;
         epsilon = 0.0001;
       };
     };

@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 {
   stylix = {
@@ -7,7 +7,7 @@
     polarity = "dark";
 
     # image = /. + "/home/lisandro/Imágenes/Fondos de pantalla/wallhaven-1p7k83.jpg";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-soft.yaml";
 
     opacity = {
       applications = 1.0;
@@ -17,13 +17,11 @@
 
     icons = {
       enable = true;
-      dark = "Papirus-Dark";
-      light = "Papirus-Light";
-      package = pkgs.papirus-icon-theme.overrideAttrs (oldAttrs: {
-        postInstall = (oldAttrs.postInstall or "") + ''
-          find $out/share/icons -type f -name "folder*.svg" -exec sed -i 's/#5294[eE]2/#${config.lib.stylix.colors.base0D}/g' {} +
-        '';
-      });
+      dark = "Gruvbox-Plus-Dark";
+      light = "Gruvbox-Plus-Light";
+      package = pkgs.gruvbox-plus-icons.override {
+        folder-color = "orange";
+      };
     };
 
     cursor = {

@@ -18,6 +18,7 @@
     ../../home/pkgconf/terminal.nix
     ../../home/pkgconf/vesktop.nix
     ../../home/pkgconf/xdg.nix
+    ../../home/pkgconf/zed-editor.nix
   ];
 
   # home.sessionVariables = {
@@ -69,7 +70,6 @@
       enable = true;
       package = pkgs.obs-studio.override { cudaSupport = true; };
     };
-    zed-editor.enable = true;
   };
 
   home.packages = with pkgs; [

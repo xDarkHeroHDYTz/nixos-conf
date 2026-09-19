@@ -70,7 +70,6 @@
       package = pkgs.obs-studio.override { cudaSupport = true; };
     };
     vesktop.enable = true;
-    zed-editor.enable = true;
   };
 
   home.packages = with pkgs; [
