@@ -44,8 +44,8 @@
         open-floating = true;
         open-focused = false;
         default-floating-position = {
-          x = 24;
-          y = 24;
+          x = 12;
+          y = 12;
           relative-to = "top-right";
         };
       }

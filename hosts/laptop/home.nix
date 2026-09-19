@@ -18,6 +18,7 @@
     ../../home/pkgconf/terminal.nix
     ../../home/pkgconf/vesktop.nix
     ../../home/pkgconf/xdg.nix
+    ../../home/pkgconf/zed-editor.nix
   ];
 
   # home.sessionVariables = {
