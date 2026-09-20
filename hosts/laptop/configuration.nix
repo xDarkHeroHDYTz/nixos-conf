@@ -25,6 +25,7 @@
     # Services
     #../../system/services/ai.nix
     ../../system/services/audio.nix
+    ../../system/services/flatpak.nix
     ../../system/services/gaming.nix
     ../../system/services/nix.nix
     ../../system/services/stylix.nix
