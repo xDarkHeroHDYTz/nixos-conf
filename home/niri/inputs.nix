@@ -21,10 +21,5 @@
         enable = true;
       };
     };
-
-    cursor = {
-      theme = "Bibata-Modern-Ice";
-      size = 24;
-    };
   };
 }
