@@ -21,37 +21,6 @@
     ../../home/pkgconf/zed-editor.nix
   ];
 
-  # home.sessionVariables = {
-  #   # --- NVIDIA & RENDERING (Mínima Latencia) ---
-  #   LIBVA_DRIVER_NAME = "nvidia";
-  #   __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-  #   __GL_THREADED_OPTIMIZATION = "1";
-  #   __GL_MaxFramesAllowed = "1";
-  #   __GL_SYNC_TO_VBLANK = "0";
-  #   __GL_VRR_ALLOWED = "1";
-  #   __GL_GSYNC_ALLOWED = "1";
-  #   # --- TOOLKITS & WAYLAND NATIVO ---
-  #   QT_QPA_PLATFORM = "wayland;xcb";
-  #   SDL_VIDEODRIVER = "wayland,x11";
-  #   CLUTTER_BACKEND = "wayland";
-  #   NIXOS_OZONE_WL = "1";
-  #   ELECTRON_OZONE_PLATFORM_HINT = "wayland";
-  #   # --- PROTON & JUEGOS ---
-  #   PROTON_ENABLE_WAYLAND = "1";
-  #   PROTON_ENABLE_NVAPI = "1";
-  #   DXVK_NVAPI_VKREFLEX = "1";
-  #   PROTON_ENABLE_NGX_UPDATES = "1";
-  #   PROTON_DLSS_UPGRADE = "1";
-  #   PROTON_FSR4_UPGRADE = "1";
-  #   PROTON_DXVK_LOWLATENCY = "1";
-  #   # --- CAPA DE LATENCIA VULKAN (Reflex Emulation) ---
-  #   LOW_LATENCY_LAYER = "1";
-  #   LOW_LATENCY_LAYER_REFLEX = "1";
-  #   # --- CACHÉ DE SHADERS (10GB) ---
-  #   __GL_SHADER_DISK_CACHE_SKIP_CLEANUP = "1";
-  #   __GL_SHADER_DISK_CACHE_SIZE = "10737418240";
-  # };
-
   programs = {
     btop = {
       enable = true;
@@ -87,7 +56,6 @@
 
     # --- GAMING ---
     faugus-launcher
-    goverlay
     hydralauncher
     prismlauncher
     protonplus
