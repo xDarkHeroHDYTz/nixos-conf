@@ -11,7 +11,7 @@
 
   systemd.user.services.noctalia = {
     Unit = {
-      Description = "Noctalia Shell Bar";
+      Description = "Noctalia Shell";
       PartOf = [ "graphical-session.target" ];
       After = [ "graphical-session.target" ];
     };

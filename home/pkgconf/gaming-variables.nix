@@ -10,10 +10,10 @@
       # export PROTON_LOG=1
       export PROTON_ENABLE_WAYLAND=1
       export PROTON_ENABLE_NVAPI=1
-      export PROTON_HIDE_NVIDIA_GPU=0
       export DXVK_NVAPI_VKREFLEX=1
       export PROTON_ENABLE_NGX_UPDATES=1
       export PROTON_DLSS_UPGRADE=1
+      export PROTON_ENABLE_NTSYNC=1
       export PROTON_DXVK_LOWLATENCY=1
       export VKD3D_CONFIG=dxr11,dxr
 
