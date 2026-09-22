@@ -10,7 +10,7 @@
 
     ../../home/pkgconf/gaming-variables.nix
     ../../home/pkgconf/git.nix
-    # ../../home/pkgconf/librewolf.nix
+    ../../home/pkgconf/librewolf.nix
     ../../home/pkgconf/mangohud.nix
     ../../home/pkgconf/nautilus.nix
     ../../home/pkgconf/neovim.nix
@@ -49,8 +49,7 @@
     tty-clock
     wiremix
 
-    # --- NAVEGACIÓN, DESARROLLO Y LENGUAJES ---
-    librewolf
+    # --- DESARROLLO Y LENGUAJES ---
     nil
     nixd
 

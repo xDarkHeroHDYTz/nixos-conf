@@ -7,11 +7,20 @@
 
   programs.low-latency-layer.enable = true;
 
-  programs.steam.enable = true;
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = false;
+    localNetworkGameTransfers.openFirewall = false;
+  };
 
   services.wivrn = {
     enable = true;
     package = pkgs.wivrn.override { cudaSupport = true; };
+    openFirewall = true;
+    steam = {
+      enable = true;
+      importOXRRuntimes = true;
+    };
   };
 
   programs.gamemode = {
