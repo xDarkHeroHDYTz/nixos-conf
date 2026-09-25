@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./theme.nix
 
     # Core
     ../../system/core/boot.nix

@@ -39,7 +39,6 @@
       enable = true;
       package = pkgs.obs-studio.override { cudaSupport = true; };
     };
-    vesktop.enable = true;
   };
 
   home.packages = with pkgs; [
@@ -50,8 +49,7 @@
     tty-clock
     wiremix
 
-    # --- NAVEGACIÓN, DESARROLLO Y LENGUAJES ---
-    librewolf
+    # --- DESARROLLO Y LENGUAJES ---
     nil
     nixd
 
