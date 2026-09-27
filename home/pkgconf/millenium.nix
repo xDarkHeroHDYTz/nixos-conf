@@ -6,12 +6,14 @@
 
     plugins = with pkgs.millenniumPlugins; [
       extendium
-      # steam-easygrid
+      protondb
+      steam-native-notifications
     ];
 
-    # extensions = [
-    #   { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # ublock origin
-    #   { id = "kdbmhfkmnlmbkgbabkdealhhbfhlmmon"; } # steamdb
-    # ];
+    extensions = [
+      { id = "fcjljapncagfmfhdkccgnbkgdpbcefcj"; } # Steamcito
+      { id = "kdbmhfkmnlmbkgbabkdealhhbfhlmmon"; } # SteamDB
+      { id = "ddkjiahejlhfcafbddmgiahcphecmpfh"; } # uBlock Origin
+    ];
   };
 }
