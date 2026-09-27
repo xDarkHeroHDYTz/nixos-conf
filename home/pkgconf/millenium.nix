@@ -6,7 +6,7 @@
 
     plugins = with pkgs.millenniumPlugins; [
       extendium
-      steam-easygrid
+      # steam-easygrid
     ];
 
     # extensions = [
