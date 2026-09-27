@@ -1,34 +1,40 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 
 {
   programs.virt-manager.enable = true;
+
   virtualisation = {
     libvirtd = {
       enable = true;
       qemu = {
         package = pkgs.qemu;
         vhostUserPackages = with pkgs; [
-          /*
-          NOTA:
-          Los invitados de Windows necesitan descargar estas herramientas:
-          - virtio-win-guest-tools
-          - winfsp
-          luego habilita virtio desde service.msc, después también inicia
-          */
           virtiofsd
           virtio-win
         ];
         swtpm.enable = true;
+
+        # Permisos de dispositivos NVIDIA para la aceleración EGL/VirtIO-3D
+        verbatimConfig = ''
+          cgroup_device_acl = [
+              "/dev/null", "/dev/full", "/dev/zero",
+              "/dev/random", "/dev/urandom",
+              "/dev/ptmx", "/dev/kvm",
+              "/dev/nvidiactl", "/dev/nvidia0", "/dev/nvidia-modeset",
+              "/dev/dri/renderD128"
+          ]
+          seccomp_sandbox = 0
+        '';
       };
     };
     spiceUSBRedirection.enable = true;
   };
+
   environment.systemPackages = with pkgs; [
     dnsmasq
+    virglrenderer
+    vulkan-tools
   ];
-  boot.binfmt.emulatedSystems = ["aarch64-linux"];
 
-  # Usa esto cuando uses NixOS como invitado
-  # services.qemuGuest.enable = true;
-  # services.spice-vdagentd.enable = true;  # habilitar copiar y pegar entre el host y el invitado
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 }

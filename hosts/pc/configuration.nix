@@ -28,6 +28,7 @@
     ../../system/services/audio.nix
     ../../system/services/flatpak.nix
     ../../system/services/gaming.nix
+    ../../system/services/keyring.nix
     ../../system/services/nix.nix
     ../../system/services/stylix.nix
     ../../system/services/system.nix
@@ -60,7 +61,7 @@
   users.users."lisandro" = {
     isNormalUser = true;
     description = "Lisandro Julian Roldán Barbato";
-    extraGroups = [ "wheel" "libvirtd" "disk" "networkmanager" "video" "render" "audio" "gamemode" ];
+    extraGroups = [ "wheel" "networkmanager" "kvm" "libvirtd" "render" "video" "audio" "disk" "gamemode" ];
   };
   home-manager.users.lisandro = import ./home.nix;
 

@@ -1,35 +1,23 @@
 { pkgs, ... }:
 
+
 {
   home.packages = [
     (pkgs.writeShellScriptBin "run-game" ''
       # --- OVERLAYS & MONITORIZACIÓN ---
       export MANGOHUD=1
 
-      # --- PROTON, NVAPI & UPSCALERS ---
-      # export PROTON_LOG=1
-      # export PROTON_ENABLE_WAYLAND=1
+      # --- PROTON & NVAPI (NVIDIA) ---
+      # export WAYLANDDRV_PRIMARY_MONITOR=(Salida) # Si se abre en otro monitor
+      # export PROTON_DXVK_LOWLATENCY=1 # Si no tiene Reflex nativo
+      # export PROTON_DLSS_UPGRADE=1
       export PROTON_ENABLE_NVAPI=1
       export DXVK_NVAPI_VKREFLEX=1
-      # export PROTON_ENABLE_NGX_UPDATES=1
-      export PROTON_DLSS_UPGRADE=1
       export PROTON_ENABLE_NTSYNC=1
-      export PROTON_DXVK_LOWLATENCY=1
-      # export VKD3D_CONFIG=dxr11,dxr
 
-      # --- RENDERING & LOW LATENCY (NVIDIA) ---
-      export LOW_LATENCY_LAYER=1
-      export LOW_LATENCY_LAYER_REFLEX=1
-      export __GL_SYNC_TO_VBLANK=0
-      export __GL_THREADED_OPTIMIZATION=1
-      export __GL_MaxFramesAllowed=1
-      export __GL_VRR_ALLOWED=1
-      export __GL_GSYNC_ALLOWED=1
-      export __GLX_VENDOR_LIBRARY_NAME=nvidia
-
-      # --- SHADER CACHE (10 GB) ---
-      # export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
-      # export __GL_SHADER_DISK_CACHE_SIZE=10240
+      # --- NVIDIA SHADER CACHE (10 GB sin borrado agresivo) ---
+      export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
+      export __GL_SHADER_DISK_CACHE_SIZE=10737418240
 
       # --- EJECUCIÓN CON GAMEMODE ---
       if command -v gamemoderun &> /dev/null; then
@@ -40,27 +28,17 @@
     '')
 
     (pkgs.writeShellScriptBin "run-native" ''
-      # --- OVERLAYS & MONITORIZACIÓN ---
+      # --- OVERLAYS ---
       export MANGOHUD=1
 
-      # --- TOOLKITS & WAYLAND NATIVO ---
+      # --- WAYLAND NATIVO PARA TOOLKITS ---
       export SDL_VIDEODRIVER="wayland,x11"
       export QT_QPA_PLATFORM="wayland;xcb"
-      export CLUTTER_BACKEND="wayland"
-
-      # --- RENDERING & LOW LATENCY (NVIDIA) ---
-      export LOW_LATENCY_LAYER=1
-      export LOW_LATENCY_LAYER_REFLEX=1
-      export __GL_SYNC_TO_VBLANK=0
-      export __GL_THREADED_OPTIMIZATION=1
-      export __GL_MaxFramesAllowed=1
-      export __GL_VRR_ALLOWED=1
-      export __GL_GSYNC_ALLOWED=1
-      export __GLX_VENDOR_LIBRARY_NAME=nvidia
+      export GDK_BACKEND="wayland,x11"
 
       # --- SHADER CACHE (10 GB) ---
-      # export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
-      # export __GL_SHADER_DISK_CACHE_SIZE=10240
+      export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
+      export __GL_SHADER_DISK_CACHE_SIZE=10737418240
 
       # --- EJECUCIÓN CON GAMEMODE ---
       if command -v gamemoderun &> /dev/null; then

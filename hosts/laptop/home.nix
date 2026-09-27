@@ -12,6 +12,7 @@
     ../../home/pkgconf/git.nix
     ../../home/pkgconf/librewolf.nix
     ../../home/pkgconf/mangohud.nix
+    ../../home/pkgconf/millenium.nix
     ../../home/pkgconf/nautilus.nix
     ../../home/pkgconf/neovim.nix
     ../../home/pkgconf/noctalia.nix
