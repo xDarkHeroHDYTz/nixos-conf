@@ -7,7 +7,6 @@
     plugins = with pkgs.millenniumPlugins; [
       extendium
       protondb
-      steam-native-notifications
     ];
 
     extensions = [
