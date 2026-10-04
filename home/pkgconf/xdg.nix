@@ -109,10 +109,10 @@
         "image/x-adobe-dng" = [ "org.darktable.darktable.desktop" ];
         "image/tiff"        = [ "org.darktable.darktable.desktop" ];
         # --- Archivos Comprimidos ---
-        "application/zip" = [ "org.kde.ark.desktop" ];
-        "application/x-7z-compressed" = [ "org.kde.ark.desktop" ];
-        "application/x-tar" = [ "org.kde.ark.desktop" ];
-        "application/x-compressed-tar" = [ "org.kde.ark.desktop" ];
+        "application/zip" = [ "org.gnome.FileRoller.desktop" ];
+        "application/x-7z-compressed" = [ "org.gnome.FileRoller.desktop" ];
+        "application/x-tar" = [ "org.gnome.FileRoller.desktop" ];
+        "application/x-compressed-tar" = [ "org.gnome.FileRoller.desktop" ];
         # --- Documentos ---
         "application/pdf" = [ "org.pwmt.zathura.desktop" ];
         "application/epub+zip" = [ "libreoffice-writer.desktop" ];

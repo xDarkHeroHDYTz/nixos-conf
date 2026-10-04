@@ -10,6 +10,8 @@
     ../../system/core/packages.nix
 
     # Desktop
+    # ../../system/desktop/cosmic.nix
+    # ../../system/desktop/gnome.nix
     ../../system/desktop/niri.nix
     # ../../system/desktop/plasma.nix
 
