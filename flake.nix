@@ -25,6 +25,10 @@
       url = "github:re1n0/nixos-millennium";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    artcraft = {
+      url = "github:Hy4ri/artcraft-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }:
@@ -46,6 +50,7 @@
         {
           nixpkgs.overlays = [
             inputs.nix-cachyos-kernel.overlays.pinned
+            inputs.artcraft.overlays.default
           ];
         }
         inputs.stylix.nixosModules.stylix

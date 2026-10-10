@@ -64,6 +64,15 @@
         categories = [ "Network" "WebBrowser" ];
         mimeType = [ "text/html" "x-scheme-handler/http" "x-scheme-handler/https" ];
       };
+      aria2-torrent = {
+        name = "Aria2 Downloader (Terminal)";
+        genericName = "Gestor de Descargas Torrent";
+        exec = "ghostty -e aria2c -d ${config.xdg.userDirs.download} %F";
+        icon = "network-workgroup";
+        terminal = false;
+        categories = [ "Network" "FileTransfer" ];
+        mimeType = [ "application/x-bittorrent" "x-scheme-handler/magnet" ];
+      };
     };
     mimeApps = {
       enable = true;
@@ -127,6 +136,9 @@
         "x-scheme-handler/about" = [ "librewolf.desktop" ];
         "x-scheme-handler/unknown" = [ "librewolf.desktop" ];
         "x-scheme-handler/discord" = [ "vesktop.desktop" ];
+        # --- Torrents y Magnets manejados por aria2 ---
+        "application/x-bittorrent" = [ "aria2-torrent.desktop" ];
+        "x-scheme-handler/magnet"  = [ "aria2-torrent.desktop" ];
       };
     };
   };
