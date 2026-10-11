@@ -1,8 +1,11 @@
 { config, ... }:
 
 {
-  sops.secrets = {
-    "git_token" = {};
+  sops.secrets."git_token" = {};
+
+  # Creamos un template seguro que sops-nix rellena en tiempo de ejecución
+  sops.templates."git-credentials" = {
+    content = "https://xDarkHeroHDYTz:${config.sops.placeholder.git_token}@github.com\n";
   };
 
   programs.git = {
@@ -14,6 +17,9 @@
       };
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
-      credential.helper = "!f() { if [ \"\$1\" = \"get\" ]; then echo \"username=xDarkHeroHDYTz\"; echo \"password=$(cat ${config.sops.secrets.git_token.path})\"; fi; }; f";    };
+
+      # Usamos el helper 'store' apuntando directamente al archivo generado por sops-nix
+      credential.helper = "store --file ${config.sops.templates."git-credentials".path}";
+    };
   };
 }
