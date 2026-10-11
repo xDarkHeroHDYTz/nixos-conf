@@ -5,9 +5,11 @@
   home.homeDirectory = "/home/lisandro";
 
   imports = [
+    # niri config
     inputs.niri.homeModules.niri
     ../../home/niri/settings-pc.nix
 
+    # Packages configurations
     ../../home/pkgconf/gaming-variables.nix
     ../../home/pkgconf/git.nix
     ../../home/pkgconf/librewolf.nix
@@ -20,6 +22,9 @@
     ../../home/pkgconf/vesktop.nix
     ../../home/pkgconf/xdg.nix
     ../../home/pkgconf/zed-editor.nix
+
+    # Secrets
+    ../../home/secrets/secrets.nix
   ];
 
   programs = {

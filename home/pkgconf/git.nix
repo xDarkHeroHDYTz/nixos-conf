@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   programs.git = {
@@ -8,15 +8,9 @@
         name = "xDarkHeroHDYTz";
         email = "ggprocrack901@gmail.com";
       };
-      init = {
-        defaultBranch = "main";
-      };
-      push = {
-        autoSetupRemote = true;
-      };
-      credential = {
-        helper = "store";
-      };
+      init.defaultBranch = "main";
+      push.autoSetupRemote = true;
+      credential.helper = "!f() { if [ \"\$1\" = \"get\" ]; then echo \"password=$(cat ${config.sops.secrets.git_token.path})\"; fi; }; f";
     };
   };
 }

@@ -79,6 +79,14 @@
     libheif.out
     librsvg
     rembg
+    # Artcraft suite
+    photocraft
+    vectorcraft
+    filmcraft
+    lightcraft
+    pdfcraft
+    effectcraft
+    designcraft
 
     # --- PRODUCTIVIDAD, GESTIÓN Y UTILIDADES ---
     gnome-calculator

@@ -11,6 +11,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sops-nix = {
+      url = "github:mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,6 +30,7 @@
       url = "github:re1n0/nixos-millennium";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     artcraft = {
       url = "github:Hy4ri/artcraft-flake";
       inputs.nixpkgs.follows = "nixpkgs";
