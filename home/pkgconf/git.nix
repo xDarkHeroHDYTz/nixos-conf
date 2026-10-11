@@ -1,6 +1,10 @@
 { config, ... }:
 
 {
+  sops.secrets = {
+    "git_token" = {};
+  };
+
   programs.git = {
     enable = true;
     settings = {
@@ -10,7 +14,6 @@
       };
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
-      credential.helper = "!f() { if [ \"\$1\" = \"get\" ]; then echo \"password=$(cat ${config.sops.secrets.git_token.path})\"; fi; }; f";
-    };
+      credential.helper = "!f() { if [ \"\$1\" = \"get\" ]; then echo \"username=xDarkHeroHDYTz\"; echo \"password=$(cat ${config.sops.secrets.git_token.path})\"; fi; }; f";    };
   };
 }

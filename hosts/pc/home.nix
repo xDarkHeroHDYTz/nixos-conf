@@ -24,6 +24,7 @@
     ../../home/pkgconf/zed-editor.nix
 
     # Secrets
+    inputs.sops-nix.homeManagerModules.sops
     ../../home/secrets/secrets.nix
   ];
 
