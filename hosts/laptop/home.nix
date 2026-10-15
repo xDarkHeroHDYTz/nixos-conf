@@ -90,9 +90,10 @@
     vectorcraft
     filmcraft
     lightcraft
-    pdfcraft
     effectcraft
     designcraft
+    cadcraft
+    soundcraft
 
     # --- PRODUCTIVIDAD, GESTIÓN Y UTILIDADES ---
     gnome-calculator
