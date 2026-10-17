@@ -31,7 +31,7 @@
       dash-to-dock
       just-perfection
       tiling-assistant
-      vitals
+      # vitals
     ]);
   };
 }

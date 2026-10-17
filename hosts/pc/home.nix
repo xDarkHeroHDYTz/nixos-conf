@@ -5,9 +5,10 @@
   home.homeDirectory = "/home/lisandro";
 
   imports = [
-    # niri config
+    # Desktop enviroment config
     inputs.niri.homeModules.niri
     ../../home/niri/settings-pc.nix
+    ../../home/pkgconf/noctalia.nix
 
     # Packages configurations
     ../../home/pkgconf/gaming-variables.nix
@@ -17,7 +18,6 @@
     ../../home/pkgconf/millenium.nix
     ../../home/pkgconf/nautilus.nix
     ../../home/pkgconf/neovim.nix
-    ../../home/pkgconf/noctalia.nix
     ../../home/pkgconf/terminal.nix
     ../../home/pkgconf/vesktop.nix
     ../../home/pkgconf/xdg.nix
