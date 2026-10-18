@@ -16,6 +16,7 @@
   ];
 
   programs.localsend.enable = true;
+  programs.direnv.enable = true;
   programs.nix-ld.enable = true;
   nixpkgs.config.allowUnfree = true;
 }
