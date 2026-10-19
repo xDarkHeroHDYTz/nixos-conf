@@ -7,11 +7,16 @@
   };
 
   environment.cosmic.excludePackages = with pkgs; [
-    cosmic-term
-    cosmic-edit
-    # cosmic-files
-    cosmic-player
+    # --- Editores, Terminales y Gestores de Archivos ---
+    cosmic-term   # Reemplazado por Ghostty
+    cosmic-edit   # Reemplazado por Neovim / Zed
+    cosmic-files  # Reemplazado por Nautilus
+
+    # --- Multimedia, Tienda y Utilidades ---
+    cosmic-player # Reemplazado por MPV
     cosmic-randr
+    cosmic-store  # Redundante (las aplicaciones se gestionan de forma declarativa con Nix/Flakes)
+    cosmic-reader # Reemplazado por Zathura / Okular
   ];
 
   xdg.portal = {
