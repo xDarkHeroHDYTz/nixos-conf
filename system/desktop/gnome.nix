@@ -8,19 +8,35 @@
 
   environment = {
     gnome.excludePackages = with pkgs; [
+      # --- Navegador, Correo y Multimedia Base ---
       gnome-tour
-      epiphany
+      epiphany # Reemplazado por LibreWolf
       geary
-      totem
-      evince
+      totem    # Reemplazado por MPV
+      evince   # Reemplazado por Zathura / Okular
+      gnome-music # Reemplazado por Cliamp
+
+      # --- Terminales y Editores (Reemplazados por Ghostty, Neovim y Zed) ---
       gnome-terminal
       gnome-console
-      gnome-system-monitor
       gnome-text-editor
       gedit
-      gnome-music
-    ];
 
+      # --- Monitorización y Diagnóstico (Reemplazado por btop) ---
+      gnome-system-monitor
+      gnome-logs
+
+      # --- Aplicaciones Personales y Accesorios Redundantes ---
+      gnome-contacts
+      gnome-maps
+      gnome-weather
+      gnome-clocks
+      gnome-calendar
+      gnome-characters
+      yelp                 # Visor de ayuda y documentación
+      rygel                # Servidor multimedia UPnP/DLNA
+      gnome-remote-desktop # Escritorio remoto integrado
+    ];
 
     systemPackages = with pkgs; [
       gnome-extension-manager
