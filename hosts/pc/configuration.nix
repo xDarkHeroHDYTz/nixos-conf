@@ -26,7 +26,7 @@
     ../../system/hardware/power.nix
 
     # Services
-    ../../system/services/ai.nix
+    # ../../system/services/ai.nix
     ../../system/services/audio.nix
     ../../system/services/flatpak.nix
     ../../system/services/gaming.nix
