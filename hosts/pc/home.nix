@@ -72,15 +72,15 @@
     retroarch-joypad-autoconfig
 
     # --- MULTIMEDIA (AUDIO, VIDEO, IMAGEN Y EDICIÓN) ---
-    audacity
+    pkgs-stable.audacity
     (blender.override { cudaSupport = true; })
     cliamp
-    darktable
+    # darktable
     exiftool
     ffmpeg
-    gimp
-    inkscape
-    kdePackages.kdenlive
+    # gimp
+    # inkscape
+    # kdePackages.kdenlive
     libheif
     libheif.out
     librsvg
