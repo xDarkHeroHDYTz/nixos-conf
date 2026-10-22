@@ -4,7 +4,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-26.05";
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -55,10 +56,10 @@
         configurationPath
         {
           nixpkgs.overlays = [
-            inputs.nix-cachyos-kernel.overlays.pinned
             inputs.artcraft.overlays.default
           ];
         }
+        inputs.chaotic.nixosModules.default
         inputs.stylix.nixosModules.stylix
         inputs.nixos-millennium.nixosModules.default
         home-manager.nixosModules.home-manager

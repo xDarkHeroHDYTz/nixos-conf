@@ -2,7 +2,7 @@
 
 {
   boot = {
-    kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto-x86_64-v3;
+    kernelPackages = pkgs.linuxPackages_cachyos;
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
