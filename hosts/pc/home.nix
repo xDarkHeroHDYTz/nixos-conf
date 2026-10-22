@@ -85,7 +85,7 @@
     libheif.out
     librsvg
     rembg
-    # Artcraft suite
+    # - ArtCraft Suite -
     photocraft
     vectorcraft
     filmcraft
@@ -98,7 +98,7 @@
     # --- PRODUCTIVIDAD, GESTIÓN Y UTILIDADES ---
     gnome-calculator
     gnome-disk-utility
-    kdePackages.okular
+    # kdePackages.okular
     libreoffice
 
     # --- OVERRIDES ---
