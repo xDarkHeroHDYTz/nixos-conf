@@ -32,6 +32,7 @@
     ../../system/services/gaming.nix
     ../../system/services/keyring.nix
     ../../system/services/nix.nix
+    # ../../system/services/remote.nix
     ../../system/services/stylix.nix
     ../../system/services/system.nix
     ../../system/services/virtualization.nix
