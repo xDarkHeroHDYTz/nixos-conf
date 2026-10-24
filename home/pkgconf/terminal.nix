@@ -28,6 +28,7 @@
     '';
     interactiveShellInit = ''
       fastfetch
+      direnv hook fish | source
     '';
   };
 
