@@ -10,18 +10,19 @@ in
     "Ctrl+Alt+Delete".action = actions.quit;
 
     # --- NOCTALIA INTERFACE ---
-    "Mod+Escape".action = actions.spawn "noctalia" "msg" "panel-toggle" "session";
-    "Mod+Ctrl+C".action = actions.spawn "noctalia" "msg" "panel-toggle" "control-center";
-    "Mod+Space".action = actions.spawn "noctalia" "msg" "panel-toggle" "launcher";
     "Mod+I".action = actions.spawn "noctalia" "msg" "settings-open";
-
-    # --- PORTAPAPELES (HISTORIAL Y LIMPIEZA) ---
-    "Mod+V".action = actions.spawn "noctalia" "msg" "panel-open" "launcher" "clipboard";
-    "Mod+Shift+V".action = actions.spawn "noctalia" "msg" "clipboard-clear";
+    "Mod+Space".action = actions.spawn "noctalia" "msg" "panel-toggle" "launcher";
+    "Mod+Ctrl+C".action = actions.spawn "noctalia" "msg" "panel-toggle" "control-center";
+    "Mod+Escape".action = actions.spawn "noctalia" "msg" "panel-toggle" "session";
+    "Mod+U".action = actions.spawn "noctalia" "msg" "panel-toggle" "avivbintangaringga/nix-monitor:panel";
+    "Mod+W".action = actions.spawn "noctalia" "msg" "panel-toggle" "wallpaper";
+    "Mod+Shift+W".action = actions.spawn "noctalia" "msg" "panel-toggle" "noctalia/wallhaven:browser";
+    "Mod+V".action = actions.spawn "noctalia" "msg" "panel-toggle" "clipboard";
 
     # --- NOTIFICACIONES, ENERGÍA Y UTILIDADES ---
-    "Mod+N".action = actions.spawn "noctalia" "msg" "notification-dnd-toggle";
+    "Mod+Shift+V".action = actions.spawn "noctalia" "msg" "clipboard-clear";
     "Mod+Shift+N".action = actions.spawn "noctalia" "msg" "notification-clear-history";
+    "Mod+N".action = actions.spawn "noctalia" "msg" "notification-dnd-toggle";
     "Mod+P".action = actions.spawn "noctalia" "msg" "power-cycle";
     "Mod+C".action = actions.spawn "noctalia" "msg" "caffeine-toggle";
 
