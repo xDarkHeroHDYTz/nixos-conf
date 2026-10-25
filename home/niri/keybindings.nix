@@ -38,7 +38,7 @@ in
     "Mod+Q".action = actions.close-window;
     "Mod+T".action = actions.toggle-window-floating;
     "Mod+Shift+T".action = actions.switch-focus-between-floating-and-tiling;
-    "Mod+Semicolon".action = actions.toggle-column-tabbed-display;
+    "Mod+Z".action = actions.toggle-column-tabbed-display;
     "Mod+O".action = actions.toggle-overview;
 
     # --- ANCHO DE COLUMNAS Y DIMENSIONES (PRESETS) ---
@@ -50,8 +50,8 @@ in
     # --- CONSUMO Y EXPULSIÓN DE VENTANAS EN COLUMNAS ---
     "Mod+G".action = actions.consume-window-into-column;
     "Mod+Alt+G".action = actions.expel-window-from-column;
-    "Mod+BracketLeft".action = actions.consume-or-expel-window-left;
-    "Mod+BracketRight".action = actions.consume-or-expel-window-right;
+    "Mod+Comma".action = actions.consume-or-expel-window-left;
+    "Mod+Period".action = actions.consume-or-expel-window-right;
 
     # --- NAVEGACIÓN DE FOCO ---
     "Mod+H".action = actions.focus-column-left;
