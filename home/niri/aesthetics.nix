@@ -55,6 +55,19 @@
       default-column-width = { proportion = 0.5; };
       background-color = "transparent";
       shadow.enable = true;
+      tab-indicator = {
+        enable = true;
+        position = "top";
+        gap = 4;
+        length.total-proportion = 1.0;
+        width = 8;
+        active = {
+          color = "${config.lib.stylix.colors.withHashtag.base0D}";
+        };
+        inactive = {
+          color = "${config.lib.stylix.colors.withHashtag.base01}50";
+        };
+      };
 
       focus-ring = {
         enable = true;
