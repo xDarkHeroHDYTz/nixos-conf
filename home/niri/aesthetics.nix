@@ -57,15 +57,21 @@
       shadow.enable = true;
       tab-indicator = {
         enable = true;
-        position = "top";
-        gap = 4;
-        length.total-proportion = 1.0;
-        width = 8;
+        position = "left";
+        gap = 5;
+        length = {
+          total-proportion = 0.75;
+        };
+        width = 7;
         active = {
-          color = "${config.lib.stylix.colors.withHashtag.base0D}";
+          gradient = {
+            from = "${config.lib.stylix.colors.withHashtag.base0D}";
+            to = "${config.lib.stylix.colors.withHashtag.base0E}";
+            angle = 90;
+          };
         };
         inactive = {
-          color = "${config.lib.stylix.colors.withHashtag.base01}50";
+          color = "${config.lib.stylix.colors.withHashtag.base03}80";
         };
       };
 
