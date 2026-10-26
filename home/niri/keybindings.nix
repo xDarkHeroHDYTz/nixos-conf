@@ -18,6 +18,7 @@ in
     "Mod+W" = { action = actions.spawn "noctalia" "msg" "panel-toggle" "wallpaper"; hotkey-overlay.title = "Toggle Wallpapers"; };
     "Mod+Shift+W" = { action = actions.spawn "noctalia" "msg" "panel-toggle" "noctalia/wallhaven:browser"; hotkey-overlay.title = "Wallhaven Browser"; };
     "Mod+V" = { action = actions.spawn "noctalia" "msg" "panel-toggle" "clipboard"; hotkey-overlay.title = "Clipboard History"; };
+    "Mod+M" = { action = actions.spawn "noctalia" "msg" "panel-toggle" "marccvictoria/llamanager:panel"; hotkey-overlay.title = "Toggle Llamanager Panel"; };
 
     # --- NOTIFICACIONES, ENERGÍA Y UTILIDADES ---
     "Mod+Shift+V" = { action = actions.spawn "noctalia" "msg" "clipboard-clear"; hotkey-overlay.title = "Clear Clipboard"; };
