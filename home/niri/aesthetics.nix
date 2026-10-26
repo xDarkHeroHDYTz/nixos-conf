@@ -67,11 +67,11 @@
           gradient = {
             from = "${config.lib.stylix.colors.withHashtag.base0D}";
             to = "${config.lib.stylix.colors.withHashtag.base0E}";
-            angle = 90;
+            angle = 45;
           };
         };
         inactive = {
-          color = "${config.lib.stylix.colors.withHashtag.base03}80";
+          color = "${config.lib.stylix.colors.withHashtag.base02}B0";
         };
       };
 
