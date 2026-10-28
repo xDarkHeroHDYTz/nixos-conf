@@ -12,6 +12,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     sops-nix = {
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -60,6 +65,7 @@
           ];
         }
         inputs.chaotic.nixosModules.default
+        inputs.lanzaboote.nixosModules.lanzaboote
         inputs.stylix.nixosModules.stylix
         inputs.nixos-millennium.nixosModules.default
         home-manager.nixosModules.home-manager
