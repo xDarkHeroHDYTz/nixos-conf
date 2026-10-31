@@ -2,26 +2,34 @@
 
 {
   environment.systemPackages = with pkgs; [
+    # --- Utilidades de Terminal & CLI ---
     bat
-    ddcutil
     fastfetch
     fzf
     neovim
-    nvme-cli
-    smartmontools
     tealdeer
     tree
     wget
     zellij
+
+    # --- Hardware, Discos & Monitores ---
+    ddcutil
+    nvme-cli
+    smartmontools
+
+    # --- Seguridad, Cifrado & Boot ---
+    cryptsetup
+    sbctl
+    tpm2-tss
   ];
 
-  programs.localsend.enable = true;
-  programs.nix-ld.enable = true;
   programs.direnv = {
     enable = true;
-    nix-direnv.enable = true;
     enableFishIntegration = true;
+    nix-direnv.enable = true;
   };
+  programs.localsend.enable = true;
+  programs.nix-ld.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 }
