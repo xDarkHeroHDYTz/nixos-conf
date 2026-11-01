@@ -1,6 +1,10 @@
 { config, ... }:
 
 {
+  imports = [
+    ./include-effects.nix
+  ];
+
   programs.niri.settings = {
     layer-rules = [
       {
@@ -27,18 +31,22 @@
         };
         clip-to-geometry = true;
       }
+
       {
         matches = [ { is-active = false; } ];
         opacity = 0.96;
       }
+
       {
         matches = [ { app-id = "^mpv$"; } ];
         variable-refresh-rate = true;
       }
+
       {
         matches = [ { app-id = "(?i)^(steam_app_.*|cs2|hoi4|efootball.exe)$"; } ];
         variable-refresh-rate = true;
       }
+
       {
         matches = [ { app-id = "(?i)^steam$"; title = "(?i)^notificationtoasts"; } ];
         open-floating = true;
@@ -55,18 +63,19 @@
       default-column-width = { proportion = 0.5; };
       background-color = "transparent";
       shadow.enable = true;
+
       tab-indicator = {
         enable = true;
         position = "left";
-        gap = 5;
+        gap = 4;
         length = {
           total-proportion = 0.75;
         };
-        width = 7;
+        width = 6;
         active = {
           gradient = {
             from = "${config.lib.stylix.colors.withHashtag.base0D}";
-            to = "${config.lib.stylix.colors.withHashtag.base0E}";
+            to = "${config.lib.stylix.colors.withHashtag.base0C}";
             angle = 45;
           };
         };
@@ -80,7 +89,7 @@
         width = 2;
         active.gradient = {
           from = "${config.lib.stylix.colors.withHashtag.base0D}a0";
-          to = "${config.lib.stylix.colors.withHashtag.base0E}20";
+          to = "${config.lib.stylix.colors.withHashtag.base0C}20";
           angle = 45;
           relative-to = "workspace-view";
         };

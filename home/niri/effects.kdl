@@ -1,0 +1,12 @@
+// =============================================
+// WINDOW GLASS EFFECT
+// =============================================
+
+window-rule {
+    background-effect {
+        blur true
+        xray true
+        noise 0.03
+        saturation 1.4
+    }
+}
