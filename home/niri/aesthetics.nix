@@ -67,11 +67,11 @@
       tab-indicator = {
         enable = true;
         position = "left";
-        gap = 4;
+        gap = 5;
         length = {
           total-proportion = 0.75;
         };
-        width = 6;
+        width = 5;
         active = {
           gradient = {
             from = "${config.lib.stylix.colors.withHashtag.base0D}";
