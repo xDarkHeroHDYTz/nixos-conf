@@ -3,7 +3,8 @@
 {
   stylix = {
     image = ../../wallpapers/wallhaven-5gvx23.jpg;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
+    base16Scheme = ./gruvbox-red.yaml;
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
 
     icons = {
       enable = true;

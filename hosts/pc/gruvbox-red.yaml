@@ -1,0 +1,25 @@
+
+scheme: "Gruvbox Dark Hard Red"
+author: "Custom Gruvbox modification"
+
+# Background colors
+base00: "1d2021"
+base01: "3c3836"
+base02: "504945"
+base03: "665c54"
+
+# Foreground colors
+base04: "bdae93"
+base05: "d5c4a1"
+base06: "ebdbb2"
+base07: "fbf1c7"
+
+# Accent colors
+base08: "83a598"
+base09: "d3869b"
+base0A: "8ec07c"
+base0B: "b8bb26"
+base0C: "fabd2f"
+base0D: "fb4934"
+base0E: "fe8019"
+base0F: "d65d0e"
