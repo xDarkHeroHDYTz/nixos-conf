@@ -32,13 +32,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    artcraft = {
+      url = "github:Hy4ri/artcraft-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixos-millennium = {
       url = "github:re1n0/nixos-millennium";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    artcraft = {
-      url = "github:Hy4ri/artcraft-flake";
+    nur = {
+      url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -56,24 +61,32 @@
       specialArgs = {
         inherit inputs pkgs-stable;
       };
+
       modules = [
         { nixpkgs.hostPlatform = system; }
+
         configurationPath
+
         {
           nixpkgs.overlays = [
             inputs.artcraft.overlays.default
+            inputs.nur.overlays.default
           ];
         }
+
         inputs.chaotic.nixosModules.default
         inputs.lanzaboote.nixosModules.lanzaboote
         inputs.stylix.nixosModules.stylix
         inputs.nixos-millennium.nixosModules.default
+
         home-manager.nixosModules.home-manager
+
         {
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
             backupFileExtension = "backup";
+
             extraSpecialArgs = {
               inherit inputs pkgs-stable;
             };
