@@ -54,37 +54,37 @@
         {
           type = "host";
           key = "󰌢  PC";
-          keyColor = "${config.lib.stylix.colors.withHashtag.base09}";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0E}";
         }
         {
           type = "cpu";
           key = "│ ├ ";
-          keyColor = "${config.lib.stylix.colors.withHashtag.base09}";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0E}";
         }
         {
           type = "gpu";
           key = "│ ├󰢮 ";
-          keyColor = "${config.lib.stylix.colors.withHashtag.base09}";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0E}";
         }
         {
           type = "display";
           key = "│ ├󰍹 ";
-          keyColor = "${config.lib.stylix.colors.withHashtag.base09}";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0E}";
         }
         {
           type = "memory";
           key = "│ ├󰑭 ";
-          keyColor = "${config.lib.stylix.colors.withHashtag.base09}";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0E}";
         }
         {
           type = "swap";
           key = "│ ├󰓡 ";
-          keyColor = "${config.lib.stylix.colors.withHashtag.base09}";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0E}";
         }
         {
           type = "disk";
           key = "└ └󰋊 ";
-          keyColor = "${config.lib.stylix.colors.withHashtag.base09}";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0E}";
         }
         {
           type = "custom";
@@ -98,72 +98,72 @@
         {
           type = "os";
           key = "  OS";
-          keyColor = "${config.lib.stylix.colors.withHashtag.base0A}";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0D}";
         }
         {
           type = "kernel";
           key = "│ ├󰌽 ";
-          keyColor = "${config.lib.stylix.colors.withHashtag.base0A}";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0D}";
         }
         {
           type = "bios";
           key = "│ ├󰖡 ";
-          keyColor = "${config.lib.stylix.colors.withHashtag.base0A}";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0D}";
         }
         {
           type = "packages";
           key = "│ ├󰏗 ";
-          keyColor = "${config.lib.stylix.colors.withHashtag.base0A}";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0D}";
         }
         {
           type = "shell";
           key = "└ └󰞷 ";
-          keyColor = "${config.lib.stylix.colors.withHashtag.base0A}";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0D}";
         }
         "break"
         {
           type = "de";
           key = "󰧨  DE";
-          keyColor = "${config.lib.stylix.colors.withHashtag.base0D}";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0C}";
         }
         {
           type = "wm";
           key = "│ ├󱂬 ";
-          keyColor = "${config.lib.stylix.colors.withHashtag.base0D}";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0C}";
         }
         {
           type = "icons";
           key = "│ ├󰀻 ";
-          keyColor = "${config.lib.stylix.colors.withHashtag.base0D}";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0C}";
           format = "{1}";
         }
         {
           type = "cursor";
           key = "│ ├󰆿 ";
-          keyColor = "${config.lib.stylix.colors.withHashtag.base0D}";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0C}";
         }
         {
           type = "custom";
           key = "│ ├󰛖 ";
-          keyColor = "${config.lib.stylix.colors.withHashtag.base0D}";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0C}";
           format = "Mono: ${config.stylix.fonts.monospace.name}";
         }
         {
           type = "custom";
           key = "│ ├󰛖 ";
-          keyColor = "${config.lib.stylix.colors.withHashtag.base0D}";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0C}";
           format = "Sans: ${config.stylix.fonts.sansSerif.name}";
         }
         {
           type = "custom";
           key = "│ ├󰛖 ";
-          keyColor = "${config.lib.stylix.colors.withHashtag.base0D}";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0C}";
           format = "Serif: ${config.stylix.fonts.serif.name}";
         }
         {
           type = "terminal";
           key = "└ └󰆍 ";
-          keyColor = "${config.lib.stylix.colors.withHashtag.base0D}";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0C}";
         }
         {
           type = "custom";
