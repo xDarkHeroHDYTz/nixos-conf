@@ -2,24 +2,22 @@
 scheme: "Gruvbox Dark Hard Red"
 author: "Custom Gruvbox modification"
 
-# Background colors
-base00: "1d2021"
-base01: "3c3836"
-base02: "504945"
-base03: "665c54"
+# TONOS NEUTROS Y DE INTERFAZ (Gruvbox Dark Hard)
+base00: "1d2021" # Background (Hard)
+base01: "282828" # Background Alt / Status Bars
+base02: "3c3836" # Selection Background / Highlighting
+base03: "504945" # Comments / Disabled Text
+base04: "bdae93" # Dark Foreground / Subtle Text
+base05: "d5c4a1" # Default Foreground (Texto principal)
+base06: "ebdbb2" # Light Foreground
+base07: "fbf1c7" # Light Background / Bright Text
 
-# Foreground colors
-base04: "bdae93"
-base05: "d5c4a1"
-base06: "ebdbb2"
-base07: "fbf1c7"
-
-# Accent colors
-base08: "83a598"
-base09: "d3869b"
-base0A: "8ec07c"
-base0B: "b8bb26"
-base0C: "fabd2f"
-base0D: "fb4934"
-base0E: "fe8019"
-base0F: "d65d0e"
+# PALETA SINTÁCTICA INVERTIDA (Cálidos <-> Fríos)
+base08: "83a598" # Variables / Errores  -> Originalmente Red, ahora Blue
+base09: "8ec07c" # Constantes / Números -> Originalmente Orange, ahora Aqua
+base0A: "b8bb26" # Clases / Tipos       -> Originalmente Yellow, ahora Green
+base0B: "fabd2f" # Strings / Adiciones  -> Originalmente Green, ahora Yellow
+base0C: "fe8019" # Regex / Escapes     -> Originalmente Aqua, ahora Orange
+base0D: "fb4934" # Funciones / Métodos  -> Originalmente Blue, ahora Red
+base0E: "d3869b" # Keywords / Control  -> Purple (Mantener balance)
+base0F: "d65d0e" # Delimitadores / Alt -> Brown / Orange Alt
