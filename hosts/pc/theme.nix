@@ -2,8 +2,8 @@
 
 {
   stylix = {
-    image = ../../wallpapers/wallhaven-5gvx23.jpg;
-    base16Scheme = ./gruvbox-red.yaml;
+    image = ../../wallpapers/wallhaven-xlger3.jpg;
+    base16Scheme = ./gruvbox-warm.yaml;
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
 
     icons = {
@@ -11,7 +11,7 @@
       dark = "Gruvbox-Plus-Dark";
       light = "Gruvbox-Plus-Light";
       package = pkgs.gruvbox-plus-icons.override {
-        folder-color = "red";
+        folder-color = "orange";
       };
     };
   };
