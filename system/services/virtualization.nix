@@ -34,6 +34,7 @@
     dnsmasq
     virglrenderer
     vulkan-tools
+    virtiofsd
   ];
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
