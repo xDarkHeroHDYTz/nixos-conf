@@ -2,6 +2,9 @@
 
 let
   actions = config.lib.niri.actions;
+  terminal = "ghostty";
+  browser = "librewolf";
+  filemanager = "nautilus";
 in
 {
   programs.niri.settings.binds = {
@@ -28,13 +31,13 @@ in
     "Mod+C" = { action = actions.spawn "noctalia" "msg" "caffeine-toggle"; hotkey-overlay.title = "Toggle Caffeine"; };
 
     # --- APLICACIONES ---
-    "Mod+Return" = { action = actions.spawn "ghostty"; hotkey-overlay.title = "Terminal (Ghostty)"; };
-    "Mod+Shift+Return" = { action = actions.spawn "librewolf"; hotkey-overlay.title = "Browser (LibreWolf)"; };
-    "Mod+B" = { action = actions.spawn "librewolf"; hotkey-overlay.title = "Browser (LibreWolf)"; };
-    "Mod+Alt+B" = { action = actions.spawn "librewolf" "-p" "private"; hotkey-overlay.title = "Private Browser"; };
-    "Mod+E" = { action = actions.spawn "nautilus"; hotkey-overlay.title = "File Manager"; };
-    "Mod+Ctrl+A" = { action = actions.spawn "ghostty" "-e" "wiremix"; hotkey-overlay.title = "Audio Mixer (Wiremix)"; };
-    "Mod+Ctrl+M" = { action = actions.spawn "ghostty" "-e" "cliamp" "${config.xdg.userDirs.music}"; hotkey-overlay.title = "Music Client"; };
+    "Mod+Return" = { action = actions.spawn "${terminal}"; hotkey-overlay.title = "Terminal"; };
+    "Mod+Shift+Return" = { action = actions.spawn "${browser}"; hotkey-overlay.title = "Browser"; };
+    "Mod+B" = { action = actions.spawn "${browser}"; hotkey-overlay.title = "Browser"; };
+    "Mod+Alt+B" = { action = actions.spawn "${browser}" "-p" "private"; hotkey-overlay.title = "Private Browser"; };
+    "Mod+E" = { action = actions.spawn "${filemanager}"; hotkey-overlay.title = "File Manager"; };
+    "Mod+Ctrl+A" = { action = actions.spawn "${terminal}" "-e" "wiremix"; hotkey-overlay.title = "Audio Mixer (Wiremix)"; };
+    "Mod+Ctrl+M" = { action = actions.spawn "${terminal}" "-e" "cliamp" "${config.xdg.userDirs.music}"; hotkey-overlay.title = "Music Client"; };
 
     # --- GESTIÓN DE VENTANAS Y PANELES ---
     "Mod+Q" = { action = actions.close-window; hotkey-overlay.title = "Close Window"; };

@@ -10,7 +10,7 @@
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     # --- Terminal, Editores y Gestores de Archivos ---
-    konsole      # Reemplazado por Ghostty
+    konsole      # Reemplazado
     kate         # Reemplazado por Neovim / Zed
     kwrite       # Reemplazado por Neovim / Zed
     dolphin      # Reemplazado por Nautilus

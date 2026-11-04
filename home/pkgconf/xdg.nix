@@ -1,5 +1,8 @@
 { config, ... }:
 
+let
+  terminal = "ghostty";
+in
 {
   xdg = {
     enable = true;
@@ -21,10 +24,10 @@
         exec = "nvim";
         noDisplay = true;
       };
-      nvim-nautilus = {
+      nvim-terminal = {
         name = "Neovim (Terminal)";
         genericName = "Editor de Texto";
-        exec = "ghostty -e nvim %F";
+        exec = "${terminal} -e nvim %F";
         icon = "nvim";
         terminal = false;
         categories = [ "Utility" "TextEditor" ];
@@ -32,7 +35,7 @@
       };
       bat-viewer = {
         name = "BAT Viewer (Terminal)";
-        exec = "ghostty -e bat %F";
+        exec = "${terminal} -e bat %F";
         icon = "text-editor";
         terminal = false;
         categories = [ "Utility" "TextEditor" ];
@@ -41,7 +44,7 @@
       cliamp = {
         name = "Cliamp";
         genericName = "Reproductor de Música";
-        exec = "ghostty -e cliamp ${config.xdg.userDirs.music}";
+        exec = "${terminal} -e cliamp ${config.xdg.userDirs.music}";
         icon = "multimedia-audio-player";
         terminal = false;
         categories = [ "AudioVideo" "Audio" "Player" ];
@@ -50,7 +53,7 @@
       wiremix = {
         name = "Wiremix";
         genericName = "Control de Volumen";
-        exec = "ghostty -e wiremix";
+        exec = "${terminal} -e wiremix";
         icon = "multimedia-volume-control";
         terminal = false;
         categories = [ "AudioVideo" "Audio" "Mixer" ];
@@ -67,7 +70,7 @@
       aria2-torrent = {
         name = "Aria2 Downloader (Terminal)";
         genericName = "Gestor de Descargas Torrent";
-        exec = "ghostty -e aria2c -d ${config.xdg.userDirs.download} %F";
+        exec = "${terminal} -e aria2c -d ${config.xdg.userDirs.download} %F";
         icon = "network-workgroup";
         terminal = false;
         categories = [ "Network" "FileTransfer" ];
@@ -77,15 +80,15 @@
     mimeApps = {
       enable = true;
       defaultApplications = {
-        # --- Texto, Código y Configuración (Neovim / Ghostty) ---
-        "text/plain" = [ "nvim-nautilus.desktop" ];
+        # --- Texto, Código y Configuración (Neovim / Terminal) ---
+        "text/plain" = [ "nvim-terminal.desktop" ];
         "text/markdown" = [ "obsidian.desktop" ];
         "text/x-nix" = [ "dev.zed.Zed.desktop" ];
-        "application/x-shellscript" = [ "nvim-nautilus.desktop" ];
-        "application/x-yaml" = [ "nvim-nautilus.desktop" ];
-        "application/json" = [ "nvim-nautilus.desktop" ];
-        "application/xml" = [ "nvim-nautilus.desktop" ];
-        "text/css" = [ "nvim-nautilus.desktop" ];
+        "application/x-shellscript" = [ "nvim-terminal.desktop" ];
+        "application/x-yaml" = [ "nvim-terminal.desktop" ];
+        "application/json" = [ "nvim-terminal.desktop" ];
+        "application/xml" = [ "nvim-terminal.desktop" ];
+        "text/css" = [ "nvim-terminal.desktop" ];
         # --- Visualización de Texto por Terminal (bat) ---
         # Si creas una entrada .desktop para bat, puedes mapear lecturas rápidas:
         "text/x-log" = [ "bat-viewer.desktop" ];

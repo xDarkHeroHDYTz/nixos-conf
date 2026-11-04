@@ -10,7 +10,7 @@
     gnome.excludePackages = with pkgs; [
       # --- Navegador, Correo y Multimedia Base ---
       gnome-tour
-      epiphany # Reemplazado por LibreWolf
+      epiphany # Navegador reemplazado
       geary
       totem    # Reemplazado por MPV
       evince   # Reemplazado por Zathura / Okular
