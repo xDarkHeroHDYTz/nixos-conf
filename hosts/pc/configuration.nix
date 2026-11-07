@@ -6,6 +6,7 @@
     ./theme.nix
 
     # Core
+    ../../system/core/autoupgrade.nix
     ../../system/core/boot.nix
     ../../system/core/packages.nix
 
