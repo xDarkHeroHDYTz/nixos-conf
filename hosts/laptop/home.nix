@@ -11,7 +11,7 @@
     ../../home/pkgconf/noctalia.nix
 
     # Packages configurations
-    # ../../home/pkgconf/cybersecurity.nix
+    ../../home/pkgconf/cybersecurity.nix
     ../../home/pkgconf/gaming-variables.nix
     ../../home/pkgconf/git.nix
     ../../home/pkgconf/librewolf.nix
