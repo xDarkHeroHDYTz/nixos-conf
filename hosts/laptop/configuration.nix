@@ -72,9 +72,9 @@
   # --- INTEL UNDERVOLT (Reduce temperaturas del i7-8750H) ---
   services.undervolt = {
     enable = true;
-    coreOffset = -165;
+    coreOffset = -160;
     gpuOffset = -65;
-    uncoreOffset = -65;
+    uncoreOffset = -70;
     temp = 90;
   };
 
