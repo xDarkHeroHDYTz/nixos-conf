@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -17,7 +17,7 @@
     ../../system/desktop/plasma.nix
 
     # Greeter
-    ../../system/greeter/greetd.nix
+    # ../../system/greeter/greetd.nix
 
     # Hardware
     # ../../system/hardware/audient.nix
@@ -72,6 +72,41 @@
   programs.gamescope = {
     enable = true;
     enableWsi = true;
+  };
+
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        # command = "${pkgs.tuigreet}/bin/tuigreet --remember --remember-user-session --asterisks --container-padding 3 --width 60 --window-padding 2 --time --battery --no-xsession-wrapper --cmd \"gamescope --steam --prefer-output-res 1920x1080 --refresh 120 --adaptive-sync -- steam -gamepadui\"";
+        # Starts niri session logged in automatically without prompt
+        command = "gamescope --steam --prefer-output-res 1920x1080 --refresh 120 --adaptive-sync -- steam -gamepadui";
+        user = "lisandro";
+      };
+    };
+  };
+
+  # this is a life saver.
+  # literally no documentation about this anywhere.
+  # might be good to write about this...
+  # https://www.reddit.com/r/NixOS/comments/u0cdpi/tuigreet_with_xmonad_how/
+
+  systemd = {
+    # To prevent getting stuck at shutdown
+    settings = {
+      Manager = {
+        DefaultTimeoutStopSec = "10s";
+      };
+    };
+    services.greetd.serviceConfig = {
+      Type = "idle";
+      StandardInput = "tty";
+      StandardOutput = "tty";
+      StandardError = "journal";
+      TTYReset = true;
+      TTYVHangup = true;
+      TTYVTDisallocate = true;
+    };
   };
 
   system.stateVersion = "26.05";
