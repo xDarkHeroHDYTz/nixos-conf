@@ -18,8 +18,6 @@
       fsType = "btrfs";
     };
 
-  boot.initrd.luks.devices."luks-6c217ea5-235e-42c8-a1a2-482c919ad3c8".device = "/dev/disk/by-uuid/6c217ea5-235e-42c8-a1a2-482c919ad3c8";
-
   fileSystems."/home" =
     { device = "/dev/mapper/luks-6c217ea5-235e-42c8-a1a2-482c919ad3c8";
       fsType = "btrfs";
@@ -37,6 +35,21 @@
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
+
+  boot.initrd.luks.devices = {
+    # Raíz SSD: allowDiscards para TRIM + bypassWorkqueues para evitar cuellos de botella en CPU
+    "luks-6c217ea5-235e-42c8-a1a2-482c919ad3c8" = {
+      device = "/dev/disk/by-uuid/6c217ea5-235e-42c8-a1a2-482c919ad3c8";
+      allowDiscards = true;
+      bypassWorkqueues = true;
+    };
+    # Swap cifrada
+    "luks-6afcffb9-144a-4b65-8694-337e481e91ee" = {
+      device = "/dev/disk/by-uuid/6afcffb9-144a-4b65-8694-337e481e91ee";
+      allowDiscards = true;
+      bypassWorkqueues = true;
+    };
+  };
 
   swapDevices =
     [ { device = "/dev/mapper/luks-6afcffb9-144a-4b65-8694-337e481e91ee"; }
