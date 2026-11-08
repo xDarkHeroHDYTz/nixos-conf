@@ -39,6 +39,16 @@
     ../../system/services/virtualization.nix
   ];
 
+  boot.kernelParams = [
+    "pcie_aspm=force"
+    "snd_hda_intel.power_save=1"
+    "intel_idle.max_cstate=10"
+  ];
+
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="scsi_disk", ATTR{manage_suspend}="1"
+  '';
+
   # --- MEMORIA Y ALMACENAMIENTO ---
   zramSwap = {
     enable = true;
@@ -79,9 +89,12 @@
   };
 
   # --- NVIDIA PRIME ---
-  services.xserver.videoDrivers = [ "modesetting" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
-    powerManagement.finegrained = true;
+    powerManagement = {
+      enable = true;
+      finegrained = true;
+    };
     prime = {
       offload.enable = true;
       offload.enableOffloadCmd = true;
