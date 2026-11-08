@@ -72,18 +72,18 @@
           keyColor = "${config.lib.stylix.colors.withHashtag.base0D}";
         }
         {
+          type = "disk";
+          key = "│ ├󰋊 ";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0D}";
+        }
+        {
           type = "memory";
           key = "│ ├󰑭 ";
           keyColor = "${config.lib.stylix.colors.withHashtag.base0D}";
         }
         {
           type = "swap";
-          key = "│ ├󰓡 ";
-          keyColor = "${config.lib.stylix.colors.withHashtag.base0D}";
-        }
-        {
-          type = "disk";
-          key = "└ └󰋊 ";
+          key = "└ └󰓡 ";
           keyColor = "${config.lib.stylix.colors.withHashtag.base0D}";
         }
         {
