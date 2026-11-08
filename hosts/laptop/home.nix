@@ -50,13 +50,6 @@
   };
 
   home.packages = with pkgs; [
-    # --- TERMINAL Y PRODUCTIVIDAD CLI ---
-    cmatrix
-    fetch
-    p7zip
-    tty-clock
-    wiremix
-
     # --- DESARROLLO Y LENGUAJES ---
     nil
     nixd
@@ -68,39 +61,40 @@
     protonplus
     protontricks
     r2modman
-    retroarch-full
     retroarch-assets
+    retroarch-full
     retroarch-joypad-autoconfig
 
     # --- MULTIMEDIA (AUDIO, VIDEO, IMAGEN Y EDICIÓN) ---
     pkgs-stable.audacity
     (blender.override { cudaSupport = true; })
+    cadcraft
     cliamp
-    # darktable
+    designcraft
+    effectcraft
     exiftool
     ffmpeg
-    # gimp
-    # inkscape
-    # kdePackages.kdenlive
+    filmcraft
     libheif
     libheif.out
     librsvg
-    rembg
-    # - ArtCraft Suite -
-    photocraft
-    vectorcraft
-    filmcraft
     lightcraft
-    effectcraft
-    designcraft
-    cadcraft
+    photocraft
+    rembg
     soundcraft
+    vectorcraft
 
     # --- PRODUCTIVIDAD, GESTIÓN Y UTILIDADES ---
     gnome-calculator
     gnome-disk-utility
-    # kdePackages.okular
     libreoffice
+
+    # --- TERMINAL Y PRODUCTIVIDAD CLI ---
+    cmatrix
+    fetch
+    p7zip
+    tty-clock
+    wiremix
 
     # --- OVERRIDES ---
     (roomeqwizard.overrideAttrs (oldAttrs: {
