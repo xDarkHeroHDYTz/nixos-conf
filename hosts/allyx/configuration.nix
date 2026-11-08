@@ -69,5 +69,10 @@
   };
   home-manager.users.lisandro = import ./home.nix;
 
+  programs.gamescope = {
+    enable = true;
+    enableWsi = true;
+  };
+
   system.stateVersion = "26.05";
 }
