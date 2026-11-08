@@ -12,7 +12,6 @@
     # --- Terminal, Editores y Gestores de Archivos ---
     konsole      # Reemplazado
     kate         # Reemplazado por Neovim / Zed
-    kwrite       # Reemplazado por Neovim / Zed
     dolphin      # Reemplazado por Nautilus
     ark          # Reemplazado por File-roller (vía Nautilus)
     kfind        # Reemplazado por Nautilus / FZF
