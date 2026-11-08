@@ -99,6 +99,7 @@
     nixosConfigurations = {
       pc = mkSystem ./hosts/pc/configuration.nix;
       laptop = mkSystem ./hosts/laptop/configuration.nix;
+      allyx = mkSystem ./hosts/allyx/configuration.nix;
       default = self.nixosConfigurations.pc;
     };
   };
