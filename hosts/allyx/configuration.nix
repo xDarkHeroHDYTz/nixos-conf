@@ -77,11 +77,15 @@
   services.greetd = {
     enable = true;
     settings = {
-      default_session = {
-        # command = "${pkgs.tuigreet}/bin/tuigreet --remember --remember-user-session --asterisks --container-padding 3 --width 60 --window-padding 2 --time --battery --no-xsession-wrapper --cmd \"gamescope --steam --prefer-output-res 1920x1080 --refresh 120 --adaptive-sync -- steam -gamepadui\"";
-        # Starts niri session logged in automatically without prompt
+      # Esto hace autologin directo la primera vez o por defecto
+      initial_session = {
         command = "gamescope --steam --prefer-output-res 1920x1080 --refresh 120 --adaptive-sync -- steam -gamepadui";
         user = "lisandro";
+      };
+
+      # Esta es la sesión de respaldo a la que se accede si cierras sesión o sales de Steam
+      default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet --remember --remember-user-session --asterisks --container-padding 3 --width 60 --window-padding 2 --time --battery --no-xsession-wrapper --cmd niri-session";
       };
     };
   };
