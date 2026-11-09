@@ -146,12 +146,6 @@
           type = "custom";
           key = "│ ├󰛖 ";
           keyColor = "${config.lib.stylix.colors.withHashtag.base0B}";
-          format = "Mono: ${config.stylix.fonts.monospace.name}";
-        }
-        {
-          type = "custom";
-          key = "│ ├󰛖 ";
-          keyColor = "${config.lib.stylix.colors.withHashtag.base0B}";
           format = "Sans: ${config.stylix.fonts.sansSerif.name}";
         }
         {
@@ -159,6 +153,12 @@
           key = "│ ├󰛖 ";
           keyColor = "${config.lib.stylix.colors.withHashtag.base0B}";
           format = "Serif: ${config.stylix.fonts.serif.name}";
+        }
+        {
+          type = "custom";
+          key = "│ ├󰛖 ";
+          keyColor = "${config.lib.stylix.colors.withHashtag.base0B}";
+          format = "Mono: ${config.stylix.fonts.monospace.name}";
         }
         {
           type = "terminal";

@@ -9,7 +9,7 @@
     opacity = {
       applications = 0.85;
       terminal = 0.8;
-      popups = 0.9;
+      popups = 0.95;
       desktop = 0.8;
     };
 
@@ -20,17 +20,17 @@
     };
 
     fonts = {
+      sansSerif = {
+        package = pkgs.recursive;
+        name = "Recursive Sans Linear";
+      };
+      serif = {
+        package = pkgs.recursive;
+        name = "Recursive Sans Linear";
+      };
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
         name = "JetBrainsMono Nerd Font";
-      };
-      sansSerif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Sans";
-      };
-      serif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Serif";
       };
       sizes = {
         applications = 11;
