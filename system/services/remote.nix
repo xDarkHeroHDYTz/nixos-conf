@@ -1,17 +1,19 @@
 { ... }:
 
 {
-  users.users.lisandro = {
-    extraGroups = [ "uinput" "input" ];
+  services.zerotierone = {
+    enable = true;
   };
 
   services.sunshine = {
     enable = true;
     autoStart = true;
     openFirewall = true;
+    capSysAdmin = true;
   };
 
-  services.zerotierone = {
+  programs.moonlight-qt = {
     enable = true;
+    capSysNice = true;
   };
 }
