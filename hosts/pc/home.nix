@@ -66,7 +66,7 @@
     retroarch-joypad-autoconfig
 
     # --- MULTIMEDIA (AUDIO, VIDEO, IMAGEN Y EDICIÓN) ---
-    pkgs-stable.audacity
+    audacity
     (blender.override { cudaSupport = true; })
     cadcraft
     cliamp
@@ -80,7 +80,7 @@
     librsvg
     lightcraft
     photocraft
-    rembg
+    # rembg
     soundcraft
     vectorcraft
 
