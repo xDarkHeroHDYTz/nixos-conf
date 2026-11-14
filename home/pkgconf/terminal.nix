@@ -6,7 +6,6 @@
     enableFishIntegration = true;
     settings = {
       command = "${pkgs.fish}/bin/fish --login";
-      window-decoration = false;
       gtk-single-instance = true;
     };
   };

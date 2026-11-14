@@ -5,6 +5,12 @@
     ./include-effects.nix
   ];
 
+  programs.ghostty = {
+    settings = {
+      window-decoration = false;
+    };
+  };
+
   programs.niri.settings = {
     layer-rules = [
       {
