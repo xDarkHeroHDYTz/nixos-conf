@@ -21,12 +21,12 @@
 
     fonts = {
       sansSerif = {
-        package = pkgs.recursive;
-        name = "Recursive Sans Linear";
+        package = pkgs.inter;
+        name = "Inter";
       };
       serif = {
-        package = pkgs.recursive;
-        name = "Recursive Sans Linear";
+        package = pkgs.inter;
+        name = "Inter";
       };
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
