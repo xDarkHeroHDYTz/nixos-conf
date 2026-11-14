@@ -3,7 +3,7 @@
 {
   programs.mangohud = {
     enable = true;
-    enableSessionWide = true;
+    # enableSessionWide = true;
     settings = {
       # --- GPU ---
       gpu_stats = true;
