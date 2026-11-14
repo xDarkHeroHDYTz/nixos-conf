@@ -7,10 +7,10 @@
     polarity = "dark";
 
     opacity = {
-      applications = 0.85;
-      terminal = 0.8;
-      popups = 0.95;
-      desktop = 0.8;
+      applications = 0.90;
+      terminal = 0.85;
+      popups = 1.0;
+      desktop = 0.85;
     };
 
     cursor = {
