@@ -75,9 +75,6 @@
     exiftool
     ffmpeg
     filmcraft
-    libheif
-    libheif.out
-    librsvg
     lightcraft
     photocraft
     # rembg
