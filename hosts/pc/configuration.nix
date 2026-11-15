@@ -51,6 +51,9 @@
   };
   services.fstrim.enable = true;
 
+  # --- CARGA TEMPRANA NVIDIA EN INITRD--
+  boot.initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+
   # --- RED, LOCALIZACIÓN Y SEGURIDAD ---
   networking = {
     hostName = "pc";
@@ -68,6 +71,9 @@
     extraGroups = [ "wheel" "networkmanager" "kvm" "libvirtd" "render" "video" "audio" "gamemode" "i2c" ];
   };
   home-manager.users.lisandro = import ./home.nix;
+
+  services.lact.enable = true;
+  services.hardware.openrgb.enable = true;
 
   system.stateVersion = "26.05";
 }

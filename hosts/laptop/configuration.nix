@@ -72,7 +72,6 @@
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
     powerManagement = {
-      enable = true;
       finegrained = true;
     };
     prime = {
