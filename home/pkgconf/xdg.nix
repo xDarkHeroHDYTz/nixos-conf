@@ -35,7 +35,7 @@ in
       };
       bat-viewer = {
         name = "BAT Viewer (Terminal)";
-        exec = "${terminal} -e bat %F";
+        exec = "${terminal} -e bat --paging=always %F";
         icon = "text-editor";
         terminal = false;
         categories = [ "Utility" "TextEditor" ];
@@ -90,7 +90,6 @@ in
         "application/xml" = [ "nvim-terminal.desktop" ];
         "text/css" = [ "nvim-terminal.desktop" ];
         # --- Visualización de Texto por Terminal (bat) ---
-        # Si creas una entrada .desktop para bat, puedes mapear lecturas rápidas:
         "text/x-log" = [ "bat-viewer.desktop" ];
         # --- Multimedia (Audio y Video) ---
         "video/mp4" = [ "mpv.desktop" ];
@@ -102,7 +101,7 @@ in
         "audio/wav" = [ "mpv.desktop" ];
         "audio/ogg" = [ "mpv.desktop" ];
         "audio/x-wav" = [ "mpv.desktop" ];
-        "application/x-kdenlive" = [ "org.kde.kdenlive.desktop" ];
+        "application/x-kdenlive" = [ "filmcraft.desktop" ];
         "audio/x-aup" = [ "audacity.desktop" ];
         # --- Imágenes y Gráficos ---
         "image/jpeg" = [ "imv-dir.desktop" ];
@@ -110,16 +109,16 @@ in
         "image/webp" = [ "imv-dir.desktop" ];
         "image/gif" = [ "imv-dir.desktop" ];
         "image/heif" = [ "imv-dir.desktop" ];
-        "image/svg+xml" = [ "org.inkscape.Inkscape.desktop" ];
-        "image/x-xcf" = [ "gimp.desktop" ];
+        "image/svg+xml" = [ "vectorcraft.desktop" ];
+        "image/x-xcf" = [ "photocraft.desktop" ];
         "application/x-blender" = [ "blender.desktop" ];
-        # --- Fotografía / Archivos RAW (Darktable) ---
-        "image/x-canon-cr2" = [ "org.darktable.darktable.desktop" ];
-        "image/x-canon-cr3" = [ "org.darktable.darktable.desktop" ];
-        "image/x-nikon-nef" = [ "org.darktable.darktable.desktop" ];
-        "image/x-sony-arw" = [ "org.darktable.darktable.desktop" ];
-        "image/x-adobe-dng" = [ "org.darktable.darktable.desktop" ];
-        "image/tiff"        = [ "org.darktable.darktable.desktop" ];
+        # --- Fotografía / Archivos RAW (Lightcraft) ---
+        "image/x-canon-cr2" = [ "lightcraft.desktop" ];
+        "image/x-canon-cr3" = [ "lightcraft.desktop" ];
+        "image/x-nikon-nef" = [ "lightcraft.desktop" ];
+        "image/x-sony-arw" = [ "lightcraft.desktop" ];
+        "image/x-adobe-dng" = [ "lightcraft.desktop" ];
+        "image/tiff"        = [ "lightcraft.desktop" ];
         # --- Archivos Comprimidos ---
         "application/zip" = [ "org.gnome.FileRoller.desktop" ];
         "application/x-7z-compressed" = [ "org.gnome.FileRoller.desktop" ];
