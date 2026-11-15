@@ -108,7 +108,7 @@
   users.users."lisandro" = {
     isNormalUser = true;
     description = "Lisandro Julian Roldán Barbato";
-    extraGroups = [ "wheel" "networkmanager" "kvm" "libvirtd" "render" "video" "audio" "disk" "gamemode" "i2c" "wireshark" ];
+    extraGroups = [ "wheel" "networkmanager" "kvm" "libvirtd" "render" "video" "audio" "gamemode" "i2c" "wireshark" ];
   };
   home-manager.users.lisandro = import ./home.nix;
 
