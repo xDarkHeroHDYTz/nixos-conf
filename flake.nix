@@ -17,6 +17,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     sops-nix = {
       url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,20 +32,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix = {
-      url = "github:nix-community/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     artcraft = {
       url = "github:Hy4ri/artcraft-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixos-millennium = {
-      url = "github:re1n0/nixos-millennium";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nixos-millennium = {
+    #   url = "github:re1n0/nixos-millennium";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     nur = {
       url = "github:nix-community/NUR";
@@ -79,7 +79,7 @@
         inputs.chaotic.nixosModules.default
         inputs.lanzaboote.nixosModules.lanzaboote
         inputs.stylix.nixosModules.stylix
-        inputs.nixos-millennium.nixosModules.default
+        # inputs.nixos-millennium.nixosModules.default
         inputs.nix-flatpak.nixosModules.nix-flatpak
 
         home-manager.nixosModules.home-manager
