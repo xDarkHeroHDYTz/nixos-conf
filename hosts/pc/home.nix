@@ -1,4 +1,4 @@
-{ inputs, pkgs, pkgs-stable, ... }:
+{ inputs, pkgs, ... }:
 
 {
   home.username = "lisandro";
