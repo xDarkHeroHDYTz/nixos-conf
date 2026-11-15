@@ -23,7 +23,6 @@
               "/dev/nvidiactl", "/dev/nvidia0", "/dev/nvidia-modeset",
               "/dev/dri/renderD128"
           ]
-          seccomp_sandbox = 0
         '';
       };
     };
