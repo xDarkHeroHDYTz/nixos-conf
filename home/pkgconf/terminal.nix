@@ -13,7 +13,6 @@
   programs.fish = {
     enable = true;
     shellAliases = {
-      btw = "echo i use nixos, btw";
       nfu = "sudo nix flake update --flake ~/.nixos-conf";
       nrt = "sudo nixos-rebuild test --flake ~/.nixos-conf#$hostname";
       nrs = "sudo nixos-rebuild switch --flake ~/.nixos-conf#$hostname";
@@ -321,7 +320,7 @@
       time.disabled = true;
       aws.disabled = true;
       gcloud.disabled = true;
-      kubernetes.disabled = false;
+      kubernetes.disabled = true; # Kubernetes desactivado para evitar lecturas de disco innecesarias
       hostname = {
         ssh_only = true;
         style = "fg:${c.base00} bg:${c.base08}";
