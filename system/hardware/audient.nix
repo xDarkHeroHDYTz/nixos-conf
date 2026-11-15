@@ -3,7 +3,7 @@
 let
   audientUsbFix = pkgs.writeShellScriptBin "audient-usb" ''
     VENDOR_ID="2708"
-    PRODUCT_ID=""
+    MARKER_FILE="/run/audient-present"
 
     clog() {
         ${pkgs.util-linux}/bin/logger -t audient-usb "[audient-usb] $1"
@@ -12,7 +12,6 @@ let
 
     get_audient_port() {
         target_vid="$1"
-        target_pid="$2"
         for dev_path in /sys/bus/usb/devices/*; do
             if [ -d "$dev_path" ]; then
                 case "''${dev_path##*/}" in
@@ -32,7 +31,8 @@ let
 
     case "$1" in
         pre)
-            PORT=$(get_audient_port "$VENDOR_ID" "$PRODUCT_ID")
+            rm -f "$MARKER_FILE"
+            PORT=$(get_audient_port "$VENDOR_ID")
             if [ -n "$PORT" ]; then
                 clog "Preparing Audient on port $PORT for suspend..."
                 if [ -f "/sys/bus/usb/devices/$PORT/power/control" ]; then
@@ -42,17 +42,24 @@ let
                     echo "$PORT" > "/sys/bus/usb/drivers/usb/unbind" 2>/dev/null
                     clog "Audient successfully isolated before suspend."
                 fi
+                touch "$MARKER_FILE"
             else
                 clog "Audient device not found, suspending normally."
             fi
             ;;
 
         post)
+            if [ ! -f "$MARKER_FILE" ]; then
+                clog "Audient was not present before suspend. Skipping post-resume wait."
+                exit 0
+            fi
+            rm -f "$MARKER_FILE"
+
             clog "System resumed. Waiting for USB bus initialization..."
             PORT=""
             i=1
             while [ "$i" -le 20 ]; do
-                PORT=$(get_audient_port "$VENDOR_ID" "$PRODUCT_ID")
+                PORT=$(get_audient_port "$VENDOR_ID")
                 if [ -n "$PORT" ]; then
                     break
                 fi
@@ -88,10 +95,13 @@ let
             ;;
     esac
   '';
+
+  audientUdev = pkgs.writeTextDir "etc/udev/rules.d/50-audient-power.rules" ''
+    ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="2708", TEST=="power/control", ATTR{power/control}="on"
+  '';
 in
 {
-  # Opciones correctas a nivel de sistema de NixOS
-  environment.systemPackages = [ audientUsbFix ];
+  services.udev.packages = [ audientUdev ];
 
   powerManagement = {
     powerDownCommands = ''
