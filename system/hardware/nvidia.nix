@@ -15,7 +15,7 @@
     enable32Bit = true;
     extraPackages = with pkgs; [
       vulkan-loader
-      vulkan-tools
+      nvidia-vaapi-driver
     ];
   };
 

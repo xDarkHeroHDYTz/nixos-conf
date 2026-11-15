@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -86,6 +86,14 @@
     gpuOffset = -65;
     uncoreOffset = -70;
     temp = 90;
+  };
+
+  # --- HARDWARE GRÁFICO E INTEL VA-API ---
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+    ];
   };
 
   # --- NVIDIA PRIME ---
