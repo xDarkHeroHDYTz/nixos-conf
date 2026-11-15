@@ -24,9 +24,9 @@
     shellInit = ''
       set -g fish_greeting ""
     '';
-    interactiveShellInit = ''
-      fastfetch
-    '';
+    # interactiveShellInit = ''
+    #   fastfetch
+    # '';
   };
 
   programs.direnv = {
