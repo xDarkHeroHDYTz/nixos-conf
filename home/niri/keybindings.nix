@@ -87,7 +87,7 @@ in
     "Mod+Shift+Alt+K" = { action = actions.move-workspace-to-monitor-up; hotkey-overlay.title = "Move Workspace to Monitor Up"; };
     "Mod+Shift+Alt+L" = { action = actions.move-workspace-to-monitor-right; hotkey-overlay.title = "Move Workspace to Monitor Right"; };
 
-    # --- ESPACIOS DE TRABAJO Y PESTAÑAS ---
+    # --- ESPACIOS DE TRABAJO Y PESTAÑAS (ENFOQUE) ---
     "Mod+1" = { action = actions.focus-workspace 1; hotkey-overlay.title = "Focus Workspace 1"; };
     "Mod+2" = { action = actions.focus-workspace 2; hotkey-overlay.title = "Focus Workspace 2"; };
     "Mod+3" = { action = actions.focus-workspace 3; hotkey-overlay.title = "Focus Workspace 3"; };
@@ -101,11 +101,16 @@ in
     "Mod+Tab" = { action = actions.focus-workspace-up; hotkey-overlay.title = "Focus Workspace Up"; };
     "Mod+Shift+Tab" = { action = actions.focus-workspace-down; hotkey-overlay.title = "Focus Workspace Down"; };
 
+    # --- ESPACIOS DE TRABAJO Y PESTAÑAS (MOVER COLUMNA) ---
     "Mod+Shift+1" = { action.move-column-to-workspace = 1; hotkey-overlay.title = "Move Column to Workspace 1"; };
     "Mod+Shift+2" = { action.move-column-to-workspace = 2; hotkey-overlay.title = "Move Column to Workspace 2"; };
     "Mod+Shift+3" = { action.move-column-to-workspace = 3; hotkey-overlay.title = "Move Column to Workspace 3"; };
     "Mod+Shift+4" = { action.move-column-to-workspace = 4; hotkey-overlay.title = "Move Column to Workspace 4"; };
     "Mod+Shift+5" = { action.move-column-to-workspace = 5; hotkey-overlay.title = "Move Column to Workspace 5"; };
+    "Mod+Shift+6" = { action.move-column-to-workspace = 6; hotkey-overlay.title = "Move Column to Workspace 6"; };
+    "Mod+Shift+7" = { action.move-column-to-workspace = 7; hotkey-overlay.title = "Move Column to Workspace 7"; };
+    "Mod+Shift+8" = { action.move-column-to-workspace = 8; hotkey-overlay.title = "Move Column to Workspace 8"; };
+    "Mod+Shift+9" = { action.move-column-to-workspace = 9; hotkey-overlay.title = "Move Column to Workspace 9"; };
 
     "Mod+Page_Up" = { action = actions.move-column-to-workspace-up; hotkey-overlay.title = "Move Workspace Up"; };
     "Mod+Page_Down" = { action = actions.move-column-to-workspace-down; hotkey-overlay.title = "Move Workspace Down"; };
