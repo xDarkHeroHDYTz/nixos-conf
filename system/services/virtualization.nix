@@ -14,7 +14,7 @@
         ];
         swtpm.enable = true;
 
-        # Permisos de dispositivos NVIDIA para la aceleración EGL/VirtIO-3D
+        # Permisos de dispositivos NVIDIA y de renderizado para EGL/VirtIO-3D
         verbatimConfig = ''
           cgroup_device_acl = [
               "/dev/null", "/dev/full", "/dev/zero",
@@ -31,9 +31,7 @@
 
   environment.systemPackages = with pkgs; [
     dnsmasq
-    virglrenderer
     vulkan-tools
-    virtiofsd
   ];
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
