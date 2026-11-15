@@ -1,61 +1,21 @@
-{ ... }:
+{ lib, pkgs, ... }:
 
-{
-  services.udev.extraRules = ''
-    # Nuphy Devices (USB)
-    SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="19f5", ATTR{idProduct}=="3265", MODE="0666"
-    SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="19f5", ATTR{idProduct}=="3245", MODE="0666"
-    SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="19f5", ATTR{idProduct}=="3255", MODE="0666"
-    SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="19f5", ATTR{idProduct}=="3275", MODE="0666"
-    SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="19f5", ATTR{idProduct}=="32F5", MODE="0666"
-    SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="19f5", ATTR{idProduct}=="3302", MODE="0666"
-    SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="19f5", ATTR{idProduct}=="3235", MODE="0666"
-    SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="19f5", ATTR{idProduct}=="fee0", MODE="0666"
-    SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="19f5", ATTR{idProduct}=="1026", MODE="0666"
-    SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="19f5", ATTR{idProduct}=="0720", MODE="0666"
-    SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="19f5", ATTR{idProduct}=="2620", MODE="0666"
-    SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="19f5", ATTR{idProduct}=="6112", MODE="0666"
-    SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="19f5", ATTR{idProduct}=="1028", MODE="0666"
-    SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="19f5", ATTR{idProduct}=="0722", MODE="0666"
-    SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="19f5", ATTR{idProduct}=="6120", MODE="0666"
-    SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="19f5", ATTR{idProduct}=="fe70", MODE="0666"
-    SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="19f5", ATTR{idProduct}=="102a", MODE="0666"
-    SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="19f5", ATTR{idProduct}=="6130", MODE="0666"
-    SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="19f5", ATTR{idProduct}=="1030", MODE="0666"
-    SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="19f5", ATTR{idProduct}=="0730", MODE="0666"
-    SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="19f5", ATTR{idProduct}=="1037", MODE="0666"
-    SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="19f5", ATTR{idProduct}=="0737", MODE="0666"
-    SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="19f5", ATTR{idProduct}=="103b", MODE="0666"
-    SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="19f5", ATTR{idProduct}=="1036", MODE="0666"
-    SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="19f5", ATTR{idProduct}=="102b", MODE="0666"
-    SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="19f5", ATTR{idProduct}=="072b", MODE="0666"
+let
+  productIds = [
+    # Modos normales y de actualización (incluyendo 6f03 para el Upgrader/Bootloader)
+    "3265" "3245" "3255" "3275" "32f5" "3302" "3235" "fee0" "1026" "0720"
+    "2620" "6112" "6f03" "1028" "0722" "6120" "fe70" "102a" "6130" "1030"
+    "0730" "1037" "0737" "103b" "1036" "102b" "072b"
+  ];
 
-    # Nuphy Devices (HIDRAW)
-    KERNEL=="hidraw*", ATTRS{idVendor}=="19f5", ATTRS{idProduct}=="3265", MODE="0666"
-    KERNEL=="hidraw*", ATTRS{idVendor}=="19f5", ATTRS{idProduct}=="3245", MODE="0666"
-    KERNEL=="hidraw*", ATTRS{idVendor}=="19f5", ATTRS{idProduct}=="3255", MODE="0666"
-    KERNEL=="hidraw*", ATTRS{idVendor}=="19f5", ATTRS{idProduct}=="3275", MODE="0666"
-    KERNEL=="hidraw*", ATTRS{idVendor}=="19f5", ATTRS{idProduct}=="32F5", MODE="0666"
-    KERNEL=="hidraw*", ATTRS{idVendor}=="19f5", ATTRS{idProduct}=="3302", MODE="0666"
-    KERNEL=="hidraw*", ATTRS{idVendor}=="19f5", ATTRS{idProduct}=="3235", MODE="0666"
-    KERNEL=="hidraw*", ATTRS{idVendor}=="19f5", ATTRS{idProduct}=="fee0", MODE="0666"
-    KERNEL=="hidraw*", ATTRS{idVendor}=="19f5", ATTRS{idProduct}=="1026", MODE="0666"
-    KERNEL=="hidraw*", ATTRS{idVendor}=="19f5", ATTRS{idProduct}=="0720", MODE="0666"
-    KERNEL=="hidraw*", ATTRS{idVendor}=="19f5", ATTRS{idProduct}=="2620", MODE="0666"
-    KERNEL=="hidraw*", ATTRS{idVendor}=="19f5", ATTRS{idProduct}=="6112", MODE="0666"
-    KERNEL=="hidraw*", ATTRS{idVendor}=="19f5", ATTRS{idProduct}=="1028", MODE="0666"
-    KERNEL=="hidraw*", ATTRS{idVendor}=="19f5", ATTRS{idProduct}=="0722", MODE="0666"
-    KERNEL=="hidraw*", ATTRS{idVendor}=="19f5", ATTRS{idProduct}=="6120", MODE="0666"
-    KERNEL=="hidraw*", ATTRS{idVendor}=="19f5", ATTRS{idProduct}=="fe70", MODE="0666"
-    KERNEL=="hidraw*", ATTRS{idVendor}=="19f5", ATTRS{idProduct}=="102a", MODE="0666"
-    KERNEL=="hidraw*", ATTRS{idVendor}=="19f5", ATTRS{idProduct}=="6130", MODE="0666"
-    KERNEL=="hidraw*", ATTRS{idVendor}=="19f5", ATTRS{idProduct}=="1030", MODE="0666"
-    KERNEL=="hidraw*", ATTRS{idVendor}=="19f5", ATTRS{idProduct}=="0730", MODE="0666"
-    KERNEL=="hidraw*", ATTRS{idVendor}=="19f5", ATTRS{idProduct}=="1037", MODE="0666"
-    KERNEL=="hidraw*", ATTRS{idVendor}=="19f5", ATTRS{idProduct}=="0737", MODE="0666"
-    KERNEL=="hidraw*", ATTRS{idVendor}=="19f5", ATTRS{idProduct}=="103b", MODE="0666"
-    KERNEL=="hidraw*", ATTRS{idVendor}=="19f5", ATTRS{idProduct}=="1036", MODE="0666"
-    KERNEL=="hidraw*", ATTRS{idVendor}=="19f5", ATTRS{idProduct}=="102b", MODE="0666"
-    KERNEL=="hidraw*", ATTRS{idVendor}=="19f5", ATTRS{idProduct}=="072b", MODE="0666"
+  nuphyUdev = pkgs.writeTextDir "etc/udev/rules.d/60-nuphy.rules" ''
+    # Nuphy Devices (USB y HIDRAW)
+    ${lib.concatMapStringsSep "\n" (pid: ''
+      SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="19f5", ATTR{idProduct}=="${pid}", TAG+="uaccess"
+      KERNEL=="hidraw*", ATTRS{idVendor}=="19f5", ATTRS{idProduct}=="${pid}", TAG+="uaccess"
+    '') productIds}
   '';
+in
+{
+  services.udev.packages = [ nuphyUdev ];
 }
