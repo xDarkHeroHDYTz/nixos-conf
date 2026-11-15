@@ -23,6 +23,8 @@
     tpm2-tss
   ];
 
+  hardware.i2c.enable = true;
+
   programs.localsend.enable = true;
   programs.nix-ld.enable = true;
 
