@@ -27,7 +27,7 @@
 #       ports = [ "11235:11235" ];
 #       environment = {
 #         API_PORT = "11235";
-#         CRAWL4AI_API_TOKEN = "*xy7Yukl0PZIqQK3fZ&padAu";
+#         CRAWL4AI_API_TOKEN = "AGREGAR_TOKEN";
 #       };
 #       extraOptions = [
 #         "--shm-size=1g"
@@ -45,7 +45,7 @@
 #       server = {
 #         bind_address = "0.0.0.0";
 #         port = 8888;
-#         secret_key = "*xy7Yukl0PZIqQK3fZ&padAu";
+#         secret_key = "AGREGAR_TOKEN";
 #       };
 #       search.formats = [ "html" "json" ];
 #     };
