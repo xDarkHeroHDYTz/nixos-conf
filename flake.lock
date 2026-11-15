@@ -387,6 +387,22 @@
         "type": "github"
       }
     },
+    "nix-flatpak": {
+      "locked": {
+        "lastModified": 1790428548,
+        "narHash": "sha256-OsZ/I7v3ArCrk0XOUvkiU1dFtGtE1qZTHRGjvBXIKUU=",
+        "owner": "gmodena",
+        "repo": "nix-flatpak",
+        "rev": "f1f045fc8b35ff59f88982c1752d3f3a42ca6a61",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gmodena",
+        "ref": "latest",
+        "repo": "nix-flatpak",
+        "type": "github"
+      }
+    },
     "nixos-millennium": {
       "inputs": {
         "flake-parts": "flake-parts",
@@ -560,6 +576,7 @@
         "home-manager": "home-manager_2",
         "lanzaboote": "lanzaboote",
         "niri": "niri",
+        "nix-flatpak": "nix-flatpak",
         "nixos-millennium": "nixos-millennium",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-stable": "nixpkgs-stable_2",
@@ -631,13 +648,13 @@
       "locked": {
         "lastModified": 1792920263,
         "narHash": "sha256-2pkE97wOXAYIn2/Nhs9y+iR0qVT+g/3UtukXdkywxXc=",
-        "owner": "danth",
+        "owner": "nix-community",
         "repo": "stylix",
         "rev": "3e27b6c499e507df6e3bb8eca3614f5c95e28140",
         "type": "github"
       },
       "original": {
-        "owner": "danth",
+        "owner": "nix-community",
         "repo": "stylix",
         "type": "github"
       }
