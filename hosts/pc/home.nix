@@ -67,7 +67,7 @@
 
     # --- MULTIMEDIA (AUDIO, VIDEO, IMAGEN Y EDICIÓN) ---
     audacity
-    (blender.override { cudaSupport = true; })
+    # (blender.override { cudaSupport = true; })
     cadcraft
     cliamp
     designcraft

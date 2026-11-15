@@ -28,7 +28,7 @@
     };
 
     stylix = {
-      url = "github:danth/stylix";
+      url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -46,6 +46,8 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }:
@@ -78,6 +80,7 @@
         inputs.lanzaboote.nixosModules.lanzaboote
         inputs.stylix.nixosModules.stylix
         inputs.nixos-millennium.nixosModules.default
+        inputs.nix-flatpak.nixosModules.nix-flatpak
 
         home-manager.nixosModules.home-manager
 

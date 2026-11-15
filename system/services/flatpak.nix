@@ -1,7 +1,16 @@
 { ... }:
 
 {
-  services.flatpak.enable = true;
+  services.flatpak = {
+    enable = true;
+
+    packages = [
+      "org.vinegarhq.Sober"
+      "org.blender.Blender"
+    ];
+
+    update.onActivation = true;
+  };
 
   # Si flatpak falla descomentar (TEST)
   # environment.sessionVariables = {
