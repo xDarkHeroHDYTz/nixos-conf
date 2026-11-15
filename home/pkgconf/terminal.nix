@@ -19,7 +19,7 @@
       nrs = "sudo nixos-rebuild switch --flake ~/.nixos-conf#$hostname";
       ncg = "sudo nix-collect-garbage -d";
       nso = "sudo nix-store --optimise -vv";
-      ytpl-dl = "yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-thumbnail --embed-metadata -o \"$XDG_MUSIC_DIR/%(playlist)s/%(title)s.%(ext)s\"";
+      ytpl-dl = "yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-thumbnail --embed-metadata -o \"${config.xdg.userDirs.music}/%(playlist)s/%(title)s.%(ext)s\"";
       comfyui = "nix run github:utensils/comfyui-nix#cuda -- --enable-manager";
     };
     shellInit = ''
@@ -27,8 +27,13 @@
     '';
     interactiveShellInit = ''
       fastfetch
-      direnv hook fish | source
     '';
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableFishIntegration = true;
+    nix-direnv.enable = true;
   };
 
   programs.fastfetch = {

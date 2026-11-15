@@ -23,11 +23,6 @@
     tpm2-tss
   ];
 
-  programs.direnv = {
-    enable = true;
-    enableFishIntegration = true;
-    nix-direnv.enable = true;
-  };
   programs.localsend.enable = true;
   programs.nix-ld.enable = true;
 
