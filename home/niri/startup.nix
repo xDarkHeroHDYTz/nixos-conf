@@ -3,7 +3,7 @@
 {
   programs.niri.settings = {
     spawn-at-startup = [
-      { command = [ "xwayland-satellite" ]; }
+      # Pon lo que quieras que inicie junto a niri.
     ];
 
     hotkey-overlay = {
