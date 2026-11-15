@@ -83,12 +83,7 @@
               ];
             in
             builtins.concatStringsSep "\n" (
-              [
-                "no-scripting: * true"
-                "no-large-media: * true"
-              ]
-              ++ map (domain: "${domain} * 3p-script noop") domains
-              ++ map (domain: "${domain} * 3p-frame noop") domains
+              map (domain: "${domain} * noop") domains
             );
         };
       };
@@ -104,8 +99,8 @@
           "intl.accept_languages" = "es-AR, es, en-US, en";
 
           # ACTUALIZACIÓN AUTOMÁTICA DE ADD-ONS
-          "extensions.update.enabled" = true;
-          "extensions.update.autoUpdateDefault" = true;
+          "extensions.update.enabled" = false;
+          "extensions.update.autoUpdateDefault" = false;
 
           # COMPORTAMIENTO Y COMODIDAD DIARIA
           "general.autoScroll" = true;
@@ -131,7 +126,7 @@
           "privacy.trackingprotection.enabled" = true;
           "dom.security.https_only_mode" = true;
 
-          # DNS SECURE (MODO 2: CUSTOM CON FALLBACK AUTOMÁTICO PARA NO ROMPER NAVEGACIÓN)
+          # DNS SECURE (MODO 2: CUSTOM CON FALLBACK AUTOMÁTICO)
           "network.trr.mode" = 2;
           "network.trr.uri" = "https://dns.quad9.net/dns-query";
           "network.trr.custom_uri" = "https://dns.quad9.net/dns-query";
@@ -150,7 +145,7 @@
           # CONTROL DE REPRODUCCIÓN (Desactivar Picture-in-Picture)
           "media.videocontrols.picture-in-picture.enabled" = false;
 
-          # SOPORTE MULTIMEDIA Y STREAMING (DRM y OpenH264 habilitados)
+          # SOPORTE MULTIMEDIA Y STREAMING
           "media.eme.enabled" = true;
           "media.gmp-provider.enabled" = true;
         };
@@ -181,13 +176,13 @@
         isDefault = false;
 
         settings = {
-          # COMPORTAMIENTO DEL RATÓN (AUTOSCROLL Y MIDDLE-CLICK PASTE)
+          # COMPORTAMIENTO DEL RATÓN
           "general.autoScroll" = true;
           "middlemouse.paste" = false;
 
-          # ACTUALIZACIÓN AUTOMÁTICA DE ADD-ONS
-          "extensions.update.enabled" = true;
-          "extensions.update.autoUpdateDefault" = true;
+          # ACTUALIZACIÓN DE ADD-ONS (Desactivado por inmutabilidad)
+          "extensions.update.enabled" = false;
+          "extensions.update.autoUpdateDefault" = false;
 
           # HISTORIAL Y DESCARGAS (DESACTIVAR RECORDAR HISTORIAL)
           "places.history.enabled" = false;
@@ -218,16 +213,17 @@
           "privacy.trackingprotection.pbmode.enabled" = true;
           "privacy.trackingprotection.fingerprinting.enabled" = true;
 
-          # REFERRER PRIVACY (Limitar a Same-Origin)
+          # REFERRER PRIVACY
           "network.http.referer.XOriginPolicy" = 2;
           "network.http.referer.XOriginTrimmingPolicy" = 2;
           "network.http.referer.hideOnTargetXRef" = true;
 
-          # JAVASCRIPT HARDENING (Deshabilitar JIT)
-          "javascript.options.jit.trusted" = false;
+          # JAVASCRIPT HARDENING (Desactivar motores JIT web de forma efectiva)
+          "javascript.options.ion" = false;
+          "javascript.options.baselinejit" = false;
           "javascript.options.wasm" = false;
 
-          # SECURE DNS (DNS-over-HTTPS - Quad9 Strict)
+          # SECURE DNS (Quad9 Strict)
           "network.trr.mode" = 3;
           "network.trr.uri" = "https://dns.quad9.net/dns-query";
           "network.trr.custom_uri" = "https://dns.quad9.net/dns-query";
@@ -245,14 +241,14 @@
           "security.ssl.require_safe_negotiation" = true;
           "security.tls.version.min" = 3;
           "security.OCSP.enabled" = 1;
-          "security.OCSP.require" = true;
+          "security.OCSP.require" = false;
 
           # WEBRTC AND NETWORK LEAKS
           "media.peerconnection.ice.default_address_only" = true;
           "media.peerconnection.ice.no_host" = true;
           "media.peerconnection.enabled" = false;
 
-          # SPECULATIVE CONNECTIONS & NETWORK
+          # SPECULATIVE CONNECTIONS
           "network.prefetch-next" = false;
           "network.predictor.enabled" = false;
           "network.http.speculative-parallel-limit" = 0;
@@ -277,7 +273,7 @@
           "dom.webgpu.enabled" = false;
           "dom.battery.enabled" = false;
 
-          # TELEMETRY AND DATA COLLECTION
+          # TELEMETRY
           "toolkit.telemetry.enabled" = false;
           "datareporting.healthreport.uploadEnabled" = false;
           "datareporting.policy.dataSubmissionEnabled" = false;
@@ -292,8 +288,6 @@
           # PRIVATE PROFILE BEHAVIOR
           "browser.privatebrowsing.autostart" = false;
           "browser.sessionstore.privacy_level" = 2;
-
-          # CONTROL DE REPRODUCCIÓN (Desactivar Picture-in-Picture)
           "media.videocontrols.picture-in-picture.enabled" = false;
         };
 
