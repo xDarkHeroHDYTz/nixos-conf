@@ -1,24 +1,19 @@
-{ pkgs, ... }:
+{ lib, ... }:
 
 {
   programs.noctalia = {
     enable = true;
+    systemd.enable = true;
   };
 
   systemd.user.services.noctalia = {
     Unit = {
-      Description = "Noctalia Shell";
-      BindsTo = [ "niri.service" ];
-      PartOf = [ "niri.service" ];
-      After = [ "niri.service" ];
-      # PartOf = [ "graphical-session.target" ];
-      # After = [ "graphical-session.target" ];
+      BindsTo = lib.mkForce [ "niri.service" ];
+      PartOf = lib.mkForce [ "niri.service" ];
+      After = lib.mkForce [ "niri.service" ];
     };
-    Service = {
-      ExecStart = "${pkgs.noctalia}/bin/noctalia";
-      Restart = "on-failure";
+    Install = {
+      WantedBy = lib.mkForce [ "niri.service" ];
     };
-    Install.WantedBy = [ "niri.service" ];
-    # Install.WantedBy = [ "graphical-session.target" ];
   };
 }
