@@ -34,7 +34,6 @@
     # ==========================================
     # BLUE TEAM: Análisis Forense e Incidentes (DFIR)
     # ==========================================
-    wireshark     # Analizador de protocolos de red (con interfaz gráfica)
     tcpdump       # Analizador de tráfico de red por línea de comandos
     # tshark        # Versión de Wireshark para línea de comandos
     volatility3   # Framework avanzado de análisis de memoria RAM

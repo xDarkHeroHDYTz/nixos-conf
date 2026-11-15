@@ -75,9 +75,14 @@
   users.users."lisandro" = {
     isNormalUser = true;
     description = "Lisandro Julian Roldán Barbato";
-    extraGroups = [ "wheel" "networkmanager" "kvm" "libvirtd" "render" "video" "audio" "disk" "gamemode" "i2c" ];
+    extraGroups = [ "wheel" "networkmanager" "kvm" "libvirtd" "render" "video" "audio" "disk" "gamemode" "i2c" "wireshark" ];
   };
   home-manager.users.lisandro = import ./home.nix;
+
+  programs.wireshark = {
+    enable = true;
+    package = pkgs.wireshark;
+  };
 
   # --- INTEL UNDERVOLT (Reduce temperaturas del i7-8750H) ---
   services.undervolt = {
