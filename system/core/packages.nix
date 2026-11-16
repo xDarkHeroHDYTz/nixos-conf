@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
 {
+  # Paquetes base instalados a nivel de todo el sistema operativo
   environment.systemPackages = with pkgs; [
     # --- Utilidades de Terminal & CLI ---
     bat

@@ -7,6 +7,7 @@
         accel-speed = -0.6;
         accel-profile = "flat";
       };
+
       touchpad = {
         tap = true;
         natural-scroll = true;
@@ -14,9 +15,11 @@
         accel-profile = "adaptive";
         click-method = "button-areas";
       };
+
       focus-follows-mouse = {
         enable = true;
       };
+
       warp-mouse-to-focus = {
         enable = true;
       };

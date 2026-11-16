@@ -6,6 +6,7 @@ in
 {
   xdg = {
     enable = true;
+
     userDirs = {
       enable = true;
       createDirectories = true;
@@ -18,6 +19,7 @@ in
       templates   = "${config.home.homeDirectory}/Plantillas";
       videos      = "${config.home.homeDirectory}/Videos";
     };
+
     desktopEntries = {
       nvim = {
         name = "Neovim";
@@ -77,6 +79,7 @@ in
         mimeType = [ "application/x-bittorrent" "x-scheme-handler/magnet" ];
       };
     };
+
     mimeApps = {
       enable = true;
       defaultApplications = {

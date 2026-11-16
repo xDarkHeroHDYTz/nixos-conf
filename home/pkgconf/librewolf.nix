@@ -93,7 +93,6 @@
       default = {
         id = 0;
         isDefault = true;
-
         settings = {
           # IDIOMA Y LOCALIZACIÓN (Español Argentina)
           "intl.accept_languages" = "es-AR, es, en-US, en";
@@ -174,7 +173,6 @@
       private = {
         id = 1;
         isDefault = false;
-
         settings = {
           # COMPORTAMIENTO DEL RATÓN
           "general.autoScroll" = true;

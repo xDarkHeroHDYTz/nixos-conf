@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./include-effects.nix
+    ./include-effects.nix # Aplicar efecto blur (No incluido en el flake).
   ];
 
   programs.ghostty = {

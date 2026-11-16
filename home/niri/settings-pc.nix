@@ -15,6 +15,7 @@
         layout = "us";
         variant = "altgr-intl";
       };
+
       outputs = {
         "PNP(AOC) Q27G3XMN 1APQ7JA003333" = {
           mode = {

@@ -1,6 +1,7 @@
 { pkgs, lib, ... }:
 
 {
+  # Explorador de archivos Nautilus + dependencias.
   home.packages = with pkgs; [
     (symlinkJoin {
       name = "nautilus-with-plugins";

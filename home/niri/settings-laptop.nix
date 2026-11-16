@@ -15,6 +15,7 @@
         layout = "latam";
         # variant = "";
       };
+
       outputs = {
         "AU Optronics 0x82ED Unknown" = {
           mode = {
