@@ -51,7 +51,7 @@
   };
   services.fstrim.enable = true;
 
-  # --- CARGA TEMPRANA NVIDIA EN INITRD--
+  # --- CARGA TEMPRANA NVIDIA EN INITRD PLYMOUTH FIX ---
   boot.initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
 
   # --- RED, LOCALIZACIÓN Y SEGURIDAD ---
