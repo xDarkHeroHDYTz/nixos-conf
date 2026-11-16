@@ -8,8 +8,6 @@
       "org.vinegarhq.Sober"
       "org.blender.Blender"
     ];
-
-    update.onActivation = true;
   };
 
   # Si flatpak falla descomentar (TEST)
