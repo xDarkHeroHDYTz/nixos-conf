@@ -5,6 +5,7 @@
     ./include-effects.nix # Aplicar efecto blur (No incluido en el flake).
   ];
 
+  # Oculta los botones de control de ventana al usar niri
   programs.ghostty = {
     settings = {
       window-decoration = false;
