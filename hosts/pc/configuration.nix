@@ -54,6 +54,10 @@
   # --- CARGA TEMPRANA NVIDIA EN INITRD PLYMOUTH FIX ---
   boot.initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
 
+  # --- Optimización de frecuencia Ryzen ---
+  boot.kernelParams = [ "amd_pstate=active" ];
+  powerManagement.cpuFreqGovernor = "schedutil";
+
   # --- RED, LOCALIZACIÓN Y SEGURIDAD ---
   networking = {
     hostName = "pc";
