@@ -64,7 +64,7 @@
   time.timeZone = "America/Argentina/Buenos_Aires";
   i18n.defaultLocale = "es_AR.UTF-8";
 
-  # --- USUARIOS Y AUTOLOGIN ---
+  # --- USUARIOS ---
   users.users."lisandro" = {
     isNormalUser = true;
     description = "Lisandro Julian Roldán Barbato";

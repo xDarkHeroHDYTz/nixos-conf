@@ -48,6 +48,6 @@
     ltrace        # Seguimiento de llamadas a bibliotecas dinámicas
     jq            # Procesador JSON por línea de comandos (ideal para parsear logs)
 
-    lynis         # Audita el sistema por vulnerabilidadesl
+    lynis         # Audita el sistema por vulnerabilidades
   ];
 }
