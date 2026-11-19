@@ -3,11 +3,14 @@
 {
   boot = {
     kernelPackages = pkgs.linuxPackages_cachyos;
+
     lanzaboote = {
       enable = true;
       pkiBundle = "/var/lib/sbctl";
     };
+
     loader.efi.canTouchEfiVariables = true;
+
     plymouth = {
       enable = true;
     };
