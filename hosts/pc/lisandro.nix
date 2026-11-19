@@ -1,32 +1,36 @@
 { inputs, pkgs, ... }:
 
+let
+  usuario = "lisandro";
+  usrHome = "/home/${usuario}";
+in
 {
-  home.username = "lisandro";
-  home.homeDirectory = "/home/lisandro";
+  home.username = usuario;
+  home.homeDirectory = "${usrHome}";
 
   imports = [
-    # Desktop enviroment config
+    # Configuracion del entorno de escritorio
     inputs.niri.homeModules.niri
-    ../../home/niri/settings-pc.nix
-    ../../home/pkgconf/noctalia.nix
+    ../../${usrHome}/niri/settings-pc.nix
+    ../../${usrHome}/pkgconf/noctalia.nix
 
-    # Packages configurations
-    # ../../home/pkgconf/cybersecurity.nix
-    ../../home/pkgconf/gaming-variables.nix
-    ../../home/pkgconf/git.nix
-    ../../home/pkgconf/librewolf.nix
-    ../../home/pkgconf/mangohud.nix
-    # ../../home/pkgconf/millenium.nix
-    ../../home/pkgconf/nautilus.nix
-    ../../home/pkgconf/neovim.nix
-    ../../home/pkgconf/terminal.nix
-    ../../home/pkgconf/vesktop.nix
-    ../../home/pkgconf/xdg.nix
-    ../../home/pkgconf/zed-editor.nix
+    # Configuracion de programas
+    # ../../${usrHome}/pkgconf/cybersecurity.nix
+    ../../${usrHome}/pkgconf/gaming-variables.nix
+    ../../${usrHome}/pkgconf/git.nix
+    ../../${usrHome}/pkgconf/librewolf.nix
+    ../../${usrHome}/pkgconf/mangohud.nix
+    # ../../${usrHome}/pkgconf/millenium.nix
+    ../../${usrHome}/pkgconf/nautilus.nix
+    ../../${usrHome}/pkgconf/neovim.nix
+    ../../${usrHome}/pkgconf/terminal.nix
+    ../../${usrHome}/pkgconf/vesktop.nix
+    ../../${usrHome}/pkgconf/xdg.nix
+    ../../${usrHome}/pkgconf/zed-editor.nix
 
-    # Secrets
+    # Secretos
     inputs.sops-nix.homeManagerModules.sops
-    ../../home/secrets/secrets.nix
+    ../../${usrHome}/secrets/secrets.nix
   ];
 
   programs = {

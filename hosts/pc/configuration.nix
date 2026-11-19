@@ -69,12 +69,16 @@
   i18n.defaultLocale = "es_AR.UTF-8";
 
   # --- USUARIOS ---
-  users.users."lisandro" = {
-    isNormalUser = true;
-    description = "Lisandro Julian Roldán Barbato";
-    extraGroups = [ "wheel" "networkmanager" "kvm" "libvirtd" "render" "video" "audio" "gamemode" "i2c" ];
+  home-manager.users  = {
+    lisandro = import ./lisandro.nix;
   };
-  home-manager.users.lisandro = import ./home.nix;
+  users.users = {
+    "lisandro" = {
+      isNormalUser = true;
+      description = "Lisandro Julian Roldán Barbato";
+      extraGroups = [ "wheel" "networkmanager" "kvm" "libvirtd" "render" "video" "audio" "gamemode" "i2c" ];
+    };
+  };
 
   services.lact.enable = true;
   services.hardware.openrgb.enable = true;

@@ -62,6 +62,7 @@
 
   services.thermald.enable = true;
 
+  # --- PERFILES DE ENERGIA ---
   services.power-profiles-daemon.enable = lib.mkForce false;
   services.tlp = {
     enable = true;
@@ -176,12 +177,16 @@
   i18n.defaultLocale = "es_AR.UTF-8";
 
   # --- USUARIOS ---
-  users.users."lisandro" = {
-    isNormalUser = true;
-    description = "Lisandro Julian Roldán Barbato";
-    extraGroups = [ "wheel" "networkmanager" "kvm" "libvirtd" "render" "video" "audio" "gamemode" "i2c" "wireshark" ];
+  home-manager.users  = {
+    lisandro = import ./lisandro.nix;
   };
-  home-manager.users.lisandro = import ./home.nix;
+  users.users = {
+    "lisandro" = {
+      isNormalUser = true;
+      description = "Lisandro Julian Roldán Barbato";
+      extraGroups = [ "wheel" "networkmanager" "kvm" "libvirtd" "render" "video" "audio" "gamemode" "i2c" ];
+    };
+  };
 
   programs.wireshark = {
     enable = true;
