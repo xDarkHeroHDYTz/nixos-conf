@@ -13,7 +13,7 @@
   programs.fish = {
     enable = true;
     shellAliases = {
-      nfu = "sudo nix flake update --flake ~/.nixos-conf";
+      nfu = "nix flake update --flake ~/.nixos-conf";
       nrt = "sudo nixos-rebuild test --flake ~/.nixos-conf#$hostname";
       nrs = "sudo nixos-rebuild switch --flake ~/.nixos-conf#$hostname";
       ncg = "sudo nix-collect-garbage -d";
