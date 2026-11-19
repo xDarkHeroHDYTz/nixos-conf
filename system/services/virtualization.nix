@@ -16,6 +16,7 @@
 
         # Permisos de dispositivos NVIDIA y de renderizado para EGL/VirtIO-3D
         verbatimConfig = ''
+          namespaces = []
           cgroup_device_acl = [
               "/dev/null", "/dev/full", "/dev/zero",
               "/dev/random", "/dev/urandom",
