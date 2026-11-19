@@ -24,7 +24,7 @@
     ../../system/hardware/bluetooth.nix
     ../../system/hardware/nuphy.nix
     ../../system/hardware/nvidia.nix
-    ../../system/hardware/power.nix
+    # ../../system/hardware/power.nix
 
     # Services
     #../../system/services/ai.nix
@@ -82,15 +82,49 @@
     };
   };
 
+  # PERFILES DE ENERGIA
+  services.upower.enable = true;
+
+  services.auto-cpufreq = {
+    enable = true;
+    settings = {
+      battery = {
+        governor = "powersave";
+        energy_performance_preference = "power";
+        turbo = "never";
+      };
+      charger = {
+        governor = "performance";
+        energy_performance_preference = "performance";
+        turbo = "auto";
+      };
+    };
+  };
+
   # --- PARAMETROS DE EFICIENCIA ENERGETICA ---
   boot.kernelParams = [
-    "pcie_aspm=force"
+    "pcie_aspm.policy=powersupersave"
+    "intel_pstate=active"
     "snd_hda_intel.power_save=1"
+    "snd_hda_intel.power_save_controller=Y"
     "intel_idle.max_cstate=10"
+    "i915.enable_fbc=1"
+    "i915.enable_psr=1"
+    "nmi_watchdog=0"
   ];
 
+  # Garantiza que el audio HDMI y controladores USB-C de la RTX 2060 entren en D3cold
   services.udev.extraRules = ''
-    ACTION=="add", SUBSYSTEM=="scsi_disk", ATTR{manage_suspend}="1"
+    # Discos SATA (si aplica)
+    ACTION=="add", SUBSYSTEM=="scsi_disk", ATTR{manage_runtime_start_stop}="1"
+    ACTION=="add", SUBSYSTEM=="scsi_disk", ATTR{manage_system_start_stop}="1"
+
+    # Suspensión en tiempo de ejecución para todas las funciones PCI de NVIDIA (0x10de)
+    ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x030000", ATTR{power/control}="auto"
+    ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x030200", ATTR{power/control}="auto"
+    ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x040300", ATTR{power/control}="auto"
+    ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c0330", ATTR{power/control}="auto"
+    ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c8000", ATTR{power/control}="auto"
   '';
 
   # --- RED, LOCALIZACIÓN Y SEGURIDAD ---
