@@ -10,7 +10,6 @@
         package = pkgs.qemu;
         vhostUserPackages = with pkgs; [
           virtiofsd
-          virtio-win
         ];
         swtpm.enable = true;
 
@@ -22,7 +21,8 @@
               "/dev/random", "/dev/urandom",
               "/dev/ptmx", "/dev/kvm",
               "/dev/nvidiactl", "/dev/nvidia0", "/dev/nvidia-modeset",
-              "/dev/dri/renderD128"
+              "/dev/nvidia-uvm", "/dev/nvidia-uvm-tools",
+              "/dev/dri/renderD128", "/dev/dri/renderD129"
           ]
         '';
       };
@@ -32,6 +32,7 @@
 
   environment.systemPackages = with pkgs; [
     dnsmasq
+    virtio-win
     vulkan-tools
   ];
 
