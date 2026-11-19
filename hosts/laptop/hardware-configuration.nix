@@ -23,7 +23,7 @@
       device = "/dev/mapper/luks-01d69a9a-333d-4ed2-b9e5-26228bcf62ed";
       fsType = "ext4";
       # Evita escrituras innecesarias en la NAND del SSD al leer archivos
-      options = [ "noatime" "nodiratime" ];
+      options = [ "noatime" ];
     };
   };
 

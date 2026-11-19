@@ -23,7 +23,7 @@
       device = "/dev/mapper/luks-e4f5f393-f48e-4e75-b082-dd9f32336167";
       fsType = "ext4";
       # Desactiva actualización de marcas de tiempo al leer para reducir escrituras en la NAND
-      options = [ "noatime" "nodiratime" ];
+      options = [ "noatime" ];
     };
   };
 
