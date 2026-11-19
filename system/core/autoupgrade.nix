@@ -3,20 +3,15 @@
 {
   system.autoUpgrade = {
     enable = true;
+    operation = "boot"; # Construye y prepara el arranque sin tocar la sesión en curso
 
-    # Apunta a tu repositorio de GitHub y rama principal (ej. main o master)
     flake = "github:xDarkHeroHDYTz/nixos-conf/main";
-
-    # Flags esenciales para actualizaciones remotas desde Git
     flags = [
       "--no-write-lock-file" # Evita que intente escribir el lockfile en el repositorio remoto
       "-L"                    # Muestra los logs de compilación en el journal
     ];
 
-    # Frecuencia (todos los días a las 4:00 AM)
-    dates = "04:00";
-
-    # Retraso aleatorio para evitar picos
-    randomizedDelaySec = "45min";
+    dates = "05:00";
+    randomizedDelaySec = "45min"; # Retraso aleatorio para evitar picos
   };
 }
