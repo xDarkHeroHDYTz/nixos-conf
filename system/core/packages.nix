@@ -21,7 +21,7 @@
     # --- Seguridad, Cifrado & Boot ---
     cryptsetup
     sbctl
-    tpm2-tss
+    tpm2-tools
   ];
 
   hardware.i2c.enable = true;
