@@ -39,26 +39,7 @@
     ../../system/services/virtualization.nix
   ];
 
-  # --- MEMORIA Y ALMACENAMIENTO ---
-  zramSwap = {
-    enable = true;
-    memoryPercent = 50;
-  };
-  services.earlyoom = {
-    enable = true;
-    freeMemThreshold = 5;
-    freeSwapThreshold = 5;
-  };
-  services.fstrim.enable = true;
-
-  # --- CARGA TEMPRANA NVIDIA EN INITRD PLYMOUTH FIX ---
-  boot.initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
-
-  # --- Optimización de frecuencia Ryzen ---
-  boot.kernelParams = [ "amd_pstate=active" ];
-  powerManagement.cpuFreqGovernor = "schedutil";
-
-  # --- RED, LOCALIZACIÓN Y SEGURIDAD ---
+  # --- IDENTIDAD, RED Y LOCALIZACIÓN ---
   networking = {
     hostName = "pc";
     networkmanager.enable = true;
@@ -68,10 +49,37 @@
   time.timeZone = "America/Argentina/Buenos_Aires";
   i18n.defaultLocale = "es_AR.UTF-8";
 
-  # --- USUARIOS ---
-  home-manager.users  = {
-    lisandro = import ./lisandro.nix;
+  # --- MEMORIA Y ALMACENAMIENTO ---
+  zramSwap = {
+    enable = true;
+    memoryPercent = 50;
   };
+
+  services.earlyoom = {
+    enable = true;
+    freeMemThreshold = 5;
+    freeSwapThreshold = 5;
+  };
+
+  services.fstrim.enable = true;
+
+  # --- CPU, ARRANQUE Y GRÁFICOS (RYZEN + NVIDIA) ---
+  # Carga temprana de módulos NVIDIA para evitar conflictos visuales con Plymouth
+  boot.initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+
+  # amd_pstate=active + schedutil para escalado dinámico ágil en escritorio
+  boot.kernelParams = [
+    "amd_pstate=active"
+    "split_lock_detect=off"
+  ];
+
+  powerManagement.cpuFreqGovernor = "schedutil";
+
+  # Control de curva/ventilación de GPU y RGB
+  services.lact.enable = true;
+  services.hardware.openrgb.enable = true;
+
+  # --- USUARIOS Y HOME MANAGER ---
   users.users = {
     "lisandro" = {
       isNormalUser = true;
@@ -80,8 +88,9 @@
     };
   };
 
-  services.lact.enable = true;
-  services.hardware.openrgb.enable = true;
+  home-manager.users = {
+    lisandro = import ./lisandro.nix;
+  };
 
   system.stateVersion = "26.05";
 }
