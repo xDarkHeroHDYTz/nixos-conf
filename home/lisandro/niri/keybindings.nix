@@ -37,7 +37,7 @@ in
     "Mod+Alt+B" = { action = actions.spawn "${browser}" "-p" "private"; hotkey-overlay.title = "Private Browser"; };
     "Mod+E" = { action = actions.spawn "${filemanager}"; hotkey-overlay.title = "File Manager"; };
     "Mod+Ctrl+A" = { action = actions.spawn "${terminal}" "-e" "wiremix"; hotkey-overlay.title = "Audio Mixer (Wiremix)"; };
-    "Mod+Ctrl+M" = { action = actions.spawn "${terminal}" "-e" "cliamp" "${config.xdg.userDirs.music}"; hotkey-overlay.title = "Music Client"; };
+    "Mod+Alt+M" = { action = actions.spawn "${terminal}" "-e" "cliamp" "${config.xdg.userDirs.music}"; hotkey-overlay.title = "Music Client"; };
 
     # --- GESTIÓN DE VENTANAS Y PANELES ---
     "Mod+Q" = { action = actions.close-window; hotkey-overlay.title = "Close Window"; };
@@ -126,6 +126,7 @@ in
     "XF86AudioLowerVolume"    = { allow-when-locked = true; action = actions.spawn "noctalia" "msg" "volume-down"; hotkey-overlay.title = "Volume Down"; };
     "XF86AudioMute"           = { allow-when-locked = true; action = actions.spawn "noctalia" "msg" "volume-mute"; hotkey-overlay.title = "Volume Mute"; };
     "XF86AudioMicMute"        = { allow-when-locked = true; action = actions.spawn "noctalia" "msg" "mic-mute"; hotkey-overlay.title = "Mic Mute"; };
+    "Mod+Ctrl+M"              = { allow-when-locked = true; action = actions.spawn "noctalia" "msg" "mic-mute"; hotkey-overlay.title = "Mic Mute"; };
     "XF86MonBrightnessUp"     = { allow-when-locked = true; action = actions.spawn "noctalia" "msg" "brightness-up"; hotkey-overlay.title = "Brightness Up"; };
     "XF86MonBrightnessDown"   = { allow-when-locked = true; action = actions.spawn "noctalia" "msg" "brightness-down"; hotkey-overlay.title = "Brightness Down"; };
     "XF86AudioPlay"           = { allow-when-locked = true; action = actions.spawn "noctalia" "msg" "media" "toggle"; hotkey-overlay.title = "Media Toggle Play/Pause"; };
