@@ -132,7 +132,6 @@
   services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
-    open = lib.mkForce false;
     powerManagement = {
       finegrained = true;
     };
@@ -156,7 +155,6 @@
     "i915.enable_fbc=1"
     "i915.enable_psr=1"
     "i915.fastboot=1"
-    "ahci.mobile_lpm_policy=min_power"
     "nmi_watchdog=0"
   ];
 
