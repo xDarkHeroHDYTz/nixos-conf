@@ -65,11 +65,4 @@
       fallbackDns = [ "1.1.1.1" "9.9.9.9" ];
     };
   };
-
-  programs.fish = {
-    shellAliases = {
-      vpnon = "nmcli connection up pvpn-us72";
-      vpnoff = "nmcli connection down pvpn-us72";
-    };
-  };
 }
