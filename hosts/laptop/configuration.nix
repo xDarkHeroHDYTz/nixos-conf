@@ -99,8 +99,8 @@
 
       RUNTIME_PM_ON_AC = "on";
       RUNTIME_PM_ON_BAT = "auto";
-      # Se excluye NVIDIA para que la gestione el driver con RTD3
-      RUNTIME_PM_DRIVER_DENYLIST = "nouveau nvidia";
+      # Se excluye NVIDIA para que la gestione el driver con RTD3 (se conserva mei_me del valor por defecto de TLP)
+      RUNTIME_PM_DRIVER_DENYLIST = "mei_me nouveau nvidia";
 
       PCIE_ASPM_ON_AC = "default";
       PCIE_ASPM_ON_BAT = "powersupersave";
@@ -162,12 +162,6 @@
   services.udev.extraRules = ''
     ACTION=="add", SUBSYSTEM=="scsi_disk", ATTR{manage_runtime_start_stop}="1"
     ACTION=="add", SUBSYSTEM=="scsi_disk", ATTR{manage_system_start_stop}="1"
-
-    ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x030000", ATTR{power/control}="auto"
-    ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x030200", ATTR{power/control}="auto"
-    ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x040300", ATTR{power/control}="auto"
-    ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c0330", ATTR{power/control}="auto"
-    ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c8000", ATTR{power/control}="auto"
   '';
 
   # --- USUARIOS Y PROGRAMAS ---
@@ -175,7 +169,7 @@
     "lisandro" = {
       isNormalUser = true;
       description = "Lisandro Julian Roldán Barbato";
-      extraGroups = [ "wheel" "networkmanager" "kvm" "libvirtd" "render" "video" "audio" "gamemode" "i2c" ];
+      extraGroups = [ "wheel" "networkmanager" "kvm" "libvirtd" "render" "video" "audio" "gamemode" "i2c" "wireshark" ];
     };
   };
 
