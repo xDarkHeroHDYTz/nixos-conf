@@ -22,7 +22,7 @@
     # Hardware
     ../../system/hardware/audient.nix
     # ../../system/hardware/bluetooth.nix
-    ../../system/hardware/network-hardened.nix
+    # ../../system/hardware/network-hardened.nix
     ../../system/hardware/nuphy.nix
     ../../system/hardware/nvidia.nix
     ../../system/hardware/power.nix
