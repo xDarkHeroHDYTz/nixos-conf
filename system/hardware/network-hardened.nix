@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ ... }:
 # Permisos seguros y nombre corto (límite de 15 caracteres en interfaz)
 # chmod 600 /home/lisandro/.config/vpn/nixos-wg-US-FREE-72.conf && cp /home/lisandro/.config/vpn/nixos-wg-US-FREE-72.conf /home/lisandro/.config/vpn/pvpn-us72.conf
 
@@ -30,18 +30,13 @@
       wifi.macAddress = "random";
       dns = "systemd-resolved";
     };
+
+    nftables.enable = true;
+
     firewall = {
       allowPing = false;
       # "loose" evita bloqueos al alternar entre WARP y túneles WireGuard
       checkReversePath = "loose";
-
-      # Firewall de entrada completamente cerrado: anula TODOS los puertos que abra cualquier
-      # otro módulo (Steam, WiVRn, LocalSend...). La salida de red no se restringe.
-      allowedTCPPorts = lib.mkForce [ ];
-      allowedUDPPorts = lib.mkForce [ ];
-      allowedTCPPortRanges = lib.mkForce [ ];
-      allowedUDPPortRanges = lib.mkForce [ ];
-      interfaces = lib.mkForce { };
     };
   };
 
