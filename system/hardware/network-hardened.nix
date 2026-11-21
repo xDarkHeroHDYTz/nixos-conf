@@ -7,6 +7,8 @@
     #   chmod 600 ~/.config/vpn/nixos-wg-US-FREE-72.conf && cp ~/.config/vpn/nixos-wg-US-FREE-72.conf ~/.config/vpn/pvpn-us72.conf
     # Importar Proton VPN en NetworkManager
     #   nmcli connection import type wireguard file ~/.config/vpn/pvpn-us72.conf
+    #  Quitar autoconnect
+    #   nmcli connection modify pvpn-us72 connection.autoconnect no
     networkmanager = {
       wifi.scanRandMacAddress = true;
       wifi.macAddress = "random";
