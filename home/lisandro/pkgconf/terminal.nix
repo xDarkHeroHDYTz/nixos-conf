@@ -18,8 +18,6 @@
       nrs = "sudo nixos-rebuild switch --flake ~/.nixos-conf#$hostname";
       ncg = "sudo nix-collect-garbage -d";
       nso = "sudo nix-store --optimise -vv";
-      vpnon = "nmcli connection up pvpn-us72";
-      vpnoff = "nmcli connection down pvpn-us72";
       ytpl-dl = "yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-thumbnail --embed-metadata -o \"${config.xdg.userDirs.music}/%(playlist)s/%(title)s.%(ext)s\"";
       comfyui = "nix run github:utensils/comfyui-nix#cuda -- --enable-manager";
     };
