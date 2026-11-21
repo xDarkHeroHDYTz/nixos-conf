@@ -1,26 +1,12 @@
 { ... }:
-# Permisos seguros y nombre corto (límite de 15 caracteres en interfaz)
-# chmod 600 ~/.config/vpn/nixos-wg-US-FREE-72.conf && cp ~/.config/vpn/nixos-wg-US-FREE-72.conf ~/.config/vpn/pvpn-us72.conf
-
-# Importar Proton VPN en NetworkManager
-# nmcli connection import type wireguard file ~/.config/vpn/pvpn-us72.conf
-
-# Registrar/aceptar términos, pasar a WireGuard (evita CF_HAPPY_EYEBALLS_MITM_FAILURE) y conectar WARP
-# warp-cli registration new
-# warp-cli tunnel protocol set WireGuard && warp-cli mode warp
-
-# Alternar sin chocar rutas ni DNS
-# warp-cli disconnect; and nmcli connection up pvpn-us72
-# nmcli connection down pvpn-us72; and warp-cli connect
-
-# Verificar estado, IP y DNS
-# curl -s https://www.cloudflare.com/cdn-cgi/trace | grep -E "warp=|ip=|loc="
-# curl -s https://ipinfo.io/ip; echo
-# resolvectl status
 
 {
   networking = {
     wireguard.enable = true;
+    # Permisos seguros y nombre corto (límite de 15 caracteres en interfaz)
+    #   chmod 600 ~/.config/vpn/nixos-wg-US-FREE-72.conf && cp ~/.config/vpn/nixos-wg-US-FREE-72.conf ~/.config/vpn/pvpn-us72.conf
+    # Importar Proton VPN en NetworkManager
+    #   nmcli connection import type wireguard file ~/.config/vpn/pvpn-us72.conf
     networkmanager = {
       wifi.scanRandMacAddress = true;
       wifi.macAddress = "random";
@@ -31,37 +17,23 @@
 
     firewall = {
       allowPing = false;
-      # "loose" evita bloqueos al alternar entre WARP y túneles WireGuard
-      checkReversePath = "loose";
+      checkReversePath = "loose"; # "loose" evita bloqueos al alternar entre WARP y túneles WireGuard
     };
   };
 
-  # boot.kernel.sysctl = {
-  #   # Reduce exposición a redirecciones ICMP maliciosas y source routing en redes públicas
-  #   "net.ipv4.conf.all.accept_redirects" = false;
-  #   "net.ipv4.conf.default.accept_redirects" = false;
-  #   "net.ipv6.conf.all.accept_redirects" = false;
-  #   "net.ipv6.conf.default.accept_redirects" = false;
-  #   "net.ipv4.conf.all.accept_source_route" = false;
-  #   "net.ipv4.conf.default.accept_source_route" = false;
-  #   "net.ipv6.conf.all.accept_source_route" = false;
-  #   "net.ipv6.conf.default.accept_source_route" = false;
-  #   # Este equipo no es router: no emitir redirecciones
-  #   "net.ipv4.conf.all.send_redirects" = false;
-  #   "net.ipv4.conf.default.send_redirects" = false;
-  #   # Protege conexiones TCP frente a RST falsificados en TIME-WAIT
-  #   "net.ipv4.tcp_rfc1337" = true;
-  # };
+  boot.kernel.sysctl = {
+    # Ignorar redirecciones ICMP: evita que alguien en una wifi pública desvíe tu tráfico
+    "net.ipv4.conf.all.accept_redirects" = false;
+    "net.ipv4.conf.default.accept_redirects" = false;
+    "net.ipv6.conf.all.accept_redirects" = false;
+    "net.ipv6.conf.default.accept_redirects" = false;
+  };
 
   services = {
-    # Redes nuevas o públicas: todo lo entrante se descarta (zona "drop").
-    # Solo las conexiones marcadas con la zona "nixos-fw-default" abren los puertos del sistema
-    # (los de networking.firewall.allowed*Ports y los openFirewall de cada servicio).
     firewalld = {
       enable = true;
-      settings.DefaultZone = "drop";
+      settings.DefaultZone = "drop"; # Redes nuevas o públicas: todo lo entrante se descarta (zona "drop").
     };
-
     # --- Marcar una red como segura / quitarla (ejecutar cada comando por separado) ---
     # Marcar como segura:
     #   nmcli connection modify "NOMBRE_WIFI" connection.zone nixos-fw-default
@@ -73,6 +45,17 @@
     #   sudo firewall-cmd --get-active-zones
 
     cloudflare-warp.enable = true;
+    # --- WARP: Setup y red de confianza ---
+    # Setup
+    #   warp-cli registration new
+    #   warp-cli tunnel protocol set WireGuard && warp-cli mode warp
+    # Para que no choque con el VPN
+    #   warp-cli trusted ethernet enable
+    # Agregar red de confianza (usa el nombre real de la red, el SSID):
+    #   warp-cli trusted ssid add "NOMBRE_WIFI"
+    # Quitarla:
+    #   warp-cli trusted ssid remove "NOMBRE_WIFI"
+    # Nota: WARP tiene que estar conectado (warp-cli connect) para que la regla se aplique.
 
     resolved = {
       enable = true;
