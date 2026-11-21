@@ -61,12 +61,19 @@ in
     # --- GAMING ---
     faugus-launcher
     hydralauncher
+    pcsx2
     prismlauncher
     protonplus
     protontricks
     r2modman
+    (retroarch.withCores (cores: with cores; [
+      beetle-psx-hw   # PS1 con renderizado por hardware
+      flycast         # Dreamcast
+      mupen64plus     # N64 (mupen64plus-next)
+      snes9x          # SNES
+      mgba            # GBA
+    ]))
     retroarch-assets
-    retroarch-full
     retroarch-joypad-autoconfig
 
     # --- MULTIMEDIA (AUDIO, VIDEO, IMAGEN Y EDICIÓN) ---
