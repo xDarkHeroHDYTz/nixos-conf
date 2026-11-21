@@ -4,7 +4,6 @@
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
-      auto-optimise-store = true;
       # Cache con paquetes NVIDIA CUDA.
       substituters = [
         "https://cache.nixos.org"
@@ -14,6 +13,10 @@
         "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
       ];
     };
+
+    # Deduplica el store en una tarea programada en lugar de hacerlo en cada build
+    optimise.automatic = true;
+
     gc = {
       automatic = true;
       dates = "weekly";
