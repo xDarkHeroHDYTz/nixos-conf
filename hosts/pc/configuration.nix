@@ -68,13 +68,9 @@
   # Carga temprana de módulos NVIDIA para evitar conflictos visuales con Plymouth
   boot.initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
 
-  # amd_pstate=active + schedutil para escalado dinámico ágil en escritorio
   boot.kernelParams = [
-    "amd_pstate=active"
     "split_lock_detect=off"
   ];
-
-  powerManagement.cpuFreqGovernor = "schedutil";
 
   # Control de curva/ventilación de GPU y RGB
   services.lact.enable = true;
