@@ -15,7 +15,7 @@ in
     ../../${usrHome}/pkgconf/noctalia.nix
 
     # Configuracion de programas
-    # ../../${usrHome}/pkgconf/cybersecurity.nix
+    ../../${usrHome}/pkgconf/cybersecurity.nix
     ../../${usrHome}/pkgconf/gaming-variables.nix
     ../../${usrHome}/pkgconf/git.nix
     ../../${usrHome}/pkgconf/librewolf.nix
