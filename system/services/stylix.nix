@@ -39,7 +39,4 @@
       };
     };
   };
-  home-manager.users.lisandro = {
-    stylix.targets.wayprompt.enable = false; # Arreglo temporal para poder reconstruir el sistema.
-  };
 }
