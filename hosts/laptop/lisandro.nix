@@ -10,7 +10,7 @@ in
   imports = [
     # Configuracion del entorno de escritorio
     inputs.niri.homeModules.niri
-    ../../home/niri/settings-pc.nix
+    ../../home/niri/settings-laptop.nix
     ../../home/pkgconf/noctalia.nix
 
     # Configuracion de programas
