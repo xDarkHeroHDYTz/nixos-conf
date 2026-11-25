@@ -2,6 +2,7 @@
 
 let
   artcraftTokenPath = config.sops.secrets."control_token".path;
+  openrouterKeyPath = config.sops.secrets."openrouter_api_key".path;
 in
 {
   programs.opencode = {
@@ -16,6 +17,29 @@ in
         glob = true;
         list = true;
         webfetch = true;
+      };
+
+      provider = {
+        ollama = {
+          npm = "@ai-sdk/openai-compatible";
+          name = "Ollama";
+          options = {
+            baseURL = "http://127.0.0.1:11434/v1";
+          };
+        };
+
+        openrouter = {
+          npm = "@ai-sdk/openai-compatible";
+          name = "OpenRouter";
+          options = {
+            baseURL = "https://openrouter.ai/api/v1";
+            apiKey = "{file:${openrouterKeyPath}}";
+            headers = {
+              "HTTP-Referer" = "https://localhost";
+              "X-Title" = "OpenCode";
+            };
+          };
+        };
       };
 
       mcp = {
@@ -53,6 +77,17 @@ in
           ];
           enabled = true;
         };
+
+        vectorcraft-bridge = {
+          type = "local";
+          command = [
+            "vectorcraft-cli"
+            "mcp"
+            "--connect"
+            "127.0.0.1:7979"
+          ];
+          enabled = true;
+        };
       };
     };
   };
@@ -80,6 +115,15 @@ in
         description = "Abre CADCraft en modo control (127.0.0.1:7880)";
         body = ''
           cadcraft --control 7880 $argv >/dev/null 2>&1 &
+          disown
+        '';
+      };
+
+      vc-ctrl = {
+        description = "Abre VectorCraft en modo control (127.0.0.1:7979)";
+        body = ''
+          set -lx VECTORCRAFT_CONTROL_PORT 7979
+          vectorcraft --control 7979 $argv >/dev/null 2>&1 &
           disown
         '';
       };

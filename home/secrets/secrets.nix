@@ -13,6 +13,7 @@
 
     secrets = {
       "control_token" = {};
+      "openrouter_api_key" = {};
     };
   };
 }
