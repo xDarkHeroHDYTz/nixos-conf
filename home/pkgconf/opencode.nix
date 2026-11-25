@@ -1,13 +1,23 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 let
-  photoToken = "${config.xdg.configHome}/photocraft/control.token";
-  filmToken  = "${config.xdg.configHome}/filmcraft/control.token";
+  artcraftTokenPath = config.sops.secrets."control_token".path;
 in
 {
   programs.opencode = {
     enable = true;
     settings = {
+      tools = {
+        bash = true;
+        read = true;
+        edit = true;
+        write = true;
+        grep = true;
+        glob = true;
+        list = true;
+        webfetch = true;
+      };
+
       mcp = {
         photocraft-bridge = {
           type = "local";
@@ -17,7 +27,7 @@ in
             "--bridge"
             "127.0.0.1:7878"
             "--control-token-file"
-            photoToken
+            artcraftTokenPath
           ];
           enabled = true;
         };
@@ -25,12 +35,9 @@ in
         filmcraft-bridge = {
           type = "local";
           command = [
-            "filmcraft-cli"
-            "mcp"
-            "--bridge"
-            "127.0.0.1:7879"
-            "--control-token-file"
-            filmToken
+            "${pkgs.bash}/bin/bash"
+            "-c"
+            ''export FILMCRAFT_CONTROL_TOKEN=$(${pkgs.coreutils}/bin/tr -d ' \n' < "${artcraftTokenPath}"); exec filmcraft-cli --bridge 127.0.0.1:7879 mcp''
           ];
           enabled = true;
         };
@@ -46,6 +53,36 @@ in
           ];
           enabled = true;
         };
+      };
+    };
+  };
+
+  programs.fish = {
+    enable = true;
+    functions = {
+      pc-ctrl = {
+        description = "Abre PhotoCraft en modo control (127.0.0.1:7878)";
+        body = ''
+          photocraft --control 7878 --control-token-file "${artcraftTokenPath}" $argv >/dev/null 2>&1 &
+          disown
+        '';
+      };
+
+      fc-ctrl = {
+        description = "Abre FilmCraft en modo control (127.0.0.1:7879)";
+        body = ''
+          set -lx FILMCRAFT_CONTROL_TOKEN (string trim < "${artcraftTokenPath}")
+          filmcraft --control 7879 $argv >/dev/null 2>&1 &
+          disown
+        '';
+      };
+
+      cc-ctrl = {
+        description = "Abre CADCraft en modo control (127.0.0.1:7880)";
+        body = ''
+          cadcraft --control 7880 $argv >/dev/null 2>&1 &
+          disown
+        '';
       };
     };
   };
