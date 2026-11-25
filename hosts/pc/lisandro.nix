@@ -23,6 +23,7 @@ in
     # ../../${usrHome}/pkgconf/millenium.nix
     ../../${usrHome}/pkgconf/nautilus.nix
     ../../${usrHome}/pkgconf/neovim.nix
+    ../../${usrHome}/pkgconf/opencode.nix
     ../../${usrHome}/pkgconf/terminal.nix
     ../../${usrHome}/pkgconf/vesktop.nix
     ../../${usrHome}/pkgconf/xdg.nix
