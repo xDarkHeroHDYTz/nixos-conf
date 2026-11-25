@@ -97,6 +97,11 @@
       PLATFORM_PROFILE_ON_AC = "performance";
       PLATFORM_PROFILE_ON_BAT = "low-power";
 
+      # Limita la iGPU UHD 630 en batería para ahorrar consumo gráfico
+      INTEL_GPU_MIN_FREQ_ON_BAT = 350;
+      INTEL_GPU_MAX_FREQ_ON_BAT = 800;
+      INTEL_GPU_BOOST_FREQ_ON_BAT = 800;
+
       RUNTIME_PM_ON_AC = "on";
       RUNTIME_PM_ON_BAT = "auto";
       # Se excluye NVIDIA para que la gestione el driver con RTD3 (se conserva mei_me del valor por defecto de TLP)
@@ -107,6 +112,8 @@
 
       AHCI_RUNTIME_PM_ON_AC = "on";
       AHCI_RUNTIME_PM_ON_BAT = "auto";
+
+      SATA_LINKPWR_ON_BAT = "med_power_with_dipm";
 
       WIFI_PWR_ON_AC = "off";
       WIFI_PWR_ON_BAT = "on";
@@ -119,6 +126,8 @@
       USB_EXCLUDE_AUDIO = 1;
       USB_EXCLUDE_BTUSB = 1;
       USB_EXCLUDE_PHONE = 1;
+
+      DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE = "bluetooth";
     };
   };
 
@@ -129,8 +138,6 @@
       intel-media-driver
     ];
   };
-
-  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
     powerManagement = {
@@ -146,23 +153,22 @@
     };
   };
 
-  # --- KERNEL Y UDEV ---
-  boot.kernelParams = [
-    "pcie_aspm.policy=powersupersave"
+  # --- KERNEL Y SYSCTL ---
+  # Sobrescribe mem_sleep_default=deep de boot.nix para usar s2idle en este host
+  boot.kernelParams = lib.mkForce [
+    "mem_sleep_default=s2idle"
     "intel_pstate=active"
-    "snd_hda_intel.power_save=1"
-    "snd_hda_intel.power_save_controller=Y"
-    "intel_idle.max_cstate=10"
     "i915.enable_fbc=1"
     "i915.enable_psr=1"
     "i915.fastboot=1"
     "nmi_watchdog=0"
   ];
 
-  services.udev.extraRules = ''
-    ACTION=="add", SUBSYSTEM=="scsi_disk", ATTR{manage_runtime_start_stop}="1"
-    ACTION=="add", SUBSYSTEM=="scsi_disk", ATTR{manage_system_start_stop}="1"
-  '';
+  boot.kernel.sysctl = {
+    # Agrupa escrituras para reducir despertares del SSD en batería
+    "vm.dirty_writeback_centisecs" = 1500;
+    "vm.laptop_mode" = 5;
+  };
 
   # --- USUARIOS Y PROGRAMAS ---
   users.users = {
