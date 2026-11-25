@@ -58,7 +58,6 @@ in
   };
 
   programs.fish = {
-    enable = true;
     functions = {
       pc-ctrl = {
         description = "Abre PhotoCraft en modo control (127.0.0.1:7878)";
