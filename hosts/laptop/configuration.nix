@@ -146,6 +146,7 @@
   };
 
   hardware.nvidia = {
+    open = true; # RTX 2060 (Turing) sí soporta módulos abiertos
     powerManagement = {
       finegrained = true;
     };

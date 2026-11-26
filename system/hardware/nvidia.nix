@@ -27,5 +27,5 @@
     nvidiaSettings = true;
   };
 
-  programs.gamemode.settings.gpu.nv_powermizer_mode = 1; # Fuerza "Prefer Maximum Performance" en la RTX 4070 solo al jugar
+  programs.gamemode.settings.gpu.nv_powermizer_mode = 1; # Fuerza "Prefer Maximum Performance" en GPU dedicada solo al jugar
 }

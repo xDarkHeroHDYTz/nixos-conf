@@ -8,7 +8,7 @@
       pkgsi686Linux.gamemode
     ];
     remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
+    dedicatedServer.openFirewall = false;
     localNetworkGameTransfers.openFirewall = true;
   };
 
