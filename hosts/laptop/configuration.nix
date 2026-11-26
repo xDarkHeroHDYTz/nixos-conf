@@ -155,7 +155,7 @@
 
   # --- KERNEL Y SYSCTL ---
   # Sobrescribe mem_sleep_default=deep de boot.nix para usar s2idle en este host
-  boot.kernelParams = lib.mkForce [
+  boot.kernelParams = [
     "mem_sleep_default=s2idle"
     "intel_pstate=active"
     "i915.enable_fbc=1"
