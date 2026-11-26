@@ -14,6 +14,8 @@
         swtpm.enable = true;
 
         # Permisos de dispositivos NVIDIA y de renderizado para EGL/VirtIO-3D
+        # namespaces = [] desactiva el aislamiento de namespaces de QEMU
+        # necesario para passthrough de GPU (VirGL/EGL) y acceso a dispositivos de render
         verbatimConfig = ''
           namespaces = []
           cgroup_device_acl = [

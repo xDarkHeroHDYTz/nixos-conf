@@ -14,13 +14,15 @@ let
         target_vid="$1"
         for dev_path in /sys/bus/usb/devices/*; do
             if [ -d "$dev_path" ]; then
-                case "''${dev_path##*/}" in
-                    *:*) continue ;;
+                base="''${dev_path##*/}"
+                # Skip directories with colon in name (e.g., usb1:1.0)
+                case "$base" in
+                    *:* ) continue ;;
                 esac
                 if [ -f "$dev_path/idVendor" ]; then
                     current_vid=$(cat "$dev_path/idVendor" 2>/dev/null)
                     if [ "$current_vid" = "$target_vid" ]; then
-                        echo "''${dev_path##*/}"
+                        echo "$base"
                         return 0
                     fi
                 fi

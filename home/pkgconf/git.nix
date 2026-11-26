@@ -6,7 +6,7 @@
     settings = {
       user = {
         name = "xDarkHeroHDYTz";
-        email = "ggprocrack901@gmail.com";
+        email = "xDarkHeroHDYTz@users.noreply.github.com";
       };
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
