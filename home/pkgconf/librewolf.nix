@@ -237,7 +237,7 @@
           "dom.security.https_only_mode" = true;
           "dom.security.https_only_mode_pbm" = true;
           "security.ssl.require_safe_negotiation" = true;
-          "security.tls.version.min" = 3;
+          "security.tls.version.min" = 4; # TLS 1.3 mínimo (3 = TLS 1.2)
           "security.OCSP.enabled" = 1;
           "security.OCSP.require" = false;
 
