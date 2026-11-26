@@ -20,10 +20,8 @@
     kernelParams = [
       "quiet"
       "splash"
-      "boot.shell_on_fail"
       "rd.systemd.show_status=false"
       "rd.udev.log_level=3"
-      "mem_sleep_default=deep"
     ];
 
     kernel.sysctl = {

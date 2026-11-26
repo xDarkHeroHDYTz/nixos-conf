@@ -50,6 +50,12 @@
   time.timeZone = "America/Argentina/Buenos_Aires";
   i18n.defaultLocale = "es_AR.UTF-8";
 
+  # Teclado en initrd para contraseña LUKS (latam)
+  console = {
+    keyMap = "la-latin1";
+    earlySetup = true;
+  };
+
   # --- MEMORIA Y ALMACENAMIENTO ---
   zramSwap = {
     enable = true;
@@ -154,9 +160,8 @@
   };
 
   # --- KERNEL Y SYSCTL ---
-  # Sobrescribe mem_sleep_default=deep de boot.nix para usar s2idle en este host
   boot.kernelParams = [
-    "mem_sleep_default=s2idle"
+    "mem_sleep_default=deep"
     "intel_pstate=active"
     "i915.enable_fbc=1"
     "i915.enable_psr=1"

@@ -57,10 +57,7 @@
     };
 
     mkSystem = configurationPath: nixpkgs.lib.nixosSystem {
-      specialArgs = {
-        inherit inputs pkgs-stable;
-      };
-
+      specialArgs = { inherit inputs pkgs-stable; };
       modules = [
         { nixpkgs.hostPlatform = system; }
 
@@ -101,5 +98,7 @@
       laptop = mkSystem ./hosts/laptop/configuration.nix;
       default = self.nixosConfigurations.pc;
     };
+
+    formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
   };
 }

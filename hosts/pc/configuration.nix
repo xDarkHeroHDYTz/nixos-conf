@@ -70,6 +70,7 @@
 
   boot.kernelParams = [
     "split_lock_detect=off"
+    "mem_sleep_default=deep"
   ];
 
   # Control de curva/ventilación de GPU y RGB
