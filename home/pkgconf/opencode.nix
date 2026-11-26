@@ -53,7 +53,6 @@ in
             "--control-token-file"
             artcraftTokenPath
           ];
-          enabled = true;
         };
 
         filmcraft-bridge = {
@@ -63,7 +62,6 @@ in
             "-c"
             ''export FILMCRAFT_CONTROL_TOKEN=$(${pkgs.coreutils}/bin/tr -d ' \n' < "${artcraftTokenPath}"); exec filmcraft-cli --bridge 127.0.0.1:7879 mcp''
           ];
-          enabled = true;
         };
 
         cadcraft-bridge = {
@@ -75,7 +73,6 @@ in
             "127.0.0.1:7880"
             "--lazy"
           ];
-          enabled = true;
         };
 
         vectorcraft-bridge = {
@@ -86,7 +83,6 @@ in
             "--connect"
             "127.0.0.1:7979"
           ];
-          enabled = true;
         };
       };
     };
