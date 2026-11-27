@@ -40,6 +40,27 @@ in
                 output = 4096;
               };
             };
+            "qwen3.5:9b" = {
+              name = "Qwen3.5 9B";
+              limit = {
+                context = 65536;
+                output = 4096;
+              };
+            };
+            "mimo-v2.6:9b" = {
+              name = "MiMo v2.6 9B";
+              limit = {
+                context = 65536;
+                output = 4096;
+              };
+            };
+            "gemma4:12b" = {
+              name = "Gemma 4 12B";
+              limit = {
+                context = 65536;
+                output = 4096;
+              };
+            };
           };
         };
 
