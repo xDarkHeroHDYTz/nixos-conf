@@ -12,8 +12,8 @@
       gnome-tour
       epiphany # Navegador reemplazado
       geary
-      totem    # Reemplazado por MPV
-      evince   # Reemplazado por Zathura / Okular
+      totem # Reemplazado por MPV
+      evince # Reemplazado por Zathura / Okular
       gnome-music # Reemplazado por Cliamp
 
       # --- Terminales y Editores (Reemplazados por Ghostty, Neovim y Zed) ---
@@ -33,21 +33,25 @@
       gnome-clocks
       gnome-calendar
       gnome-characters
-      yelp                 # Visor de ayuda y documentación
-      rygel                # Servidor multimedia UPnP/DLNA
+      yelp # Visor de ayuda y documentación
+      rygel # Servidor multimedia UPnP/DLNA
       gnome-remote-desktop # Escritorio remoto integrado
     ];
 
-    systemPackages = with pkgs; [
-      gnome-extension-manager
-    ] ++ (with pkgs.gnomeExtensions; [  # GNOME extensions, reboot to apply.
-      appindicator
-      blur-my-shell
-      clipboard-indicator
-      dash-to-dock
-      just-perfection
-      tiling-assistant
-      # vitals
-    ]);
+    systemPackages =
+      with pkgs;
+      [
+        gnome-extension-manager
+      ]
+      ++ (with pkgs.gnomeExtensions; [
+        # GNOME extensions, reboot to apply.
+        appindicator
+        blur-my-shell
+        clipboard-indicator
+        dash-to-dock
+        just-perfection
+        tiling-assistant
+        # vitals
+      ]);
   };
 }

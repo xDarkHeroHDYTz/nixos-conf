@@ -1,9 +1,12 @@
-{ ... }:
+_:
 
 {
   nix = {
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       # Cache con paquetes NVIDIA CUDA.
       substituters = [
         "https://cache.nixos.org"

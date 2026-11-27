@@ -1,4 +1,4 @@
-{  pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -23,7 +23,10 @@
             height = 1440;
             refresh = 180.002;
           };
-          position = { x = 0; y = 0; };
+          position = {
+            x = 0;
+            y = 0;
+          };
           variable-refresh-rate = "on-demand";
         };
 
@@ -33,7 +36,10 @@
             height = 1440;
             refresh = 280.099;
           };
-          position = { x = 0; y = 1440; };
+          position = {
+            x = 0;
+            y = 1440;
+          };
           variable-refresh-rate = "on-demand";
           focus-at-startup = true;
         };

@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 {
   networking = {
@@ -65,7 +65,10 @@
         LLMNR = "false";
         DNSSEC = "allow-downgrade";
         DNSOverTLS = "opportunistic";
-        FallbackDNS = [ "1.1.1.1" "9.9.9.9" ];
+        FallbackDNS = [
+          "1.1.1.1"
+          "9.9.9.9"
+        ];
       };
     };
   };

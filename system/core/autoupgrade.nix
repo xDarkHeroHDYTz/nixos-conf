@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 {
   system.autoUpgrade = {
@@ -8,7 +8,7 @@
     flake = "github:xDarkHeroHDYTz/nixos-conf/main";
     flags = [
       "--no-write-lock-file" # Evita que intente escribir el lockfile en el repositorio remoto
-      "-L"                    # Muestra los logs de compilación en el journal
+      "-L" # Muestra los logs de compilación en el journal
     ];
 
     dates = "05:00";

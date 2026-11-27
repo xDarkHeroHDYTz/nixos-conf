@@ -8,14 +8,14 @@
 
   environment.cosmic.excludePackages = with pkgs; [
     # --- Editores, Terminales y Gestores de Archivos ---
-    cosmic-term   # Reemplazado por Ghostty
-    cosmic-edit   # Reemplazado por Neovim / Zed
-    cosmic-files  # Reemplazado por Nautilus
+    cosmic-term # Reemplazado por Ghostty
+    cosmic-edit # Reemplazado por Neovim / Zed
+    cosmic-files # Reemplazado por Nautilus
 
     # --- Multimedia, Tienda y Utilidades ---
     cosmic-player # Reemplazado por MPV
     cosmic-randr
-    cosmic-store  # Redundante (las aplicaciones se gestionan de forma declarativa con Nix/Flakes)
+    cosmic-store # Redundante (las aplicaciones se gestionan de forma declarativa con Nix/Flakes)
     cosmic-reader # Reemplazado por Zathura / Okular
   ];
 
@@ -28,7 +28,10 @@
     # Mapea COSMIC para que use sus propios portales de selección de pantalla
     config = {
       cosmic = {
-        default = [ "cosmic" "gtk" ];
+        default = [
+          "cosmic"
+          "gtk"
+        ];
         "org.freedesktop.impl.portal.Screencast" = [ "cosmic" ];
         "org.freedesktop.impl.portal.Screenshot" = [ "cosmic" ];
       };

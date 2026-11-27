@@ -10,20 +10,20 @@
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     # --- Terminal, Editores y Gestores de Archivos ---
-    konsole      # Reemplazado
-    kate         # Reemplazado por Neovim / Zed
-    dolphin      # Reemplazado por Nautilus
-    ark          # Reemplazado por File-roller (vía Nautilus)
-    kfind        # Reemplazado por Nautilus / FZF
+    konsole # Reemplazado
+    kate # Reemplazado por Neovim / Zed
+    dolphin # Reemplazado por Nautilus
+    ark # Reemplazado por File-roller (vía Nautilus)
+    kfind # Reemplazado por Nautilus / FZF
 
     # --- Multimedia y Visores ---
-    elisa        # Reemplazado por Cliamp / MPV
-    gwenview     # Reemplazado por IMV / Nautilus
-    okular       # Reemplazado por Zathura / Okular en Home Manager si se requiere independiente
-    dragon       # Reemplazado por MPV
+    elisa # Reemplazado por Cliamp / MPV
+    gwenview # Reemplazado por IMV / Nautilus
+    okular # Reemplazado por Zathura / Okular en Home Manager si se requiere independiente
+    dragon # Reemplazado por MPV
 
     # --- Utilidades y Sistema ---
-    kcalc          # Reemplazado por gnome-calculator
+    kcalc # Reemplazado por gnome-calculator
     kwalletmanager # Reemplazado por gnome-keyring
     khelpcenter
     plasma-browser-integration

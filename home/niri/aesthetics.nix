@@ -55,7 +55,12 @@
       }
 
       {
-        matches = [ { app-id = "(?i)^steam$"; title = "(?i)^notificationtoasts"; } ];
+        matches = [
+          {
+            app-id = "(?i)^steam$";
+            title = "(?i)^notificationtoasts";
+          }
+        ];
         open-floating = true;
         open-focused = false;
         default-floating-position = {
@@ -67,7 +72,9 @@
     ];
 
     layout = {
-      default-column-width = { proportion = 0.5; };
+      default-column-width = {
+        proportion = 0.5;
+      };
       background-color = "transparent";
       shadow.enable = true;
 

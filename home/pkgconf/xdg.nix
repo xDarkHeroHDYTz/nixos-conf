@@ -10,14 +10,14 @@ in
     userDirs = {
       enable = true;
       createDirectories = true;
-      desktop     = "${config.home.homeDirectory}/Escritorio";
-      documents   = "${config.home.homeDirectory}/Documentos";
-      download    = "${config.home.homeDirectory}/Descargas";
-      music       = "${config.home.homeDirectory}/Música";
-      pictures    = "${config.home.homeDirectory}/Imágenes";
+      desktop = "${config.home.homeDirectory}/Escritorio";
+      documents = "${config.home.homeDirectory}/Documentos";
+      download = "${config.home.homeDirectory}/Descargas";
+      music = "${config.home.homeDirectory}/Música";
+      pictures = "${config.home.homeDirectory}/Imágenes";
       publicShare = "${config.home.homeDirectory}/Público";
-      templates   = "${config.home.homeDirectory}/Plantillas";
-      videos      = "${config.home.homeDirectory}/Videos";
+      templates = "${config.home.homeDirectory}/Plantillas";
+      videos = "${config.home.homeDirectory}/Videos";
     };
 
     desktopEntries = {
@@ -32,15 +32,24 @@ in
         exec = "${terminal} -e nvim %F";
         icon = "nvim";
         terminal = false;
-        categories = [ "Utility" "TextEditor" ];
-        mimeType = [ "text/plain" "application/x-shellscript" ];
+        categories = [
+          "Utility"
+          "TextEditor"
+        ];
+        mimeType = [
+          "text/plain"
+          "application/x-shellscript"
+        ];
       };
       bat-viewer = {
         name = "BAT Viewer (Terminal)";
         exec = "${terminal} -e bat --paging=always %F";
         icon = "text-editor";
         terminal = false;
-        categories = [ "Utility" "TextEditor" ];
+        categories = [
+          "Utility"
+          "TextEditor"
+        ];
         mimeType = [ "text/x-log" ];
       };
       cliamp = {
@@ -49,8 +58,17 @@ in
         exec = "${terminal} -e cliamp ${config.xdg.userDirs.music}";
         icon = "multimedia-audio-player";
         terminal = false;
-        categories = [ "AudioVideo" "Audio" "Player" ];
-        mimeType = [ "audio/mpeg" "audio/flac" "audio/wav" "audio/ogg" ];
+        categories = [
+          "AudioVideo"
+          "Audio"
+          "Player"
+        ];
+        mimeType = [
+          "audio/mpeg"
+          "audio/flac"
+          "audio/wav"
+          "audio/ogg"
+        ];
       };
       wiremix = {
         name = "Wiremix";
@@ -58,7 +76,11 @@ in
         exec = "${terminal} -e wiremix";
         icon = "multimedia-volume-control";
         terminal = false;
-        categories = [ "AudioVideo" "Audio" "Mixer" ];
+        categories = [
+          "AudioVideo"
+          "Audio"
+          "Mixer"
+        ];
       };
       librewolf-private = {
         name = "LibreWolf (Privado)";
@@ -66,8 +88,15 @@ in
         exec = "librewolf -p private";
         icon = "librewolf";
         terminal = false;
-        categories = [ "Network" "WebBrowser" ];
-        mimeType = [ "text/html" "x-scheme-handler/http" "x-scheme-handler/https" ];
+        categories = [
+          "Network"
+          "WebBrowser"
+        ];
+        mimeType = [
+          "text/html"
+          "x-scheme-handler/http"
+          "x-scheme-handler/https"
+        ];
       };
       aria2-torrent = {
         name = "Aria2 Downloader (Terminal)";
@@ -75,8 +104,14 @@ in
         exec = "${terminal} -e aria2c -d ${config.xdg.userDirs.download} %F";
         icon = "network-workgroup";
         terminal = false;
-        categories = [ "Network" "FileTransfer" ];
-        mimeType = [ "application/x-bittorrent" "x-scheme-handler/magnet" ];
+        categories = [
+          "Network"
+          "FileTransfer"
+        ];
+        mimeType = [
+          "application/x-bittorrent"
+          "x-scheme-handler/magnet"
+        ];
       };
     };
 
@@ -121,7 +156,7 @@ in
         "image/x-nikon-nef" = [ "lightcraft.desktop" ];
         "image/x-sony-arw" = [ "lightcraft.desktop" ];
         "image/x-adobe-dng" = [ "lightcraft.desktop" ];
-        "image/tiff"        = [ "lightcraft.desktop" ];
+        "image/tiff" = [ "lightcraft.desktop" ];
         # --- Archivos Comprimidos ---
         "application/zip" = [ "org.gnome.FileRoller.desktop" ];
         "application/x-7z-compressed" = [ "org.gnome.FileRoller.desktop" ];
@@ -131,9 +166,15 @@ in
         "application/pdf" = [ "org.pwmt.zathura.desktop" ];
         "application/epub+zip" = [ "libreoffice-writer.desktop" ];
         "application/vnd.oasis.opendocument.text" = [ "libreoffice-writer.desktop" ];
-        "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = [ "libreoffice-writer.desktop" ];
-        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = [ "libreoffice-calc.desktop" ];
-        "application/vnd.openxmlformats-officedocument.presentationml.presentation" = [ "libreoffice-impress.desktop" ];
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = [
+          "libreoffice-writer.desktop"
+        ];
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = [
+          "libreoffice-calc.desktop"
+        ];
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation" = [
+          "libreoffice-impress.desktop"
+        ];
         # --- Navegación y Protocolos ---
         "text/html" = [ "librewolf.desktop" ];
         "x-scheme-handler/http" = [ "librewolf.desktop" ];
@@ -143,7 +184,7 @@ in
         "x-scheme-handler/discord" = [ "vesktop.desktop" ];
         # --- Torrents y Magnets manejados por aria2 ---
         "application/x-bittorrent" = [ "aria2-torrent.desktop" ];
-        "x-scheme-handler/magnet"  = [ "aria2-torrent.desktop" ];
+        "x-scheme-handler/magnet" = [ "aria2-torrent.desktop" ];
       };
     };
   };

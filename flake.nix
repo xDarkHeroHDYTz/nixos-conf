@@ -47,58 +47,66 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
-  let
-    system = "x86_64-linux";
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }:
+    let
+      system = "x86_64-linux";
 
-    pkgs-stable = import inputs.nixpkgs-stable {
-      inherit system;
-      config.allowUnfree = true;
-    };
+      pkgs-stable = import inputs.nixpkgs-stable {
+        inherit system;
+        config.allowUnfree = true;
+      };
 
-    mkSystem = configurationPath: nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs pkgs-stable; };
-      modules = [
-        { nixpkgs.hostPlatform = system; }
+      mkSystem =
+        configurationPath:
+        nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs pkgs-stable; };
+          modules = [
+            { nixpkgs.hostPlatform = system; }
 
-        configurationPath
+            configurationPath
 
-        {
-          nixpkgs.overlays = [
-            inputs.artcraft.overlays.default
-            inputs.nur.overlays.default
+            {
+              nixpkgs.overlays = [
+                inputs.artcraft.overlays.default
+                inputs.nur.overlays.default
+              ];
+            }
+
+            inputs.chaotic.nixosModules.default
+            inputs.lanzaboote.nixosModules.lanzaboote
+            inputs.stylix.nixosModules.stylix
+            # inputs.nixos-millennium.nixosModules.default
+            inputs.nix-flatpak.nixosModules.nix-flatpak
+
+            home-manager.nixosModules.home-manager
+
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                backupFileExtension = "backup";
+
+                extraSpecialArgs = {
+                  inherit inputs pkgs-stable;
+                };
+              };
+            }
           ];
-        }
+        };
+    in
+    {
+      nixosConfigurations = {
+        pc = mkSystem ./hosts/pc/configuration.nix;
+        laptop = mkSystem ./hosts/laptop/configuration.nix;
+        default = self.nixosConfigurations.pc;
+      };
 
-        inputs.chaotic.nixosModules.default
-        inputs.lanzaboote.nixosModules.lanzaboote
-        inputs.stylix.nixosModules.stylix
-        # inputs.nixos-millennium.nixosModules.default
-        inputs.nix-flatpak.nixosModules.nix-flatpak
-
-        home-manager.nixosModules.home-manager
-
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            backupFileExtension = "backup";
-
-            extraSpecialArgs = {
-              inherit inputs pkgs-stable;
-            };
-          };
-        }
-      ];
+      formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
     };
-  in
-  {
-    nixosConfigurations = {
-      pc = mkSystem ./hosts/pc/configuration.nix;
-      laptop = mkSystem ./hosts/laptop/configuration.nix;
-      default = self.nixosConfigurations.pc;
-    };
-
-    formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
-  };
 }

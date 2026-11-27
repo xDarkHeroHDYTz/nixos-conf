@@ -12,8 +12,8 @@
     age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
 
     secrets = {
-      "control_token" = {};
-      "openrouter_api_key" = {};
+      "control_token" = { };
+      "openrouter_api_key" = { };
     };
   };
 }

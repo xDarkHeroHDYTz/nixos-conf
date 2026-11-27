@@ -1,4 +1,4 @@
-{  pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -23,7 +23,10 @@
             height = 1080;
             refresh = 144.028;
           };
-          position = { x = 0; y = 0; };
+          position = {
+            x = 0;
+            y = 0;
+          };
         };
       };
     };

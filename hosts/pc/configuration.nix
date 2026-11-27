@@ -56,33 +56,50 @@
     memoryPercent = 50;
   };
 
-  services.earlyoom = {
-    enable = true;
-    freeMemThreshold = 5;
-    freeSwapThreshold = 5;
-  };
+  services = {
+    earlyoom = {
+      enable = true;
+      freeMemThreshold = 5;
+      freeSwapThreshold = 5;
+    };
 
-  services.fstrim.enable = true;
+    fstrim.enable = true;
+
+    # Control de curva/ventilación de GPU y RGB
+    lact.enable = true;
+    hardware.openrgb.enable = true;
+  };
 
   # --- CPU, ARRANQUE Y GRÁFICOS (RYZEN + NVIDIA) ---
   # Carga temprana de módulos NVIDIA para evitar conflictos visuales con Plymouth
-  boot.initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+  boot.initrd.kernelModules = [
+    "nvidia"
+    "nvidia_modeset"
+    "nvidia_uvm"
+    "nvidia_drm"
+  ];
 
   boot.kernelParams = [
     "split_lock_detect=off"
     "mem_sleep_default=deep"
   ];
 
-  # Control de curva/ventilación de GPU y RGB
-  services.lact.enable = true;
-  services.hardware.openrgb.enable = true;
-
   # --- USUARIOS Y HOME MANAGER ---
   users.users = {
     "lisandro" = {
       isNormalUser = true;
       description = "Lisandro Julian Roldán Barbato";
-      extraGroups = [ "wheel" "networkmanager" "kvm" "libvirtd" "render" "video" "audio" "gamemode" "i2c" ];
+      extraGroups = [
+        "wheel"
+        "networkmanager"
+        "kvm"
+        "libvirtd"
+        "render"
+        "video"
+        "audio"
+        "gamemode"
+        "i2c"
+      ];
     };
   };
 

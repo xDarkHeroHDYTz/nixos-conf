@@ -1,0 +1,4 @@
+# Configuración de statix para el CI.
+# Los hardware-configuration.nix son generados por nixos-generate-config y no
+# deben editarse a mano, así que se excluyen del lint.
+ignore = ["hosts/*/hardware-configuration.nix"]

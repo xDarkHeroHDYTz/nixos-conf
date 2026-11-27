@@ -82,9 +82,7 @@
                 "vo.aicdn.com"
               ];
             in
-            builtins.concatStringsSep "\n" (
-              map (domain: "${domain} * noop") domains
-            );
+            builtins.concatStringsSep "\n" (map (domain: "${domain} * noop") domains);
         };
       };
     };
@@ -306,6 +304,9 @@
   stylix.targets.librewolf = {
     enable = true;
     colorTheme.enable = true;
-    profileNames = [ "default" "private" ];
+    profileNames = [
+      "default"
+      "private"
+    ];
   };
 }
