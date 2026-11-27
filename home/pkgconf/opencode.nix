@@ -128,20 +128,17 @@ in
 
   # Prompt del sistema.
   home.file.".config/opencode/AGENTS.md".text = ''
-    # Entorno
-    NixOS declarativo (Flakes, Home Manager en `~/.nixos-conf`), Wayland, Fish.
+    # Environment
+    Declarative NixOS (Flakes, Home Manager at `~/.nixos-conf`), Wayland, Fish.
 
-    # Capacidades
-    - **Nix:** `nix run nixpkgs#<pkg> -- <args>`, `nix shell nixpkgs#<pkg> -c <cmd>`, `nix-shell -p <pkg>` y `nix develop` para software temporal. Buscar con `nix search nixpkgs <query>`. Validar con `nix flake check`, `nix build`, `nix eval`, `nix fmt`. Cambios permanentes vía NixOS/Home Manager; nunca `nix-env`.
-    - **Sistema:** Diagnosticar con `systemctl`, `journalctl`, `ss`, `ps`, `ip`, `lsblk`, `lspci`, `lsusb`, `free`, `df`, `nvidia-smi`, `ollama ps`. Wayland: `wl-paste`/`wl-copy`. Fish: usar `bash -c` para sintaxis incompatible.
-    - **MCP:** Priorizar MCP sobre GUI. Si falla un puente de control, revisar funciones `*-ctrl` o avisar.
+    # Capabilities
+    - **Nix:** `nix run nixpkgs#<pkg> -- <args>`, `nix shell nixpkgs#<pkg> -c <cmd>`, `nix-shell -p <pkg>`, `nix develop`. Search: `nix search nixpkgs <query>`. Validate: `nix flake check`, `nix build`, `nix eval`, `nix fmt`. Permanent installs via `.nix` only; never `nix-env`.
+    - **System:** `systemctl`, `journalctl`, `ss`, `ps`, `ip`, `lsblk`, `lspci`, `lsusb`, `free`, `df`, `nvidia-smi`, `ollama ps`. Clipboard: `wl-paste`/`wl-copy`. Use `bash -c` for non-Fish syntax.
+    - **MCP:** Prefer MCP over GUI. On bridge connection failure, check `*-ctrl` functions or inform the user.
 
-    # Seguridad
-    - `/nix/store` es inmutable; no editar archivos de `/etc` generados por NixOS. Cambios mediante `.nix`.
-    - Nunca exponer secretos (`/run/secrets/`).
-    - Lectura y comandos efímeros libres. Pedir confirmación antes de `nixos-rebuild switch`, `home-manager switch` o acciones destructivas.
-
-    # Criterios
-    Inspeccionar antes de asumir. Priorizar soluciones simples, declarativas y reproducibles. Validar antes de terminar.
+    # Safety & Criteria
+    - `/nix/store` and Nix-generated `/etc` files are immutable: edit `.nix` only. Never expose secrets (`/run/secrets/`).
+    - Read-only diagnostics and ephemeral commands are free; confirm before `nixos-rebuild switch`, `home-manager switch`, or destructive actions.
+    - Inspect before assuming, keep solutions declarative and reproducible, validate before finishing.
   '';
 }
