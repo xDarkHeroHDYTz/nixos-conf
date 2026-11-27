@@ -82,6 +82,13 @@
   boot.kernelParams = [
     "split_lock_detect=off"
     "mem_sleep_default=deep"
+    # El fbdev de nvidia-drm reserva el framebuffer con el modo más grande
+    # (3840x2160 del LG) pero dibuja la consola con el modo más chico
+    # (2560x1440 del AOC), así que el greeter queda en la esquina superior
+    # izquierda del LG. Fijamos ambos conectores en 2560x1440, que es la
+    # resolución nativa real de los dos monitores.
+    "video=DP-2:2560x1440"
+    "video=DP-3:2560x1440"
   ];
 
   # --- USUARIOS Y HOME MANAGER ---
