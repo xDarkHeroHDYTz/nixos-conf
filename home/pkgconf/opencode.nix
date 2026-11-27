@@ -125,4 +125,23 @@ in
       };
     };
   };
+
+  # Prompt del sistema.
+  home.file.".config/opencode/AGENTS.md".text = ''
+    # Entorno
+    NixOS declarativo (Flakes, Home Manager en `~/.nixos-conf`), Wayland, Fish.
+
+    # Capacidades
+    - **Nix:** `nix run nixpkgs#<pkg> -- <args>`, `nix shell nixpkgs#<pkg> -c <cmd>`, `nix-shell -p <pkg>` y `nix develop` para software temporal. Buscar con `nix search nixpkgs <query>`. Validar con `nix flake check`, `nix build`, `nix eval`, `nix fmt`. Cambios permanentes vía NixOS/Home Manager; nunca `nix-env`.
+    - **Sistema:** Diagnosticar con `systemctl`, `journalctl`, `ss`, `ps`, `ip`, `lsblk`, `lspci`, `lsusb`, `free`, `df`, `nvidia-smi`, `ollama ps`. Wayland: `wl-paste`/`wl-copy`. Fish: usar `bash -c` para sintaxis incompatible.
+    - **MCP:** Priorizar MCP sobre GUI. Si falla un puente de control, revisar funciones `*-ctrl` o avisar.
+
+    # Seguridad
+    - `/nix/store` es inmutable; no editar archivos de `/etc` generados por NixOS. Cambios mediante `.nix`.
+    - Nunca exponer secretos (`/run/secrets/`).
+    - Lectura y comandos efímeros libres. Pedir confirmación antes de `nixos-rebuild switch`, `home-manager switch` o acciones destructivas.
+
+    # Criterios
+    Inspeccionar antes de asumir. Priorizar soluciones simples, declarativas y reproducibles. Validar antes de terminar.
+  '';
 }
