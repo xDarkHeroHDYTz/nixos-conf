@@ -8,6 +8,12 @@ in
   programs.opencode = {
     enable = true;
     settings = {
+      compaction = {
+        auto = true;
+        prune = true;
+        reserved = 4096;
+      };
+
       tools = {
         bash = true;
         read = true;
@@ -25,6 +31,15 @@ in
           name = "Ollama";
           options = {
             baseURL = "http://127.0.0.1:11434/v1";
+          };
+          models = {
+            "ornith-1.5:9b" = {
+              name = "Ornith 1.5 9B";
+              limit = {
+                context = 65536;
+                output = 4096;
+              };
+            };
           };
         };
 
