@@ -17,7 +17,7 @@
       };
 
       outputs = {
-        "AU Optronics 0x82ED Unknown" = {
+        "eDP-1" = {
           mode = {
             width = 1920;
             height = 1080;

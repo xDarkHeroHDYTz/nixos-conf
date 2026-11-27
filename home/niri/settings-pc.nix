@@ -17,7 +17,7 @@
       };
 
       outputs = {
-        "PNP(AOC) Q27G3XMN 1APQ7JA003333" = {
+        "DP-3" = {
           mode = {
             width = 2560;
             height = 1440;
@@ -30,7 +30,7 @@
           variable-refresh-rate = "on-demand";
         };
 
-        "LG Electronics LG ULTRAGEAR+ 509RMRHKG358" = {
+        "DP-2" = {
           mode = {
             width = 2560;
             height = 1440;
@@ -44,9 +44,9 @@
           focus-at-startup = true;
         };
 
-        "Nvidia 0x0000 Unknown" = {
-          enable = false;
-        };
+        # "Nvidia 0x0000 Unknown" = {
+        #   enable = false;
+        # };
       };
     };
   };
