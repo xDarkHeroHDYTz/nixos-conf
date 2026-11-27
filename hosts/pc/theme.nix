@@ -11,7 +11,7 @@
       dark = "Gruvbox-Plus-Dark";
       light = "Gruvbox-Plus-Light";
       package = pkgs.gruvbox-plus-icons.override {
-        folder-color = "orange";
+        folder-color = "firebrick";
       };
     };
   };
